@@ -9,6 +9,8 @@ Your report will go here.
 ```{r}
 library(readr)
 library(dplyr)
+library(ggplot2)
+library(tidyverse)
 ```
 
 
@@ -34,5 +36,14 @@ BookIns <- BookIns2017 |>
   full_join(BookIns2022) |>
   full_join(BookIns2023) |>
   full_join(BookIns2024) 
+```
+```{r}
+# Visualizations On Book-Ins/Arrests Over Time
+
+BookIns |>
+  filter(Criminality %in% c("Total Arrests")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line()
+  
 ```
 
