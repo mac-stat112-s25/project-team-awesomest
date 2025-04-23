@@ -1,0 +1,65 @@
+---
+title: "EDA - MollyN"
+execute: 
+  echo: true      # change to true to show the code
+code-fold: false  # change to true to fold the code chunks
+---
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+```
+
+
+```{r}
+setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
+BookIns2017 <- read_csv("Book-Ins FY2017.csv")
+BookIns2018 <- read_csv("Book-Ins FY2018.csv")
+BookIns2019 <- read_csv("Book-Ins FY2019.csv")
+BookIns2020 <- read_csv("Book-Ins FY2020.csv")
+BookIns2021 <- read_csv("Book-Ins FY2021.csv")
+BookIns2022 <- read_csv("Book-Ins FY2022.csv")
+BookIns2023 <- read_csv("Book-Ins FY2023.csv")
+BookIns2024 <- read_csv("Book-Ins FY2024.csv")
+```
+```{r}
+BookIns <- BookIns2017 |>
+  full_join(BookIns2018) |>
+  full_join(BookIns2019) |>
+  full_join(BookIns2020) |>
+  full_join(BookIns2021) |>
+  full_join(BookIns2022) |>
+  full_join(BookIns2023) |>
+  full_join(BookIns2024) 
+```
+
+```{r}
+# Visualizations On Book-Ins/Arrests Over Time
+
+BookIns |>
+  filter(Criminality %in% c("Total Arrests")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Total Arrests Over Time", x = "Year", y = "Number of Arrests")
+
+BookIns |>
+  filter(Criminality %in% c("Criminal Convictions")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Criminal Convictions Arrests Over Time", x = "Year", y = "Number of Arrests")
+  
+BookIns |>
+  filter(Criminality %in% c("Pending Criminal Charges")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Pending Criminal Charges Arrests Over Time", x = "Year", y = "Number of Arrests")
+
+BookIns |>
+  filter(Criminality %in% c("No Known Criminal Charges or Convictions", "Other Immigration Violator")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Non-Criminal/Other Violation Arrests Over Time", x = "Year", y = "Number of Arrests")
+```
+
