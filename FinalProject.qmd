@@ -1,0 +1,17 @@
+```{r}
+### Import Ice Detention Data ###
+
+#Import FY 2019 Detention Statistics
+
+#Import FY 2020 Detention Statistics
+
+#Import FY 2021 Detention Statistics
+
+#Import FY 2022 Detention Statistics
+
+#Import FY 2023 Detention Statistics
+
+#Import FY 2024 Detention Statistics
+
+```
+
