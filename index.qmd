@@ -43,7 +43,25 @@ BookIns <- BookIns2017 |>
 BookIns |>
   filter(Criminality %in% c("Total Arrests")) |>
   ggplot(aes(x = Year, y = Arrests)) + 
-  geom_line()
+  geom_line() + 
+  labs(title = "Total Arrests Over Time", x = "Year", y = "Number of Arrests")
+
+BookIns |>
+  filter(Criminality %in% c("Criminal Convictions")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Criminal Convictions Arrests Over Time", x = "Year", y = "Number of Arrests")
   
+BookIns |>
+  filter(Criminality %in% c("Pending Criminal Charges")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Pending Criminal Charges Arrests Over Time", x = "Year", y = "Number of Arrests")
+
+BookIns |>
+  filter(Criminality %in% c("No Known Criminal Charges or Convictions", "Other Immigration Violator")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Non-Criminal/Other Violation Arrests Over Time", x = "Year", y = "Number of Arrests")
 ```
 
