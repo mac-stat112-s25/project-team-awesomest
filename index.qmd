@@ -12,10 +12,10 @@ library(dplyr)
 library(ggplot2)
 library(tidyverse)
 ```
-
+# RQ1: What do book-ins look like since 2017 through 2024? 
 
 ```{r}
-# Calling Initial Dataset
+# Calling Datasets
 
 setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
 BookIns2017 <- read_csv("Book-Ins FY2017.csv")
@@ -26,6 +26,7 @@ BookIns2021 <- read_csv("Book-Ins FY2021.csv")
 BookIns2022 <- read_csv("Book-Ins FY2022.csv")
 BookIns2023 <- read_csv("Book-Ins FY2023.csv")
 BookIns2024 <- read_csv("Book-Ins FY2024.csv")
+ICEBudget <- read_csv("ICE_Budget.csv")
 ```
 ```{r}
 BookIns <- BookIns2017 |>
@@ -36,7 +37,16 @@ BookIns <- BookIns2017 |>
   full_join(BookIns2022) |>
   full_join(BookIns2023) |>
   full_join(BookIns2024) 
+
+BookIns <- BookIns %>%
+  mutate(Criminality = case_when(
+    Criminality %in% c("Other Immigration Violator", "No Known Criminal Charges or Convictions") ~ 
+      "Other Immigration Violator/No Known Criminal Charges or Convictions",
+    TRUE ~ Criminality
+  ))
 ```
+
+
 ```{r}
 # Visualizations On Book-Ins/Arrests Over Time
 
@@ -45,23 +55,68 @@ BookIns |>
   ggplot(aes(x = Year, y = Arrests)) + 
   geom_line() + 
   labs(title = "Total Arrests Over Time", x = "Year", y = "Number of Arrests")
-
-BookIns |>
-  filter(Criminality %in% c("Criminal Convictions")) |>
-  ggplot(aes(x = Year, y = Arrests)) + 
-  geom_line() + 
-  labs(title = "Criminal Convictions Arrests Over Time", x = "Year", y = "Number of Arrests")
-  
-BookIns |>
-  filter(Criminality %in% c("Pending Criminal Charges")) |>
-  ggplot(aes(x = Year, y = Arrests)) + 
-  geom_line() + 
-  labs(title = "Pending Criminal Charges Arrests Over Time", x = "Year", y = "Number of Arrests")
-
-BookIns |>
-  filter(Criminality %in% c("No Known Criminal Charges or Convictions", "Other Immigration Violator")) |>
-  ggplot(aes(x = Year, y = Arrests)) + 
-  geom_line() + 
-  labs(title = "Non-Criminal/Other Violation Arrests Over Time", x = "Year", y = "Number of Arrests")
 ```
+
+```{r}
+BookIns |>
+   filter(Criminality != "Total Arrests") |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+    facet_wrap(~ Criminality, ncol = 1) +
+  labs(title = "Arrests Over Time by Criminality", x = "Year", y = "Number of Arrests")
+```
+
+```{r}
+ICEBudget <- ICEBudget |>
+  rename(Budget = 'Budget (in millions)')
+```
+
+```{r}
+ggplot(ICEBudget, aes(x = Year, y = Budget)) +
+  geom_line()
+```
+
+
+```{r}
+BookIns |>
+  full_join(ICEBudget) |>
+  filter(Criminality %in% c("Total Arrests")) |>
+  ggplot(aes(x = Budget, y = Arrests)) + 
+  geom_line()
+```
+
+# RQ2: 2019 Data
+
+```{r}
+# Calling Datasets
+
+setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
+BookIns_2019 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv")
+```
+```{r}
+BookIns_2019 <- BookIns_2019 |>
+  pivot_longer(
+    cols = -Agency,          
+    names_to = "Month",      
+    values_to = "Count"      
+  )
+```
+
+```{r}
+BookIns_2019 |>
+  filter(Month != "Total") |>
+  ggplot(aes(x = Month, y = Count, fill = Agency)) +
+  geom_col(position = "dodge") +
+  labs(title = "Agency Book-Ins by Month (2019)",
+       x = "Month",
+       y = "Count") +
+  theme_minimal()
+
+```
+
+
+# RQ3: 2019 vs. 2024
+
+
+# RQ4: 2025 so far 
 
