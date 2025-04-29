@@ -1,8 +1,8 @@
 ---
 title: "Report"
 execute: 
-  echo: true      # change to true to show the code
-code-fold: false  # change to true to fold the code chunks
+  echo: true      
+code-fold: false  
 ---
 
 Your report will go here.
@@ -76,6 +76,20 @@ ggplot(ICEBudget, aes(x = Year, y = Budget)) +
   geom_line()
 ```
 
+```{r}
+BookIns |>
+  full_join(ICEBudget, by = "Year") |>
+  filter(Criminality == "Total Arrests") |>
+  ggplot(aes(x = Budget, y = Arrests, color = factor(Year))) +
+  geom_point(size = 3) +
+  labs(title = "Total Arrests vs. ICE Budget by Year",
+       x = "ICE Budget",
+       y = "Total Arrests",
+       color = "Year") +
+  theme_minimal()
+
+
+```
 
 ```{r}
 BookIns |>
@@ -103,20 +117,68 @@ BookIns_2019 <- BookIns_2019 |>
 ```
 
 ```{r}
-BookIns_2019 |>
+# Fiscal year starts in October
+month_order <- c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep")
+
+BookIns_2019 |> 
   filter(Month != "Total") |>
+  mutate(Month = factor(Month, levels = month_order)) |>
   ggplot(aes(x = Month, y = Count, fill = Agency)) +
   geom_col(position = "dodge") +
   labs(title = "Agency Book-Ins by Month (2019)",
        x = "Month",
        y = "Count") +
   theme_minimal()
-
 ```
 
 
-# RQ3: 2019 vs. 2024
 
+# RQ3: 2019 vs. 2024
+```{r}
+# Calling Datasets
+
+setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
+BookIns_2024 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv")
+```
+```{r}
+BookIns_2019 <- BookIns_2019 |>
+  mutate(Year = "2019")
+
+BookIns_2024 <- BookIns_2024 |>
+  pivot_longer(
+    cols = -Agency,          
+    names_to = "Month",      
+    values_to = "Count"      
+  ) |>
+  mutate(Year = "2024")
+
+BookIns_Comp <- BookIns_2024 |>
+  full_join(BookIns_2019)
+```
+
+```{r}
+BookIns_Comp |> 
+  filter(Month != "Total", Agency == "ICE") |>
+  mutate(Month = factor(Month, levels = month_order)) |>
+  ggplot(aes(x = Month, y = Count, fill = Agency)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ Year) +
+  labs(title = "Agency Book-Ins by Month",
+       x = "Month",
+       y = "Count") +
+  theme_minimal()
+
+BookIns_Comp |> 
+  filter(Month != "Total") |>
+  mutate(Month = factor(Month, levels = month_order)) |>
+  ggplot(aes(x = Month, y = Count, fill = Agency)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ Year) +
+  labs(title = "Agency Book-Ins by Month",
+       x = "Month",
+       y = "Count") +
+  theme_minimal()
+```
 
 # RQ4: 2025 so far 
 
