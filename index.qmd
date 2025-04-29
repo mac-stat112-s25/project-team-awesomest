@@ -17,7 +17,7 @@ library(tidyverse)
 ```{r}
 # Calling Datasets
 
-setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
+setwd("/Users/barrettedwards/Documents/GitHub/project-team-awesomest/data")
 BookIns2017 <- read_csv("Book-Ins FY2017.csv")
 BookIns2018 <- read_csv("Book-Ins FY2018.csv")
 BookIns2019 <- read_csv("Book-Ins FY2019.csv")
@@ -104,7 +104,7 @@ BookIns |>
 ```{r}
 # Calling Datasets
 
-setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
+setwd("/Users/barrettedwards/Documents/GitHub/project-team-awesomest/data")
 BookIns_2019 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv")
 ```
 ```{r}
@@ -137,9 +137,10 @@ BookIns_2019 |>
 ```{r}
 # Calling Datasets
 
-setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
+setwd("/Users/barrettedwards/Documents/GitHub/project-team-awesomest/data")
 BookIns_2024 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv")
 ```
+
 ```{r}
 BookIns_2019 <- BookIns_2019 |>
   mutate(Year = "2019")
@@ -181,4 +182,64 @@ BookIns_Comp |>
 ```
 
 # RQ4: 2025 so far 
+
+```{r}
+#Load Data
+library(readr)
+Detention_Data_2025 <- read_csv("~/Desktop/FY2025 - Daily Detention Population  - Sheet1.csv")
+
+Detention_Data_2025
+```
+```{r}
+### Create Time-Series Line Chart ### 
+
+#Download Libraries 
+library(ggplot2)
+library(dplyr)
+library(tidyr) 
+
+# Define The Order Of Month
+month_levels <- c("October", "November", "December", "January", "February", "March")
+
+# Ensure 'Month' in the original dataframe is also an ordered factor with these levels
+Detention_Data_2025$Month <- factor(Detention_Data_2025$Month, levels = month_levels, ordered = TRUE)
+all_agencies <- unique(Detention_Data_2025$Agency)
+all_criminalities <- unique(Detention_Data_2025$Criminality)
+
+# Create a complete grid of all combinations
+complete_grid <- expand_grid(Month = factor(month_levels, levels = month_levels, ordered = TRUE),
+                              Agency = all_agencies,
+                              Criminality = all_criminalities)
+
+# Calculate the total Daily Population
+detention_total_criminality_agency <- Detention_Data_2025 %>%
+  group_by(Month, Agency, Criminality) %>%
+  summarise(Total_Daily_Population = sum(`Daily Population`, na.rm = TRUE), .groups = 'drop') %>%
+  ungroup()
+
+# Left-join the summarized data to the complete grid
+detention_complete_data <- complete_grid %>%
+  left_join(detention_total_criminality_agency, by = c("Month", "Agency", "Criminality")) %>%
+  replace_na(list(Total_Daily_Population = 0)) 
+
+# Create the time series line chart faceted by Agency
+ggplot(detention_complete_data,
+       aes(x = Month, y = Total_Daily_Population, color = Criminality, group = Criminality)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  facet_wrap(~ Agency, ncol = 1) + 
+  labs(
+    title = "Detention Population by Criminality (FY2025)",
+    subtitle = "Faceted by Agency (CBP, ICE, Average)",
+    x = "Month",
+    y = "Total Daily Population",
+    color = "Criminality Type") +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
+    plot.subtitle = element_text(size = 10, hjust = 0.5, color = "gray50"),
+    axis.title.x = element_text(face = "bold", size = 10),
+    axis.title.y = element_text(face = "bold", size = 1))
+```
+
 
