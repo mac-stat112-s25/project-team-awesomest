@@ -11,6 +11,7 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 library(tidyverse)
+library(viridis)
 ```
 # RQ1: What do book-ins look like since 2017 through 2024? 
 
@@ -50,45 +51,107 @@ BookIns <- BookIns %>%
 ```{r}
 # Visualizations On Book-Ins/Arrests Over Time
 
+library(scales)
+
 BookIns |>
   filter(Criminality %in% c("Total Arrests")) |>
   ggplot(aes(x = Year, y = Arrests)) + 
-  geom_line() + 
-  labs(title = "Total Arrests Over Time", x = "Year", y = "Number of Arrests")
+  geom_line(color = "cyan4", size = 1.2) + 
+  geom_point(color = "blue4", size = 2) +
+  labs(
+    title = "Total Arrests Over Time", 
+    x = "Year", 
+    y = "Number of Arrests", 
+    caption = "Source: ICE Detention Statics from ice.gov"
+  ) +
+  scale_y_continuous(labels = comma)
 ```
 
 ```{r}
+#| fig-width: 13
+#| fig-height: 6
 BookIns |>
-   filter(Criminality != "Total Arrests") |>
+  filter(Criminality!=("Total Arrests")) |>
   ggplot(aes(x = Year, y = Arrests)) + 
-  geom_line() + 
-    facet_wrap(~ Criminality, ncol = 1) +
-  labs(title = "Arrests Over Time by Criminality", x = "Year", y = "Number of Arrests")
+  geom_line(color = "cyan4", size = 1.2) + 
+  geom_point(color = "blue4", size = 2) +
+  facet_wrap(~ Criminality, ncol = 3) +
+  labs(
+    title = "Total Arrests Over Time", 
+    x = "Year", 
+    y = "Number of Arrests", 
+    caption = "Source: ICE Detention Statics from ice.gov"
+  ) +
+  scale_y_continuous(labels = comma)
 ```
 
 ```{r}
 ICEBudget <- ICEBudget |>
-  rename(Budget = 'Budget (in millions)')
+  rename(Budget = `Budget (in millions)`) |>
+  mutate(Year = as.integer(Year))
 ```
 
 ```{r}
 ggplot(ICEBudget, aes(x = Year, y = Budget)) +
-  geom_line()
+  geom_line(color = "cyan4") +
+  labs(title = "ICE Budget", x = "Year", y = "Budget (in millions)", caption = "Source: ICE Detention Statics from ice.gov")
 ```
+
+```{r}
+library(scales)
+library(ggrepel)
+
+BookIns <- BookIns |> mutate(Year = as.integer(Year))
+```
+
+
+```{r}
+joined_data <- BookIns |>
+  full_join(ICEBudget, by = "Year") |>
+  filter(!is.na(Budget))
+
+head(joined_data)
+```
+
+
+```{r}
+#| fig-height: 6
+#| fig-width: 13
+
+joined_data |>
+  filter(Criminality == "Total Arrests") |>
+  ggplot(aes(x = Budget, y = Arrests)) + 
+  geom_point(size = 3, color = "blue4") +
+  geom_line(color = "blue4") +
+  geom_text_repel(aes(label = Year), size = 3) +
+  labs(
+    title = "Total Arrests vs. ICE Budget",
+    x = "ICE Budget (in millions)",
+    y = "Arrests"
+  ) +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) +
+  theme_minimal()
+
+```
+
+
 
 ```{r}
 BookIns |>
   full_join(ICEBudget, by = "Year") |>
   filter(Criminality == "Total Arrests") |>
-  ggplot(aes(x = Budget, y = Arrests, color = factor(Year))) +
-  geom_point(size = 3) +
-  labs(title = "Total Arrests vs. ICE Budget by Year",
-       x = "ICE Budget",
-       y = "Total Arrests",
-       color = "Year") +
+  ggplot(aes(x = Budget, y = Arrests)) +
+  geom_point(size = 3, color = "blue4") +
+  geom_line(color = "blue4") +
+  geom_text(aes(label = Year), angle = 0, hjust = 1.5, vjust = 1.4, size = 2) +
+  labs(title = "Total Arrests vs. ICE Budget",
+       x = "ICE Budget (in millions)",
+       y = "Arrests", 
+       caption = "Source: ICE Detention Statics from ice.gov") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_continuous(labels = scales::comma) + 
   theme_minimal()
-
-
 ```
 
 ```{r}
@@ -107,6 +170,7 @@ BookIns |>
 setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
 BookIns_2019 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv")
 ```
+
 ```{r}
 BookIns_2019 <- BookIns_2019 |>
   pivot_longer(
@@ -125,63 +189,74 @@ BookIns_2019 |>
   mutate(Month = factor(Month, levels = month_order)) |>
   ggplot(aes(x = Month, y = Count, fill = Agency)) +
   geom_col(position = "dodge") +
-  labs(title = "Agency Book-Ins by Month (2019)",
+  labs(title = "Agency Book-Ins by Month (FY2019)",
        x = "Month",
-       y = "Count") +
+       y = "Book-Ins",
+       caption = "Source: ICE Detention Statics from ice.gov") +
+  scale_fill_viridis(discrete = TRUE) + 
   theme_minimal()
 ```
 
-
-
-# RQ3: 2019 vs. 2024
 ```{r}
-# Calling Datasets
-
-setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
-BookIns_2024 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv")
+setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data/ice-detention-trends-main/metadata")
+Facilities <- read_csv("facilities.csv")
+```
+```{r}
+library(tidyverse)
+library(sf)
+library(gplots)
+library(maps)
+library(RColorBrewer)
+library(mosaic)
+library(leaflet)
+library(gplots)
 ```
 
 ```{r}
-BookIns_2019 <- BookIns_2019 |>
-  mutate(Year = "2019")
+unique(Facilities$type_detailed)
+library(dplyr)
 
-BookIns_2024 <- BookIns_2024 |>
-  pivot_longer(
-    cols = -Agency,          
-    names_to = "Month",      
-    values_to = "Count"      
-  ) |>
-  mutate(Year = "2024")
+Facilities %>%
+  count(type_detailed, sort = TRUE)
 
-BookIns_Comp <- BookIns_2024 |>
-  full_join(BookIns_2019)
+
+# Modify 'type_detailed' to create new categories
+Facilities <- Facilities %>%
+  mutate(type_detailed = case_when(
+    type_detailed == "Juvenile" ~ "Juvenile",  # Keep Juvenile as it is
+    grepl("family", tolower(trimws(type_detailed)), ignore.case = TRUE) ~ "Family",  # Check for Family, ignoring case and trimming spaces
+    type_detailed == "Hospital" ~ "Hospital",  # Keep Hospital as it is
+    TRUE ~ "Other"  # Everything else becomes 'Other'
+  ))
+
+# View the changes
+head(Facilities$type_detailed)
+
+# Optionally, check how the categories are now distributed
+table(Facilities$type_detailed)
+  
+Facilities %>%
+  count(type_detailed, sort = TRUE)
 ```
+
 
 ```{r}
-BookIns_Comp |> 
-  filter(Month != "Total", Agency == "ICE") |>
-  mutate(Month = factor(Month, levels = month_order)) |>
-  ggplot(aes(x = Month, y = Count, fill = Agency)) +
-  geom_col(position = "dodge") +
-  facet_wrap(~ Year) +
-  labs(title = "Agency Book-Ins by Month",
-       x = "Month",
-       y = "Count") +
-  theme_minimal()
+pal <- colorFactor(palette = "Set2", domain = Facilities$type_detailed)
 
-BookIns_Comp |> 
-  filter(Month != "Total") |>
-  mutate(Month = factor(Month, levels = month_order)) |>
-  ggplot(aes(x = Month, y = Count, fill = Agency)) +
-  geom_col(position = "dodge") +
-  facet_wrap(~ Year) +
-  labs(title = "Agency Book-Ins by Month",
-       x = "Month",
-       y = "Count") +
-  theme_minimal()
+leaflet(data = Facilities) |> 
+  addTiles()  |>
+  addCircles(lng = ~longitude, 
+             lat = ~latitude, 
+             color = ~pal(type_detailed),
+             label = ~type_detailed) |>
+  addLegend("bottomright",
+            pal = pal,
+            values = ~type_detailed,
+            title = "Facility Type",
+            opacity = 1)
 ```
 
-# RQ4: 2025 so far 
+# RQ3: 2025 so far 
 
 ```{r}
 #Load Data
