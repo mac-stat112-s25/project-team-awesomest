@@ -240,7 +240,7 @@ Facilities %>%
 
 
 ```{r}
-pal <- colorFactor(palette = "Set2", domain = Facilities$type_detailed)
+pal <- colorFactor(palette = rev(plasma(4)), domain = Facilities$type_detailed)
 
 leaflet(data = Facilities) |> 
   addTiles()  |>
