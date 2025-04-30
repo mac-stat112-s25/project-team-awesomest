@@ -29,6 +29,7 @@ BookIns2023 <- read_csv("Book-Ins FY2023.csv")
 BookIns2024 <- read_csv("Book-Ins FY2024.csv")
 ICEBudget <- read_csv("ICE_Budget.csv")
 ```
+
 ```{r}
 BookIns <- BookIns2017 |>
   full_join(BookIns2018) |>
@@ -43,10 +44,8 @@ BookIns <- BookIns %>%
   mutate(Criminality = case_when(
     Criminality %in% c("Other Immigration Violator", "No Known Criminal Charges or Convictions") ~ 
       "Other Immigration Violator/No Known Criminal Charges or Convictions",
-    TRUE ~ Criminality
-  ))
+    TRUE ~ Criminality))
 ```
-
 
 ```{r}
 # Visualizations On Book-Ins/Arrests Over Time
@@ -311,6 +310,99 @@ ggplot(detention_complete_data,
     plot.subtitle = element_text(size = 10, hjust = 0.5, color = "gray50"),
     axis.title.x = element_text(face = "bold", size = 10),
     axis.title.y = element_text(face = "bold", size = 1))
+
+
+ggsave("detention_trends_taller.png",
+       plot = ggplot, # Replace with the name of your ggplot object
+       width = 8, # Adjust width as needed (in inches)
+       height = 10, # Increase height to make it taller (in inches)
+       units = "in",
+       dpi = 300)
 ```
 
+```{r}
+### Make Vizualization For FY 2019 Facility Type ###
+
+#Import Data
+library(readr)
+ice_facility_data <- read_csv("data/FY2019 - Facility Types Data  - Sheet1.csv")
+
+ice_facility_data
+```
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# Assuming your dataframe is named 'ice_facility_data'
+
+# Filter data for only FRC facilities
+frc_data <- ice_facility_data %>%
+  filter(`Facility Type` == "FRC")
+
+# Ensure 'Month' is an ordered factor with all relevant months
+month_levels <- c("October", "November", "December", "Janurary", "February", "March", "April", "May", "June", "July", "August", "September")
+frc_data$Month <- factor(frc_data$Month, levels = month_levels, ordered = TRUE)
+
+# Create the line chart for FRC facilities
+ggplot(frc_data, aes(x = Month, y = `ICE Daily Population`, group = 1)) +
+  geom_line(linewidth = 1.2, color = "steelblue") + # Use a distinct color
+  geom_point(size = 3, color = "steelblue") +
+  labs(
+    title = "ICE Daily Population at FRC Facilities Over Time",
+    x = "Month",
+    y = "ICE Daily Population",
+    caption = "Source: Your Data Source" # Replace with your actual data source
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title.x = element_text(face = "bold", size = 12),
+    axis.title.y = element_text(face = "bold", size = 12)
+  )
+```
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+library(readr)
+
+# Assuming your text file data is saved as 'length_of_stay_data.txt'
+# Read the data, handling potential issues with inconsistent commas
+length_of_stay_data <- read_delim("~/Documents/GitHub/project-team-awesomest/data/length_of_stay_data", delim = ",", show_col_types = FALSE)
+
+length_of_stay_data
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(readr)
+
+# Define the allowed criminality categories
+allowed_criminalities <- c("Convicted Criminal", "Pending Criminal Charges", "Other Immigration Violator")
+
+# Filter the data frame to keep only rows with the allowed criminality values
+length_of_stay_data <- length_of_stay_data %>%
+  filter(Criminality %in% allowed_criminalities)
+
+# 1. Calculate the average Length of Stay by Year and Criminality
+avg_stay_by_year_criminality <- length_of_stay_data %>%
+  group_by(Year, Criminality) %>%
+  summarise(Avg_Length_of_Stay = mean(`Length of Stay`, na.rm = TRUE), .groups = 'drop')
+
+# 2. Create the grouped bar chart by Year
+ggplot(avg_stay_by_year_criminality, aes(x = as.factor(Year), y = Avg_Length_of_Stay, fill = Criminality)) +
+  geom_bar(stat = "identity", position = "dodge") + # Use 'dodge' to group bars
+  labs(
+    title = "Average Length of Stay by Year and Criminality",
+    x = "Year",
+    y = "Average Length of Stay (Days)",
+    fill = "Criminality"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom"
+  )
+```
 
