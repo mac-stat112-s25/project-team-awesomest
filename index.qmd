@@ -17,7 +17,7 @@ library(tidyverse)
 ```{r}
 # Calling Datasets
 
-setwd("/Users/barrettedwards/Documents/GitHub/project-team-awesomest/data")
+setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
 BookIns2017 <- read_csv("Book-Ins FY2017.csv")
 BookIns2018 <- read_csv("Book-Ins FY2018.csv")
 BookIns2019 <- read_csv("Book-Ins FY2019.csv")
@@ -103,7 +103,7 @@ BookIns |>
 ```{r}
 # Calling Datasets
 
-setwd("/Users/barrettedwards/Documents/GitHub/project-team-awesomest/data")
+setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
 BookIns_2019 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv")
 ```
 ```{r}
@@ -136,7 +136,7 @@ BookIns_2019 |>
 ```{r}
 # Calling Datasets
 
-setwd("/Users/barrettedwards/Documents/GitHub/project-team-awesomest/data")
+setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
 BookIns_2024 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv")
 ```
 
@@ -184,8 +184,8 @@ BookIns_Comp |>
 
 ```{r}
 #Load Data
-library(readr)
-Detention_Data_2025 <- read_csv("~/Desktop/FY2025 - Daily Detention Population  - Sheet1.csv")
+setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
+Detention_Data_2025 <- read_csv("FY2025 - Daily Detention Population  - Sheet1.csv")
 
 Detention_Data_2025
 ```
@@ -193,12 +193,7 @@ Detention_Data_2025
 ```{r}
 ### Create Time-Series Line Chart ### 
 
-#Download Libraries 
-library(ggplot2)
-library(dplyr)
-library(tidyr) 
 
-# Define The Order Of Month
 month_levels <- c("October", "November", "December", "January", "February", "March")
 
 # Ensure 'Month' in the original dataframe is also an ordered factor with these levels
