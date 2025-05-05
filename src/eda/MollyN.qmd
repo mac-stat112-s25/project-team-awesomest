@@ -195,3 +195,65 @@ BookIns_Comp |>
   theme_minimal()
 ```
 
+
+```{r, fig.cap = "Wrangling"}
+ICEBudget <- ICEBudget |>
+  rename(Budget = `Budget (in millions)`) |>
+  mutate(Year = as.integer(Year))
+```
+
+```{r}
+ggplot(ICEBudget, aes(x = Year, y = Budget)) +
+  geom_line(color = "cyan4") +
+  labs(title = "ICE Budget", x = "Year", y = "Budget (in millions)", caption = "Source: ICE Detention Statics from ice.gov")
+```
+
+
+```{r}
+#| fig-height: 6
+#| fig-width: 13
+
+joined_data |>
+  filter(Criminality == "Total Arrests") |>
+  ggplot(aes(x = Budget, y = Arrests)) + 
+  geom_point(size = 3, color = "blue4") +
+  geom_line(color = "blue4") +
+  geom_text_repel(aes(label = Year), size = 3) +
+  labs(
+    title = "Total Arrests vs. ICE Budget",
+    x = "ICE Budget (in millions)",
+    y = "Arrests"
+  ) +
+  scale_y_continuous(labels = comma) +
+  scale_x_continuous(labels = comma) +
+  theme_minimal()
+
+```
+
+
+
+
+```{r}
+BookIns |>
+  full_join(ICEBudget, by = "Year") |>
+  filter(Criminality == "Total Arrests") |>
+  ggplot(aes(x = Budget, y = Arrests)) +
+  geom_point(size = 3, color = "blue4") +
+  geom_line(color = "blue4") +
+  geom_text(aes(label = Year), angle = 0, hjust = 1.5, vjust = 1.4, size = 2) +
+  labs(title = "Total Arrests vs. ICE Budget",
+       x = "ICE Budget (in millions)",
+       y = "Arrests", 
+       caption = "Source: ICE Detention Statics from ice.gov") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_continuous(labels = scales::comma) + 
+  theme_minimal()
+```
+
+```{r}
+BookIns |>
+  full_join(ICEBudget) |>
+  filter(Criminality %in% c("Total Arrests")) |>
+  ggplot(aes(x = Budget, y = Arrests)) + 
+  geom_line()
+```

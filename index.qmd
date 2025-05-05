@@ -5,19 +5,28 @@ execute:
 code-fold: false  
 ---
 
-Your report will go here.
-```{r}
+## Motivation 
+In recent months, the Trump administration has announced significant expansions to immigration enforcement efforts, particularly within the Immigration and Customs Enforcement (ICE) and Customs and Border Protection (CBP) agencies under the Department of Homeland Security. Given the controversial nature of these changes—introduced just three months into Trump's return to office—this project seeks to better understand their implications by examining immigration enforcement trends. We analyze book-in and length of stay data from fiscal years 2017 through 2024 to place current developments in historical context and assess how prior enforcement patterns may inform present concerns. By studying the recent history of ICE and CBP, we aim to better understand the potential consequences of renewed policy shifts.
+
+```{r, fig.cap = "Load Packages"}
 library(readr)
 library(dplyr)
 library(ggplot2)
 library(tidyverse)
 library(viridis)
+library(scales)
+library(ggrepel)
+library(sf)
+library(gplots)
+library(maps)
+library(RColorBrewer)
+library(mosaic)
+library(leaflet)
 ```
-# RQ1: What do book-ins look like since 2017 through 2024? 
 
-```{r}
-# Calling Datasets
+# RQ1: What do detention trends from the fiscal years 2017-2024 look like? 
 
+```{r, fig.cap = "Reading RQ1 Datasets"}
 setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
 BookIns2017 <- read_csv("Book-Ins FY2017.csv")
 BookIns2018 <- read_csv("Book-Ins FY2018.csv")
@@ -30,7 +39,7 @@ BookIns2024 <- read_csv("Book-Ins FY2024.csv")
 ICEBudget <- read_csv("ICE_Budget.csv")
 ```
 
-```{r}
+```{r, fig.cap = "Wrangling"}
 BookIns <- BookIns2017 |>
   full_join(BookIns2018) |>
   full_join(BookIns2019) |>
@@ -47,11 +56,7 @@ BookIns <- BookIns %>%
     TRUE ~ Criminality))
 ```
 
-```{r}
-# Visualizations On Book-Ins/Arrests Over Time
-
-library(scales)
-
+```{r, fig.cap = "Visualizations On Book-Ins/Arrests Over Time"}
 BookIns |>
   filter(Criminality %in% c("Total Arrests")) |>
   ggplot(aes(x = Year, y = Arrests)) + 
@@ -59,14 +64,18 @@ BookIns |>
   geom_point(color = "blue4", size = 2) +
   labs(
     title = "Total Arrests Over Time", 
-    x = "Year", 
+    x = "Fiscal Year", 
     y = "Number of Arrests", 
     caption = "Source: ICE Detention Statics from ice.gov"
   ) +
   scale_y_continuous(labels = comma)
 ```
+# Commentary 
+Trump’s first term spanned from 2017 to 2020, followed by Biden’s presidency from 2021 to 2024. According to arrest data from ICE.gov, 2019 stands out as a particularly significant year, with over 500,000 arrests—nearly double the second-highest year, 2022, during Biden’s term. This surge in 2019 coincided with a series of aggressive policy changes under the Trump administration aimed at mass deportations and intensified border enforcement. The sharp drop in arrests in 2020—to around 200,000—was likely driven more by the onset of the COVID-19 pandemic than by any policy shift, as public health measures and travel restrictions disrupted enforcement operations.
 
-```{r}
+Given this context, 2019 offers the clearest view into the full impact of Trump-era immigration enforcement policies, free from the external disruptions seen in 2020. While the Biden administration did not see low arrest numbers—averaging around 300,000 per year—this level of enforcement appears more stable and less extreme compared to the peak under Trump. The data suggests that Trump’s administration facilitated a particularly aggressive spike in arrests, reflective of its hardline immigration stance.
+
+```{r, fig.cap = "Book-Ins/Arrests by Criminality"}
 #| fig-width: 13
 #| fig-height: 6
 BookIns |>
@@ -83,28 +92,21 @@ BookIns |>
   ) +
   scale_y_continuous(labels = comma)
 ```
+# Commentary 
 
-```{r}
-ICEBudget <- ICEBudget |>
-  rename(Budget = `Budget (in millions)`) |>
-  mutate(Year = as.integer(Year))
-```
+While ICE does not provide much publicly available demographic data, it does report arrest data by "criminality" status. We chose to facet our analysis by this variable—not only because it is emphasized by ICE itself, but also because it aligns with common rhetoric from the Trump administration, which has frequently portrayed undocumented immigrants as criminals.
 
-```{r}
-ggplot(ICEBudget, aes(x = Year, y = Budget)) +
-  geom_line(color = "cyan4") +
-  labs(title = "ICE Budget", x = "Year", y = "Budget (in millions)", caption = "Source: ICE Detention Statics from ice.gov")
-```
+However, the data challenges this narrative. In nearly every fiscal year we examined (with the exception of 2020, which was significantly affected by the COVID-19 pandemic), the largest category of arrests involved individuals classified as having “no known criminal charges” or labeled as “other immigration violators.” The latter is a term often used to describe individuals whose only offense is a civil violation of U.S. immigration law—not a criminal conviction.
 
-```{r}
-library(scales)
-library(ggrepel)
+By framing immigrants as criminals, the Trump administration sought to position immigration enforcement as a matter of public safety and law enforcement. But the data tells a different story: the vast majority of those arrested do not fit the profile of dangerous criminals. This disconnect underscores the importance of critically examining how enforcement policies are justified and who they actually target.
 
+
+```{r, fig.cap = "Wrangling"}
 BookIns <- BookIns |> mutate(Year = as.integer(Year))
 ```
 
 
-```{r}
+```{r, fig.cap = "Wrangling"}
 joined_data <- BookIns |>
   full_join(ICEBudget, by = "Year") |>
   filter(!is.na(Budget))
@@ -113,57 +115,40 @@ head(joined_data)
 ```
 
 
-```{r}
-#| fig-height: 6
-#| fig-width: 13
 
-joined_data |>
-  filter(Criminality == "Total Arrests") |>
-  ggplot(aes(x = Budget, y = Arrests)) + 
-  geom_point(size = 3, color = "blue4") +
-  geom_line(color = "blue4") +
-  geom_text_repel(aes(label = Year), size = 3) +
+```{r}
+length_of_stay_data <- read_delim("~/Documents/GitHub/project-team-awesomest/data/length_of_stay_data", delim = ",", show_col_types = FALSE)
+
+length_of_stay_data
+```
+
+```{r}
+allowed_criminalities <- c("Convicted Criminal", "Pending Criminal Charges", "Other Immigration Violator")
+
+length_of_stay_data <- length_of_stay_data %>%
+  filter(Criminality %in% allowed_criminalities)
+
+avg_stay_by_year_criminality <- length_of_stay_data %>%
+  group_by(Year, Criminality) %>%
+  summarise(Avg_Length_of_Stay = mean(`Length of Stay`, na.rm = TRUE), .groups = 'drop')
+
+ggplot(avg_stay_by_year_criminality, aes(x = as.factor(Year), y = Avg_Length_of_Stay, fill = Criminality)) +
+  geom_bar(stat = "identity", position = "dodge") + # Use 'dodge' to group bars
   labs(
-    title = "Total Arrests vs. ICE Budget",
-    x = "ICE Budget (in millions)",
-    y = "Arrests"
+    title = "Average Length of Stay by Year and Criminality",
+    x = "Year",
+    y = "Average Length of Stay (Days)",
+    fill = "Criminality"
   ) +
-  scale_y_continuous(labels = comma) +
-  scale_x_continuous(labels = comma) +
-  theme_minimal()
-
+  theme_minimal() +
+  theme(
+    legend.position = "bottom"
+  )
 ```
 
+# RQ2: What are the detention trends of 2019 specifically? Why was this a unique year? 
 
-
-```{r}
-BookIns |>
-  full_join(ICEBudget, by = "Year") |>
-  filter(Criminality == "Total Arrests") |>
-  ggplot(aes(x = Budget, y = Arrests)) +
-  geom_point(size = 3, color = "blue4") +
-  geom_line(color = "blue4") +
-  geom_text(aes(label = Year), angle = 0, hjust = 1.5, vjust = 1.4, size = 2) +
-  labs(title = "Total Arrests vs. ICE Budget",
-       x = "ICE Budget (in millions)",
-       y = "Arrests", 
-       caption = "Source: ICE Detention Statics from ice.gov") +
-  scale_y_continuous(labels = scales::comma) +
-  scale_x_continuous(labels = scales::comma) + 
-  theme_minimal()
-```
-
-```{r}
-BookIns |>
-  full_join(ICEBudget) |>
-  filter(Criminality %in% c("Total Arrests")) |>
-  ggplot(aes(x = Budget, y = Arrests)) + 
-  geom_line()
-```
-
-# RQ2: 2019 Data
-
-```{r}
+```{r, fig.cap = "Set Up for RQ2"}
 # Calling Datasets
 
 setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
@@ -180,7 +165,6 @@ BookIns_2019 <- BookIns_2019 |>
 ```
 
 ```{r}
-# Fiscal year starts in October
 month_order <- c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep")
 
 BookIns_2019 |> 
@@ -196,22 +180,17 @@ BookIns_2019 |>
   theme_minimal()
 ```
 
-```{r}
+# Commentary 
+
+Focusing specifically on fiscal year 2019 reveals a noticeable difference in activity between ICE and CBP. While ICE maintained relatively consistent levels of Book-Ins throughout the year, CBP experienced a significant spike between March and May. This surge likely reflects a shift in border enforcement policy rather than changes in deportation practices. The timing and nature of this increase align with the Trump administration’s heightened focus on the U.S.–Mexico border during his first term. These trends suggest that resources and enforcement efforts during this period were disproportionately directed toward CBP, while ICE operations remained more stable.
+
+
+```{r, fig.cap = "Setting Up Spatial Viz"}
 setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data/ice-detention-trends-main/metadata")
 Facilities <- read_csv("facilities.csv")
 ```
-```{r}
-library(tidyverse)
-library(sf)
-library(gplots)
-library(maps)
-library(RColorBrewer)
-library(mosaic)
-library(leaflet)
-library(gplots)
-```
 
-```{r}
+```{r, fig.cap = "Wrangling"}
 unique(Facilities$type_detailed)
 library(dplyr)
 
@@ -225,21 +204,18 @@ Facilities <- Facilities %>%
     type_detailed == "Juvenile" ~ "Juvenile",  # Keep Juvenile as it is
     grepl("family", tolower(trimws(type_detailed)), ignore.case = TRUE) ~ "Family",  # Check for Family, ignoring case and trimming spaces
     type_detailed == "Hospital" ~ "Hospital",  # Keep Hospital as it is
-    TRUE ~ "Other"  # Everything else becomes 'Other'
+    TRUE ~ "Adult"
   ))
 
-# View the changes
 head(Facilities$type_detailed)
 
-# Optionally, check how the categories are now distributed
 table(Facilities$type_detailed)
   
 Facilities %>%
   count(type_detailed, sort = TRUE)
 ```
 
-
-```{r}
+```{r, fig.cap = "Facilities Spatial Visualization"}
 pal <- colorFactor(palette = rev(plasma(4)), domain = Facilities$type_detailed)
 
 leaflet(data = Facilities) |> 
@@ -255,6 +231,13 @@ leaflet(data = Facilities) |>
             opacity = 1)
 ```
 
+# Commentary 
+After examining overall trends in 2019, we turned our attention to the physical locations of ICE detention facilities, particularly in light of the differences in arrest patterns between CBP and ICE. The geographic distribution of facilities reveals clear concentrations along the U.S.–Mexico border, the coasts, and in major metropolitan areas. Notably, there is a dense cluster of facilities both at the southern border and in the Northeastern U.S., underscoring enforcement priorities in those regions.
+
+Another key insight from the visualization involves the types of facilities. The original dataset—sourced from the Vera Institute’s ICE Detention Trends project—categorizes facilities not only by function but also by funding structure. Since our focus was on the operational role of the facilities rather than their funding sources, we simplified the categories to emphasize their core functions. In particular, we grouped most adult-serving facilities under the label “Adult.”
+
+The distribution of family facilities is especially telling. All six family detention centers are located along the Texas–Mexico border, suggesting a deliberate strategy to process and detain immigrant families—especially those from Mexico and Central America—at the point of entry. Juvenile and hospital facilities were more geographically dispersed, with hospital facilities in particular spread across a wider range of states.
+
 # RQ3: 2025 so far 
 
 ```{r}
@@ -266,8 +249,7 @@ Detention_Data_2025
 ```
 
 ```{r}
-### Create Time-Series Line Chart ### 
-
+### Create Time-Series Line Chart 
 
 month_levels <- c("October", "November", "December", "January", "February", "March")
 
@@ -293,7 +275,7 @@ detention_complete_data <- complete_grid %>%
   replace_na(list(Total_Daily_Population = 0)) 
 
 # Create the time series line chart faceted by Agency
-ggplot(detention_complete_data,
+p <- ggplot(detention_complete_data,
        aes(x = Month, y = Total_Daily_Population, color = Criminality, group = Criminality)) +
   geom_line(linewidth = 0.8) +
   geom_point(size = 2) +
@@ -313,9 +295,9 @@ ggplot(detention_complete_data,
 
 
 ggsave("detention_trends_taller.png",
-       plot = ggplot, # Replace with the name of your ggplot object
-       width = 8, # Adjust width as needed (in inches)
-       height = 10, # Increase height to make it taller (in inches)
+       plot = p, 
+       width = 8, 
+       height = 10, 
        units = "in",
        dpi = 300)
 ```
@@ -329,10 +311,8 @@ ice_facility_data <- read_csv("data/FY2019 - Facility Types Data  - Sheet1.csv")
 
 ice_facility_data
 ```
-```{r}
-library(ggplot2)
-library(dplyr)
 
+```{r}
 # Assuming your dataframe is named 'ice_facility_data'
 
 # Filter data for only FRC facilities
@@ -340,7 +320,7 @@ frc_data <- ice_facility_data %>%
   filter(`Facility Type` == "FRC")
 
 # Ensure 'Month' is an ordered factor with all relevant months
-month_levels <- c("October", "November", "December", "Janurary", "February", "March", "April", "May", "June", "July", "August", "September")
+month_levels <- c("October", "November", "December", "January", "February", "March", "April", "May", "June", "July", "August", "September")
 frc_data$Month <- factor(frc_data$Month, levels = month_levels, ordered = TRUE)
 
 # Create the line chart for FRC facilities
@@ -361,48 +341,4 @@ ggplot(frc_data, aes(x = Month, y = `ICE Daily Population`, group = 1)) +
   )
 ```
 
-```{r}
-# Load necessary libraries
-library(ggplot2)
-library(dplyr)
-library(readr)
-
-# Assuming your text file data is saved as 'length_of_stay_data.txt'
-# Read the data, handling potential issues with inconsistent commas
-length_of_stay_data <- read_delim("~/Documents/GitHub/project-team-awesomest/data/length_of_stay_data", delim = ",", show_col_types = FALSE)
-
-length_of_stay_data
-```
-
-```{r}
-library(ggplot2)
-library(dplyr)
-library(readr)
-
-# Define the allowed criminality categories
-allowed_criminalities <- c("Convicted Criminal", "Pending Criminal Charges", "Other Immigration Violator")
-
-# Filter the data frame to keep only rows with the allowed criminality values
-length_of_stay_data <- length_of_stay_data %>%
-  filter(Criminality %in% allowed_criminalities)
-
-# 1. Calculate the average Length of Stay by Year and Criminality
-avg_stay_by_year_criminality <- length_of_stay_data %>%
-  group_by(Year, Criminality) %>%
-  summarise(Avg_Length_of_Stay = mean(`Length of Stay`, na.rm = TRUE), .groups = 'drop')
-
-# 2. Create the grouped bar chart by Year
-ggplot(avg_stay_by_year_criminality, aes(x = as.factor(Year), y = Avg_Length_of_Stay, fill = Criminality)) +
-  geom_bar(stat = "identity", position = "dodge") + # Use 'dodge' to group bars
-  labs(
-    title = "Average Length of Stay by Year and Criminality",
-    x = "Year",
-    y = "Average Length of Stay (Days)",
-    fill = "Criminality"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "bottom"
-  )
-```
 
