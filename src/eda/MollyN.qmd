@@ -257,3 +257,12 @@ BookIns |>
   ggplot(aes(x = Budget, y = Arrests)) + 
   geom_line()
 ```
+
+
+```{r, fig.cap = "Wrangling"}
+joined_data <- BookIns |>
+  full_join(ICEBudget, by = "Year") |>
+  filter(!is.na(Budget))
+
+head(joined_data)
+```

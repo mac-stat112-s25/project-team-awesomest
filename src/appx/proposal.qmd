@@ -1,5 +1,5 @@
 ---
-title: "Patterns of Detention: Tracking ICE + CBP Enforcement Since FY 2019"
+title: "Proposal"
 author: 
   - name: "Molly Nelson"
   - name: "Barrett Edwards"

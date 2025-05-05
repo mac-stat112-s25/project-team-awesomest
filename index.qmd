@@ -1,11 +1,14 @@
 ---
 title: "Report"
+number-sections: false
 execute: 
-  echo: true      
+  echo: false      
+  warning: false
+  message: false
 code-fold: false  
 ---
 
-## Motivation 
+# Motivation 
 In recent months, the Trump administration has announced significant expansions to immigration enforcement efforts, particularly within the Immigration and Customs Enforcement (ICE) and Customs and Border Protection (CBP) agencies under the Department of Homeland Security. Given the controversial nature of these changes—introduced just three months into Trump's return to office—this project seeks to better understand their implications by examining immigration enforcement trends. We analyze book-in and length of stay data from fiscal years 2017 through 2024 to place current developments in historical context and assess how prior enforcement patterns may inform present concerns. By studying the recent history of ICE and CBP, we aim to better understand the potential consequences of renewed policy shifts.
 
 ```{r, fig.cap = "Load Packages"}
@@ -70,7 +73,7 @@ BookIns |>
   ) +
   scale_y_continuous(labels = comma)
 ```
-# Commentary 
+## Commentary 
 Trump’s first term spanned from 2017 to 2020, followed by Biden’s presidency from 2021 to 2024. According to arrest data from ICE.gov, 2019 stands out as a particularly significant year, with over 500,000 arrests—nearly double the second-highest year, 2022, during Biden’s term. This surge in 2019 coincided with a series of aggressive policy changes under the Trump administration aimed at mass deportations and intensified border enforcement. The sharp drop in arrests in 2020—to around 200,000—was likely driven more by the onset of the COVID-19 pandemic than by any policy shift, as public health measures and travel restrictions disrupted enforcement operations.
 
 Given this context, 2019 offers the clearest view into the full impact of Trump-era immigration enforcement policies, free from the external disruptions seen in 2020. While the Biden administration did not see low arrest numbers—averaging around 300,000 per year—this level of enforcement appears more stable and less extreme compared to the peak under Trump. The data suggests that Trump’s administration facilitated a particularly aggressive spike in arrests, reflective of its hardline immigration stance.
@@ -92,7 +95,7 @@ BookIns |>
   ) +
   scale_y_continuous(labels = comma)
 ```
-# Commentary 
+## Commentary 
 
 While ICE does not provide much publicly available demographic data, it does report arrest data by "criminality" status. We chose to facet our analysis by this variable—not only because it is emphasized by ICE itself, but also because it aligns with common rhetoric from the Trump administration, which has frequently portrayed undocumented immigrants as criminals.
 
@@ -106,18 +109,8 @@ BookIns <- BookIns |> mutate(Year = as.integer(Year))
 ```
 
 
-```{r, fig.cap = "Wrangling"}
-joined_data <- BookIns |>
-  full_join(ICEBudget, by = "Year") |>
-  filter(!is.na(Budget))
-
-head(joined_data)
-```
-
-
-
 ```{r}
-length_of_stay_data <- read_delim("~/Documents/GitHub/project-team-awesomest/data/length_of_stay_data", delim = ",", show_col_types = FALSE)
+length_of_stay_data <- read_delim("~/Documents/GitHub/project-team-awesomest/data/length_of_stay_data.txt", delim = ",", show_col_types = FALSE)
 
 length_of_stay_data
 ```
@@ -180,7 +173,7 @@ BookIns_2019 |>
   theme_minimal()
 ```
 
-# Commentary 
+## Commentary 
 
 Focusing specifically on fiscal year 2019 reveals a noticeable difference in activity between ICE and CBP. While ICE maintained relatively consistent levels of Book-Ins throughout the year, CBP experienced a significant spike between March and May. This surge likely reflects a shift in border enforcement policy rather than changes in deportation practices. The timing and nature of this increase align with the Trump administration’s heightened focus on the U.S.–Mexico border during his first term. These trends suggest that resources and enforcement efforts during this period were disproportionately directed toward CBP, while ICE operations remained more stable.
 
@@ -213,11 +206,11 @@ table(Facilities$type_detailed)
   
 Facilities %>%
   count(type_detailed, sort = TRUE)
+
+pal <- colorFactor(palette = rev(plasma(4)), domain = Facilities$type_detailed)
 ```
 
-```{r, fig.cap = "Facilities Spatial Visualization"}
-pal <- colorFactor(palette = rev(plasma(4)), domain = Facilities$type_detailed)
-
+```{r, fig.cap = "Source: ICE Detention Trends - vera.org"}
 leaflet(data = Facilities) |> 
   addTiles()  |>
   addCircles(lng = ~longitude, 
@@ -231,7 +224,7 @@ leaflet(data = Facilities) |>
             opacity = 1)
 ```
 
-# Commentary 
+## Commentary 
 After examining overall trends in 2019, we turned our attention to the physical locations of ICE detention facilities, particularly in light of the differences in arrest patterns between CBP and ICE. The geographic distribution of facilities reveals clear concentrations along the U.S.–Mexico border, the coasts, and in major metropolitan areas. Notably, there is a dense cluster of facilities both at the southern border and in the Northeastern U.S., underscoring enforcement priorities in those regions.
 
 Another key insight from the visualization involves the types of facilities. The original dataset—sourced from the Vera Institute’s ICE Detention Trends project—categorizes facilities not only by function but also by funding structure. Since our focus was on the operational role of the facilities rather than their funding sources, we simplified the categories to emphasize their core functions. In particular, we grouped most adult-serving facilities under the label “Adult.”
