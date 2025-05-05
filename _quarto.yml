@@ -21,7 +21,7 @@ book:
   page-navigation: true
   back-to-top-navigation: true
   cookie-consent: true
-  # bread-crumbs: true  # causes problems with older Quarto version
+  bread-crumbs: true  
   # downloads: [pdf]
   # repo-url: https://github.com/hashcx/mac-comp112website-f24
   # repo-actions: [edit, issue]
@@ -48,8 +48,8 @@ book:
 format:
   html:
     theme: # bootswatch themes--other options https://bootswatch.com/
-      light: flatly
-      dark: darkly
+      light: morph
+      dark: cosmo
     search: true
     toc: true
     toc-depth: 3

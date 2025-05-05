@@ -8,8 +8,48 @@ execute:
 code-fold: false  
 ---
 
-# Motivation 
+# Presentation Video 
+
+# Presentation Slides
+
+::: {.iframe-container}
+<iframe src="https://docs.google.com/presentation/d/1Bv_g5-6_FY2xlvrHWQ045cuAzuxnjCTQN-joLtiTdXU/embed?start=false&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen="true"></iframe>
+:::
+
+
+# Our Project
+
+## Motivation 
 In recent months, the Trump administration has announced significant expansions to immigration enforcement efforts, particularly within the Immigration and Customs Enforcement (ICE) and Customs and Border Protection (CBP) agencies under the Department of Homeland Security. Given the controversial nature of these changes—introduced just three months into Trump's return to office—this project seeks to better understand their implications by examining immigration enforcement trends. We analyze book-in and length of stay data from fiscal years 2017 through 2024 to place current developments in historical context and assess how prior enforcement patterns may inform present concerns. By studying the recent history of ICE and CBP, we aim to better understand the potential consequences of renewed policy shifts.
+
+Our research questions are: 
+1) 
+2) 
+3) 
+
+What research question(s) are you trying to answer?
+What are the key goals of the project?
+What ideas do you most want to communicate?
+
+## Background 
+What background information is necessary for target audience to understand?
+What assumptions, terms, and/or acronyms need to be clarified?
+
+## Data
+Data collection
+What was collected?
+When was it collected?
+Why was it collected?
+How was it collected originally?
+Who collected it?
+Data acquisition
+Where / how did you get the data?
+What is the source?
+Data understanding
+How much data do you have?
+What types of measurements?
+Anything you needed to clean before getting started?
+
 
 ```{r, fig.cap = "Load Packages"}
 library(readr)
@@ -334,4 +374,10 @@ ggplot(frc_data, aes(x = Month, y = `ICE Daily Population`, group = 1)) +
   )
 ```
 
+# Conclusions/Big Picture 
+How do the insights connect to answer your research question(s)?
+
+# Limitations and Future Work
+What limitations or weaknesses does your data / analysis suffer from?
+What improvements might someone make to your analysis?
 
