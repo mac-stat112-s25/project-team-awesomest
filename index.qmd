@@ -319,7 +319,7 @@ p <- ggplot(detention_complete_data,
     plot.subtitle = element_text(size = 10, hjust = 0.5, color = "gray50"),
     axis.title.x = element_text(face = "bold", size = 10),
     axis.title.y = element_text(face = "bold", size = 1))
-
+p
 
 ggsave("detention_trends_taller.png",
        plot = p, 
@@ -333,7 +333,6 @@ ggsave("detention_trends_taller.png",
 ### Make Vizualization For FY 2019 Facility Type ###
 
 #Import Data
-library(readr)
 ice_facility_data <- read_csv("data/FY2019 - Facility Types Data  - Sheet1.csv")
 
 ice_facility_data
