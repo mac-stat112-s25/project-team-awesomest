@@ -229,8 +229,8 @@ Facilities %>%
 # Modify 'type_detailed' to create new categories
 Facilities <- Facilities %>%
   mutate(type_detailed = case_when(
-    type_detailed == "Juvenile" ~ "Juvenile",  # Keep Juvenile as it is
-    grepl("family", tolower(trimws(type_detailed)), ignore.case = TRUE) ~ "Family",  # Check for Family, ignoring case and trimming spaces
+    type_detailed == "Juvenile" ~ "Juvenile",  
+    grepl("family", tolower(trimws(type_detailed)), ignore.case = TRUE) ~ "Family",  
     type_detailed == "Hospital" ~ "Hospital",  # Keep Hospital as it is
     TRUE ~ "Adult"
   ))
@@ -276,57 +276,65 @@ Detention_Data_2025
 ```
 
 ```{r}
-### Create Time-Series Line Chart 
+### Create Faceted Line Chart ###
+
+#Load Libraries
+library(tidyr)
+library(dplyr)
+
+### Create Time-Series Line Chart
 
 month_levels <- c("October", "November", "December", "January", "February", "March")
 
 # Ensure 'Month' in the original dataframe is also an ordered factor with these levels
 Detention_Data_2025$Month <- factor(Detention_Data_2025$Month, levels = month_levels, ordered = TRUE)
+
 all_agencies <- unique(Detention_Data_2025$Agency)
-all_criminalities <- unique(Detention_Data_2025$Criminality)
 
-# Create a complete grid of all combinations
+# Filter out "Total" from the unique criminalities
+all_criminalities_no_total <- unique(Detention_Data_2025$Criminality[!grepl("Total", Detention_Data_2025$Criminality, ignore.case = TRUE)])
+
+# Create a complete grid of all combinations, excluding "Total" criminalities
 complete_grid <- expand_grid(Month = factor(month_levels, levels = month_levels, ordered = TRUE),
-                              Agency = all_agencies,
-                              Criminality = all_criminalities)
+                            Agency = all_agencies,
+                            Criminality = all_criminalities_no_total)
 
-# Calculate the total Daily Population
-detention_total_criminality_agency <- Detention_Data_2025 %>%
+# Calculate the total Daily Population, excluding "Total" criminalities
+detention_total_criminality_agency_no_total <- Detention_Data_2025 %>%
+  filter(!grepl("Total", Criminality, ignore.case = TRUE)) %>%
   group_by(Month, Agency, Criminality) %>%
   summarise(Total_Daily_Population = sum(`Daily Population`, na.rm = TRUE), .groups = 'drop') %>%
   ungroup()
 
 # Left-join the summarized data to the complete grid
-detention_complete_data <- complete_grid %>%
-  left_join(detention_total_criminality_agency, by = c("Month", "Agency", "Criminality")) %>%
-  replace_na(list(Total_Daily_Population = 0)) 
+detention_complete_data_no_total <- complete_grid %>%
+  left_join(detention_total_criminality_agency_no_total, by = c("Month", "Agency", "Criminality")) %>%
+  replace_na(list(Total_Daily_Population = 0))
+
+# Create the time series line chart faceted by Agency, excluding "Total" criminalities
 
 # Create the time series line chart faceted by Agency
-p <- ggplot(detention_complete_data,
+p <- ggplot(detention_complete_data_no_total,
        aes(x = Month, y = Total_Daily_Population, color = Criminality, group = Criminality)) +
   geom_line(linewidth = 0.8) +
   geom_point(size = 2) +
-  facet_wrap(~ Agency, ncol = 1) + 
+  facet_wrap(~ Agency, ncol = 1) +
   labs(
     title = "Detention Population by Criminality (FY2025)",
     subtitle = "Faceted by Agency (CBP, ICE, Average)",
     x = "Month",
     y = "Total Daily Population",
+    caption = "Source: FY 2025 Ice Detention Statistics from ice.gov",
     color = "Criminality Type") +
   theme_minimal() +
   theme(
     plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
     plot.subtitle = element_text(size = 10, hjust = 0.5, color = "gray50"),
     axis.title.x = element_text(face = "bold", size = 10),
-    axis.title.y = element_text(face = "bold", size = 1))
-p
+    axis.title.y = element_text(face = "bold", size = 1),
+    plot.caption = element_text(size = 8, hjust = 0.5))
 
-ggsave("detention_trends_taller.png",
-       plot = p, 
-       width = 8, 
-       height = 10, 
-       units = "in",
-       dpi = 300)
+p
 ```
 
 ```{r}
