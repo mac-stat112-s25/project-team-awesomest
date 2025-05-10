@@ -14,15 +14,14 @@ library(tidyverse)
 
 
 ```{r}
-setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
-BookIns2017 <- read_csv("Book-Ins FY2017.csv")
-BookIns2018 <- read_csv("Book-Ins FY2018.csv")
-BookIns2019 <- read_csv("Book-Ins FY2019.csv")
-BookIns2020 <- read_csv("Book-Ins FY2020.csv")
-BookIns2021 <- read_csv("Book-Ins FY2021.csv")
-BookIns2022 <- read_csv("Book-Ins FY2022.csv")
-BookIns2023 <- read_csv("Book-Ins FY2023.csv")
-BookIns2024 <- read_csv("Book-Ins FY2024.csv")
+BookIns2017 <- read_csv("../../data/Book-Ins FY2017.csv")
+BookIns2018 <- read_csv("../../data/Book-Ins FY2018.csv")
+BookIns2019 <- read_csv("../../data/Book-Ins FY2019.csv")
+BookIns2020 <- read_csv("../../data/Book-Ins FY2020.csv")
+BookIns2021 <- read_csv("../../data/Book-Ins FY2021.csv")
+BookIns2022 <- read_csv("../../data/Book-Ins FY2022.csv")
+BookIns2023 <- read_csv("../../data/Book-Ins FY2023.csv")
+BookIns2024 <- read_csv("../../data/Book-Ins FY2024.csv")
 ```
 ```{r}
 BookIns <- BookIns2017 |>
@@ -57,37 +56,15 @@ BookIns |>
   labs(title = "Pending Criminal Charges Arrests Over Time", x = "Year", y = "Number of Arrests")
 
 BookIns |>
-  filter(Criminality %in% c("No Known Criminal Charges or Convictions", "Other Immigration Violator")) |>
+  filter(Criminality %in% c("Other Immigration Violator" , "No Known Criminal Charges or Convictions")) |>
   ggplot(aes(x = Year, y = Arrests)) + 
   geom_line() + 
   labs(title = "Non-Criminal/Other Violation Arrests Over Time", x = "Year", y = "Number of Arrests")
 ```
 
 
-```{r}
-# Calling Datasets
 
-setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
-BookIns2017 <- read_csv("Book-Ins FY2017.csv")
-BookIns2018 <- read_csv("Book-Ins FY2018.csv")
-BookIns2019 <- read_csv("Book-Ins FY2019.csv")
-BookIns2020 <- read_csv("Book-Ins FY2020.csv")
-BookIns2021 <- read_csv("Book-Ins FY2021.csv")
-BookIns2022 <- read_csv("Book-Ins FY2022.csv")
-BookIns2023 <- read_csv("Book-Ins FY2023.csv")
-BookIns2024 <- read_csv("Book-Ins FY2024.csv")
-ICEBudget <- read_csv("ICE_Budget.csv")
-```
 ```{r}
-BookIns <- BookIns2017 |>
-  full_join(BookIns2018) |>
-  full_join(BookIns2019) |>
-  full_join(BookIns2020) |>
-  full_join(BookIns2021) |>
-  full_join(BookIns2022) |>
-  full_join(BookIns2023) |>
-  full_join(BookIns2024) 
-
 BookIns <- BookIns %>%
   mutate(Criminality = case_when(
     Criminality %in% c("Other Immigration Violator", "No Known Criminal Charges or Convictions") ~ 
@@ -114,6 +91,13 @@ BookIns |>
   geom_line() + 
     facet_wrap(~ Criminality, ncol = 1) +
   labs(title = "Arrests Over Time by Criminality", x = "Year", y = "Number of Arrests")
+```
+
+
+```{r}
+# Budget
+
+ICEBudget <- read_csv("../../data/ICE_Budget.csv")
 ```
 
 ```{r}
@@ -147,12 +131,10 @@ BookIns |>
   geom_line()
 ```
 
-# RQ3: 2019 vs. 2024
 ```{r}
-# Calling Datasets
-
-setwd("/Users/mnelso11/Documents/GitHub/project-team-awesomest/data")
-BookIns_2024 <- read_csv("ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv")
+# Comparing 2019 vs. 2024
+BookIns_2019 <- read_csv("../../data/ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv")
+BookIns_2024 <- read_csv("../../data/ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv")
 ```
 
 ```{r}
@@ -172,6 +154,9 @@ BookIns_Comp <- BookIns_2024 |>
 ```
 
 ```{r}
+month_order <- c("January", "February", "March", "April", "May", "June",
+                 "July", "August", "September", "October", "November", "December")
+
 BookIns_Comp |> 
   filter(Month != "Total", Agency == "ICE") |>
   mutate(Month = factor(Month, levels = month_order)) |>
@@ -198,7 +183,6 @@ BookIns_Comp |>
 
 ```{r, fig.cap = "Wrangling"}
 ICEBudget <- ICEBudget |>
-  rename(Budget = `Budget (in millions)`) |>
   mutate(Year = as.integer(Year))
 ```
 
@@ -208,61 +192,10 @@ ggplot(ICEBudget, aes(x = Year, y = Budget)) +
   labs(title = "ICE Budget", x = "Year", y = "Budget (in millions)", caption = "Source: ICE Detention Statics from ice.gov")
 ```
 
-
-```{r}
-#| fig-height: 6
-#| fig-width: 13
-
-joined_data |>
-  filter(Criminality == "Total Arrests") |>
-  ggplot(aes(x = Budget, y = Arrests)) + 
-  geom_point(size = 3, color = "blue4") +
-  geom_line(color = "blue4") +
-  geom_text_repel(aes(label = Year), size = 3) +
-  labs(
-    title = "Total Arrests vs. ICE Budget",
-    x = "ICE Budget (in millions)",
-    y = "Arrests"
-  ) +
-  scale_y_continuous(labels = comma) +
-  scale_x_continuous(labels = comma) +
-  theme_minimal()
-
-```
-
-
-
-
-```{r}
-BookIns |>
-  full_join(ICEBudget, by = "Year") |>
-  filter(Criminality == "Total Arrests") |>
-  ggplot(aes(x = Budget, y = Arrests)) +
-  geom_point(size = 3, color = "blue4") +
-  geom_line(color = "blue4") +
-  geom_text(aes(label = Year), angle = 0, hjust = 1.5, vjust = 1.4, size = 2) +
-  labs(title = "Total Arrests vs. ICE Budget",
-       x = "ICE Budget (in millions)",
-       y = "Arrests", 
-       caption = "Source: ICE Detention Statics from ice.gov") +
-  scale_y_continuous(labels = scales::comma) +
-  scale_x_continuous(labels = scales::comma) + 
-  theme_minimal()
-```
-
 ```{r}
 BookIns |>
   full_join(ICEBudget) |>
   filter(Criminality %in% c("Total Arrests")) |>
   ggplot(aes(x = Budget, y = Arrests)) + 
   geom_line()
-```
-
-
-```{r, fig.cap = "Wrangling"}
-joined_data <- BookIns |>
-  full_join(ICEBudget, by = "Year") |>
-  filter(!is.na(Budget))
-
-head(joined_data)
 ```
