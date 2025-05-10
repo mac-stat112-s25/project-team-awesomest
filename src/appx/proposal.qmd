@@ -1,5 +1,38 @@
 ---
 title: "Proposal"
+author: 
+  - name: "Molly Nelson"
+  - name: "Barrett Edwards"
+execute: 
+  echo: true      
+code-fold: false  
+format: 
+  html:
+    toc: false
 ---
 
-Your proposal will go here.
+## Short Description: 
+
+Our project analyzes and visualizes trends in immigration detention by U.S. Immigration and Customs Enforcement (ICE) and Customs and Border Protection (CBP) since Fiscal Year 2019. By examining important metrics such as daily detention population, average length of stay, and breakdowns by criminality and agency, we aim to provide a data-driven understanding of how immigration enforcement and detention practices have evolved over time.
+
+## Reasons/Inspirations: 
+
+Greater border enforcement and mass deportations were two major pledges made by Donald Trump during his campaigns for the presidency. In the first 100 days of his second administration, he has issued several immigration-related executive actions—at a much faster pace than during the same period in Trump's first term. The administration has tapped the military, federal agencies and databases, and state and local law enforcement, as well as invoked archaic laws previously used only in wartime to accomplish the most sweeping immigration enforcement policy changes in U.S. history. Amidst this backdrop, we wanted to contextualize and vizualize patterns of immigration detention in the U.S.
+
+## Implementation/Responsibility Plan 
+
+For our project, we will rely on datasets made publicly available on the U.S. Immigration and Customs Enforcement (ICE) government website for FY’s 2019 - 2025. This data offers key insights into the number of arrests, book-ins, detention population, and length of stay, broken down by criminality, date, and enforcement agency (CBP vs. ICE).  
+
+| When | Who | What |
+|------|----------------|------------|
+| 4/14/2025 | Barrett | Teamwork Reading  |
+| 4/14/2025 | Molly | Teamwork Reading  |
+| 4/14/2025 | Molly | EDA |
+| 4/14/2025 | Barrett | EDA  |
+| 4/21/2025 | Molly | Broad Book-Ins Viz    |
+| 4/23/2025 | Molly | 2019 Book-Ins Viz    |
+| 4/21/2025 | Barrett | 2019 Length of Stay Viz  |
+| 4/25/2025 | Molly | 2019 Spatial Viz |
+| 4/25/2025 | Barrett | 2025 So Far Viz |
+| 4/27/2025 | Molly | Viz Presentation Slides |
+| 4/27/2025 | Barrett | Viz Presentation Slides |

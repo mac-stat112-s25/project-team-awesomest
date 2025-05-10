@@ -1,0 +1,748 @@
+Year,Month,Agency,Criminality,Length of Stay
+2018,Oct,CBP,Convicted Criminal,27.4
+2018,Oct,CBP,Pending Criminal Charges,37.6
+2018,Oct,CBP,Other Immigration Violator,24.4
+2018,Oct,ICE,Convicted Criminal,54.9
+2018,Oct,ICE,Pending Criminal Charges,50.3
+2018,Oct,ICE,Other Immigration Violator,50.3
+2018,Oct,Overall Average,Convicted Criminal,43.7
+2018,Oct,Overall Average,Pending Criminal Charges,48.1
+2018,Oct,Overall Average,Other Immigration Violator,25.8
+2018,Nov,CBP,Convicted Criminal,29.0
+2018,Nov,CBP,Pending Criminal Charges,38.0
+2018,Nov,CBP,Other Immigration Violator,21.4
+2018,Nov,ICE,Convicted Criminal,59.9
+2018,Nov,ICE,Pending Criminal Charges,52.0
+2018,Nov,ICE,Other Immigration Violator,57.9
+2018,Nov,Overall Average,Convicted Criminal,46.5
+2018,Nov,Overall Average,Pending Criminal Charges,49.3
+2018,Nov,Overall Average,Other Immigration Violator,23.0
+2018,Dec,CBP,Convicted Criminal,28.4
+2018,Dec,CBP,Pending Criminal Charges,31.0
+2018,Dec,CBP,Other Immigration Violator,21.4
+2018,Dec,ICE,Convicted Criminal,62.7
+2018,Dec,ICE,Pending Criminal Charges,51.1
+2018,Dec,ICE,Other Immigration Violator,51.3
+2018,Dec,Overall Average,Convicted Criminal,48.7
+2018,Dec,Overall Average,Pending Criminal Charges,47.0
+2018,Dec,Overall Average,Other Immigration Violator,22.6
+2019,Jan,CBP,Convicted Criminal,30.2
+2019,Jan,CBP,Pending Criminal Charges,34.7
+2019,Jan,CBP,Other Immigration Violator,25.1
+2019,Jan,ICE,Convicted Criminal,57.1
+2019,Jan,ICE,Pending Criminal Charges,51.4
+2019,Jan,ICE,Other Immigration Violator,49.9
+2019,Jan,Overall Average,Convicted Criminal,46.1
+2019,Jan,Overall Average,Pending Criminal Charges,48.1
+2019,Jan,Overall Average,Other Immigration Violator,26.4
+2019,Feb,CBP,Convicted Criminal,29.1
+2019,Feb,CBP,Pending Criminal Charges,34.2
+2019,Feb,CBP,Other Immigration Violator,19.3
+2019,Feb,ICE,Convicted Criminal,55.8
+2019,Feb,ICE,Pending Criminal Charges,50.9
+2019,Feb,ICE,Other Immigration Violator,46.4
+2019,Feb,Overall Average,Convicted Criminal,44.3
+2019,Feb,Overall Average,Pending Criminal Charges,47.1
+2019,Feb,Overall Average,Other Immigration Violator,20.3
+2019,Mar,CBP,Convicted Criminal,28.7
+2019,Mar,CBP,Pending Criminal Charges,29.2
+2019,Mar,CBP,Other Immigration Violator,17.3
+2019,Mar,ICE,Convicted Criminal,53.8
+2019,Mar,ICE,Pending Criminal Charges,51.9
+2019,Mar,ICE,Other Immigration Violator,43.5
+2019,Mar,Overall Average,Convicted Criminal,43.3
+2019,Mar,Overall Average,Pending Criminal Charges,46.8
+2019,Mar,Overall Average,Other Immigration Violator,18.2
+2019,Apr,CBP,Convicted Criminal,29.6
+2019,Apr,CBP,Pending Criminal Charges,30.8
+2019,Apr,CBP,Other Immigration Violator,17.6
+2019,Apr,ICE,Convicted Criminal,57.4
+2019,Apr,ICE,Pending Criminal Charges,54.1
+2019,Apr,ICE,Other Immigration Violator,41.1
+2019,Apr,Overall Average,Convicted Criminal,46.0
+2019,Apr,Overall Average,Pending Criminal Charges,48.1
+2019,Apr,Overall Average,Other Immigration Violator,18.5
+2019,May,CBP,Convicted Criminal,31.2
+2019,May,CBP,Pending Criminal Charges,32.8
+2019,May,CBP,Other Immigration Violator,18.4
+2019,May,ICE,Convicted Criminal,55.1
+2019,May,ICE,Pending Criminal Charges,51.1
+2019,May,ICE,Other Immigration Violator,42.8
+2019,May,Overall Average,Convicted Criminal,44.9
+2019,May,Overall Average,Pending Criminal Charges,46.4
+2019,May,Overall Average,Other Immigration Violator,19.4
+2019,Jun,CBP,Convicted Criminal,33.1
+2019,Jun,CBP,Pending Criminal Charges,37.7
+2019,Jun,CBP,Other Immigration Violator,28.8
+2019,Jun,ICE,Convicted Criminal,53.9
+2019,Jun,ICE,Pending Criminal Charges,50.2
+2019,Jun,ICE,Other Immigration Violator,54.1
+2019,Jun,Overall Average,Convicted Criminal,44.7
+2019,Jun,Overall Average,Pending Criminal Charges,49.6
+2019,Jun,Overall Average,Other Immigration Violator,30.0
+2019,Jul,CBP,Convicted Criminal,37.2
+2019,Jul,CBP,Pending Criminal Charges,41.4
+2019,Jul,CBP,Other Immigration Violator,46.4
+2019,Jul,ICE,Convicted Criminal,52.5
+2019,Jul,ICE,Pending Criminal Charges,52.1
+2019,Jul,ICE,Other Immigration Violator,55.4
+2019,Jul,Overall Average,Convicted Criminal,47.1
+2019,Jul,Overall Average,Pending Criminal Charges,49.6
+2019,Jul,Overall Average,Other Immigration Violator,47.0
+2019,Aug,CBP,Convicted Criminal,37.9
+2019,Aug,CBP,Pending Criminal Charges,44.4
+2019,Aug,CBP,Other Immigration Violator,52.4
+2019,Aug,ICE,Convicted Criminal,57.0
+2019,Aug,ICE,Pending Criminal Charges,55.1
+2019,Aug,ICE,Other Immigration Violator,50.2
+2019,Aug,Overall Average,Convicted Criminal,50.1
+2019,Aug,Overall Average,Pending Criminal Charges,52.8
+2019,Aug,Overall Average,Other Immigration Violator,52.3
+2019,Sep,CBP,Convicted Criminal,37.4
+2019,Sep,CBP,Pending Criminal Charges,46.1
+2019,Sep,CBP,Other Immigration Violator,60.9
+2019,Sep,ICE,Convicted Criminal,55.9
+2019,Sep,ICE,Pending Criminal Charges,50.1
+2019,Sep,ICE,Other Immigration Violator,46.5
+2019,Sep,Overall Average,Convicted Criminal,49.5
+2019,Sep,Overall Average,Pending Criminal Charges,49.1
+2019,Sep,Overall Average,Other Immigration Violator,59.6
+2019,Oct,CBP,Convicted Criminal,37.8
+2019,Oct,CBP,Pending Criminal Charges,65.0
+2019,Oct,CBP,Other Immigration Violator,65.3
+2019,Oct,ICE,Convicted Criminal,52.7
+2019,Oct,ICE,Pending Criminal Charges,46.5
+2019,Oct,ICE,Other Immigration Violator,45.4
+2019,Oct,Overall Average,Convicted Criminal,47.1
+2019,Oct,Overall Average,Pending Criminal Charges,52.0
+2019,Oct,Overall Average,Other Immigration Violator,63.5
+2019,Nov,CBP,Convicted Criminal,37.8
+2019,Nov,CBP,Pending Criminal Charges,61.2
+2019,Nov,CBP,Other Immigration Violator,63.3
+2019,Nov,ICE,Convicted Criminal,55.6
+2019,Nov,ICE,Pending Criminal Charges,52.0
+2019,Nov,ICE,Other Immigration Violator,49.7
+2019,Nov,Overall Average,Convicted Criminal,49.0
+2019,Nov,Overall Average,Pending Criminal Charges,53.8
+2019,Nov,Overall Average,Other Immigration Violator,62.1
+2019,Dec,CBP,Convicted Criminal,33.2
+2019,Dec,CBP,Pending Criminal Charges,60.6
+2019,Dec,CBP,Other Immigration Violator,58.7
+2019,Dec,ICE,Convicted Criminal,61.2
+2019,Dec,ICE,Pending Criminal Charges,53.9
+2019,Dec,ICE,Other Immigration Violator,50.2
+2019,Dec,Overall Average,Convicted Criminal,50.9
+2019,Dec,Overall Average,Pending Criminal Charges,55.0
+2019,Dec,Overall Average,Other Immigration Violator,57.9
+2020,Jan,CBP,Convicted Criminal,33.9
+2020,Jan,CBP,Pending Criminal Charges,60.7
+2020,Jan,CBP,Other Immigration Violator,73.3
+2020,Jan,ICE,Convicted Criminal,52.6
+2020,Jan,ICE,Pending Criminal Charges,51.0
+2020,Jan,ICE,Other Immigration Violator,54.7
+2020,Jan,Overall Average,Convicted Criminal,46.3
+2020,Jan,Overall Average,Pending Criminal Charges,52.5
+2020,Jan,Overall Average,Other Immigration Violator,70.9
+2020,Feb,CBP,Convicted Criminal,28.7
+2020,Feb,CBP,Pending Criminal Charges,58.0
+2020,Feb,CBP,Other Immigration Violator,74.2
+2020,Feb,ICE,Convicted Criminal,52.9
+2020,Feb,ICE,Pending Criminal Charges,52.7
+2020,Feb,ICE,Other Immigration Violator,50.5
+2020,Feb,Overall Average,Convicted Criminal,44.1
+2020,Feb,Overall Average,Pending Criminal Charges,53.6
+2020,Feb,Overall Average,Other Immigration Violator,70.9
+2020,Mar,CBP,Convicted Criminal,24.8
+2020,Mar,CBP,Pending Criminal Charges,51.9
+2020,Mar,CBP,Other Immigration Violator,70.2
+2020,Mar,ICE,Convicted Criminal,49.0
+2020,Mar,ICE,Pending Criminal Charges,47.9
+2020,Mar,ICE,Other Immigration Violator,42.2
+2020,Mar,Overall Average,Convicted Criminal,40.6
+2020,Mar,Overall Average,Pending Criminal Charges,48.4
+2020,Mar,Overall Average,Other Immigration Violator,65.6
+2020,Apr,CBP,Convicted Criminal,31.4
+2020,Apr,CBP,Pending Criminal Charges,86.8
+2020,Apr,CBP,Other Immigration Violator,122.0
+2020,Apr,ICE,Convicted Criminal,64.3
+2020,Apr,ICE,Pending Criminal Charges,61.6
+2020,Apr,ICE,Other Immigration Violator,72.7
+2020,Apr,Overall Average,Convicted Criminal,54.6
+2020,Apr,Overall Average,Pending Criminal Charges,64.0
+2020,Apr,Overall Average,Other Immigration Violator,113.8
+2020,May,CBP,Convicted Criminal,43.9
+2020,May,CBP,Pending Criminal Charges,117.1
+2020,May,CBP,Other Immigration Violator,149.7
+2020,May,ICE,Convicted Criminal,61.9
+2020,May,ICE,Pending Criminal Charges,64.6
+2020,May,ICE,Other Immigration Violator,102.2
+2020,May,Overall Average,Convicted Criminal,58.6
+2020,May,Overall Average,Pending Criminal Charges,68.4
+2020,May,Overall Average,Other Immigration Violator,142.5
+2020,Jun,CBP,Convicted Criminal,66.5
+2020,Jun,CBP,Pending Criminal Charges,147.7
+2020,Jun,CBP,Other Immigration Violator,167.2
+2020,Jun,ICE,Convicted Criminal,66.8
+2020,Jun,ICE,Pending Criminal Charges,65.1
+2020,Jun,ICE,Other Immigration Violator,91.9
+2020,Jun,Overall Average,Convicted Criminal,66.8
+2020,Jun,Overall Average,Pending Criminal Charges,71.8
+2020,Jun,Overall Average,Other Immigration Violator,156.2
+2020,Jul,CBP,Convicted Criminal,76.6
+2020,Jul,CBP,Pending Criminal Charges,111.8
+2020,Jul,CBP,Other Immigration Violator,148.3
+2020,Jul,ICE,Convicted Criminal,70.6
+2020,Jul,ICE,Pending Criminal Charges,67.2
+2020,Jul,ICE,Other Immigration Violator,114.6
+2020,Jul,Overall Average,Convicted Criminal,71.7
+2020,Jul,Overall Average,Pending Criminal Charges,72.6
+2020,Jul,Overall Average,Other Immigration Violator,142.8
+2020,Aug,CBP,Convicted Criminal,83.0
+2020,Aug,CBP,Pending Criminal Charges,130.7
+2020,Aug,CBP,Other Immigration Violator,146.7
+2020,Aug,ICE,Convicted Criminal,72.4
+2020,Aug,ICE,Pending Criminal Charges,67.4
+2020,Aug,ICE,Other Immigration Violator,102.3
+2020,Aug,Overall Average,Convicted Criminal,74.1
+2020,Aug,Overall Average,Pending Criminal Charges,75.2
+2020,Aug,Overall Average,Other Immigration Violator,137.8
+2020,Sep,CBP,Convicted Criminal,78.3
+2020,Sep,CBP,Pending Criminal Charges,152.3
+2020,Sep,CBP,Other Immigration Violator,157.0
+2020,Sep,ICE,Convicted Criminal,80.5
+2020,Sep,ICE,Pending Criminal Charges,67.4
+2020,Sep,ICE,Other Immigration Violator,87.8
+2020,Sep,Overall Average,Convicted Criminal,80.1
+2020,Sep,Overall Average,Pending Criminal Charges,72.2
+2020,Sep,Overall Average,Other Immigration Violator,141.8
+2020,Oct,CBP,Convicted Criminal,112.8
+2020,Oct,CBP,Pending Criminal Charges,129.1
+2020,Oct,CBP,Other Immigration Violator,119.7
+2020,Oct,ICE,Convicted Criminal,75.9
+2020,Oct,ICE,Pending Criminal Charges,67.3
+2020,Oct,ICE,Other Immigration Violator,80.9
+2020,Oct,Overall Average,Convicted Criminal,86.5
+2020,Oct,Overall Average,Pending Criminal Charges,72.3
+2020,Oct,Overall Average,Other Immigration Violator,112.5
+2020,Nov,CBP,Convicted Criminal,121.3
+2020,Nov,CBP,Pending Criminal Charges,76.5
+2020,Nov,CBP,Other Immigration Violator,132.3
+2020,Nov,ICE,Convicted Criminal,70.2
+2020,Nov,ICE,Pending Criminal Charges,55.6
+2020,Nov,ICE,Other Immigration Violator,74.0
+2020,Nov,Overall Average,Convicted Criminal,84.6
+2020,Nov,Overall Average,Pending Criminal Charges,57.1
+2020,Nov,Overall Average,Other Immigration Violator,122.4
+2020,Dec,CBP,Convicted Criminal,110.7
+2020,Dec,CBP,Pending Criminal Charges,79.9
+2020,Dec,CBP,Other Immigration Violator,124.3
+2020,Dec,ICE,Convicted Criminal,67.4
+2020,Dec,ICE,Pending Criminal Charges,54.1
+2020,Dec,ICE,Other Immigration Violator,62.2
+2020,Dec,Overall Average,Convicted Criminal,80.4
+2020,Dec,Overall Average,Pending Criminal Charges,56.2
+2020,Dec,Overall Average,Other Immigration Violator,114.9
+2021,Jan,CBP,Convicted Criminal,80.1
+2021,Jan,CBP,Pending Criminal Charges,62.8
+2021,Jan,CBP,Other Immigration Violator,95.0
+2021,Jan,ICE,Convicted Criminal,68.0
+2021,Jan,ICE,Pending Criminal Charges,53.2
+2021,Jan,ICE,Other Immigration Violator,61.2
+2021,Jan,Overall Average,Convicted Criminal,72.9
+2021,Jan,Overall Average,Pending Criminal Charges,54.0
+2021,Jan,Overall Average,Other Immigration Violator,89.4
+2021,Feb,CBP,Convicted Criminal,65.6
+2021,Feb,CBP,Pending Criminal Charges,71.4
+2021,Feb,CBP,Other Immigration Violator,65.5
+2021,Feb,ICE,Convicted Criminal,77.1
+2021,Feb,ICE,Pending Criminal Charges,78.4
+2021,Feb,ICE,Other Immigration Violator,91.9
+2021,Feb,Overall Average,Convicted Criminal,71.3
+2021,Feb,Overall Average,Pending Criminal Charges,77.5
+2021,Feb,Overall Average,Other Immigration Violator,67.7
+2021,Mar,CBP,Convicted Criminal,70.8
+2021,Mar,CBP,Pending Criminal Charges,89.4
+2021,Mar,CBP,Other Immigration Violator,67.9
+2021,Mar,ICE,Convicted Criminal,111.6
+2021,Mar,ICE,Pending Criminal Charges,122.8
+2021,Mar,ICE,Other Immigration Violator,128.2
+2021,Mar,Overall Average,Convicted Criminal,85.1
+2021,Mar,Overall Average,Pending Criminal Charges,115.7
+2021,Mar,Overall Average,Other Immigration Violator,70.2
+2021,Apr,CBP,Convicted Criminal,63.5
+2021,Apr,CBP,Pending Criminal Charges,26.4
+2021,Apr,CBP,Other Immigration Violator,30.1
+2021,Apr,ICE,Convicted Criminal,91.1
+2021,Apr,ICE,Pending Criminal Charges,114.1
+2021,Apr,ICE,Other Immigration Violator,58.1
+2021,Apr,Overall Average,Convicted Criminal,46.5
+2021,Apr,Overall Average,Pending Criminal Charges,76.2
+2021,Apr,Overall Average,31.2
+2021,May,CBP,Convicted Criminal,37.3
+2021,May,CBP,Pending Criminal Charges,25.7
+2021,May,CBP,Other Immigration Violator,16.2
+2021,May,ICE,Convicted Criminal,69.3
+2021,May,ICE,Pending Criminal Charges,96.2
+2021,May,ICE,Other Immigration Violator,22.1
+2021,May,Overall Average,27.4
+2021,May,Overall Average,59.9
+2021,May,Overall Average,16.4
+2021,Jun,CBP,Convicted Criminal,22.1
+2021,Jun,CBP,Pending Criminal Charges,25.9
+2021,Jun,CBP,Other Immigration Violator,19.8
+2021,Jun,ICE,Convicted Criminal,54.9
+2021,Jun,ICE,Pending Criminal Charges,54.6
+2021,Jun,ICE,Other Immigration Violator,15.8
+2021,Jun,Overall Average,25.2
+2021,Jun,Overall Average,37.7
+2021,Jun,Overall Average,19.7
+2021,Jul,CBP,Convicted Criminal,27.2
+2021,Jul,CBP,Pending Criminal Charges,38.7
+2021,Jul,CBP,Other Immigration Violator,29.1
+2021,Jul,ICE,Convicted Criminal,55.8
+2021,Jul,ICE,Pending Criminal Charges,63.5
+2021,Jul,ICE,Other Immigration Violator,14.5
+2021,Jul,Overall Average,32.5
+2021,Jul,Overall Average,46.0
+2021,Jul,Overall Average,28.6
+2021,Aug,CBP,Convicted Criminal,31.7
+2021,Aug,CBP,Pending Criminal Charges,44.9
+2021,Aug,CBP,Other Immigration Violator,23.3
+2021,Aug,ICE,Convicted Criminal,46.4
+2021,Aug,ICE,Pending Criminal Charges,45.8
+2021,Aug,ICE,Other Immigration Violator,4.9
+2021,Aug,Overall Average,26.2
+2021,Aug,Overall Average,44.8
+2021,Aug,Overall Average,22.9
+2021,Sep,CBP,Convicted Criminal,30.7
+2021,Sep,CBP,Pending Criminal Charges,41.6
+2021,Sep,CBP,Other Immigration Violator,18.9
+2021,Sep,ICE,Convicted Criminal,37.3
+2021,Sep,ICE,Pending Criminal Charges,47.5
+2021,Sep,ICE,Other Immigration Violator,4.1
+2021,Sep,Overall Average,21.1
+2021,Sep,Overall Average,34.0
+2021,Sep,Overall Average,18.5
+2021,Oct,CBP,Convicted Criminal,32.1
+2021,Oct,CBP,Pending Criminal Charges,35.2
+2021,Oct,CBP,Other Immigration Violator,21.2
+2021,Oct,ICE,Convicted Criminal,53.0
+2021,Oct,ICE,Pending Criminal Charges,22.4
+2021,Oct,ICE,Other Immigration Violator,9.2
+2021,Oct,Overall Average,Convicted Criminal,49.8
+2021,Oct,Overall Average,Pending Criminal Charges,26.2
+2021,Oct,Overall Average,Other Immigration Violator,20.2
+2021,Nov,CBP,Convicted Criminal,31.6
+2021,Nov,CBP,Pending Criminal Charges,48.7
+2021,Nov,CBP,Other Immigration Violator,21.2
+2021,Nov,ICE,Convicted Criminal,56.5
+2021,Nov,ICE,Pending Criminal Charges,36.9
+2021,Nov,ICE,Other Immigration Violator,5.7
+2021,Nov,Overall Average,Convicted Criminal,51.6
+2021,Nov,Overall Average,Pending Criminal Charges,42.3
+2021,Nov,Overall Average,Other Immigration Violator,20.3
+2021,Dec,CBP,Convicted Criminal,35.6
+2021,Dec,CBP,Pending Criminal Charges,30.9
+2021,Dec,CBP,Other Immigration Violator,21.4
+2021,Dec,ICE,Convicted Criminal,65.6
+2021,Dec,ICE,Pending Criminal Charges,52.5
+2021,Dec,ICE,Other Immigration Violator,10.2
+2021,Dec,Overall Average,Convicted Criminal,59.1
+2021,Dec,Overall Average,Pending Criminal Charges,41.0
+2021,Dec,Overall Average,Other Immigration Violator,21.0
+2022,Jan,CBP,Convicted Criminal,28.3
+2022,Jan,CBP,Pending Criminal Charges,34.8
+2022,Jan,CBP,Other Immigration Violator,22.8
+2022,Jan,ICE,Convicted Criminal,56.7
+2022,Jan,ICE,Pending Criminal Charges,47.8
+2022,Jan,ICE,Other Immigration Violator,6.5
+2022,Jan,Overall Average,Convicted Criminal,50.6
+2022,Jan,Overall Average,Pending Criminal Charges,43.2
+2022,Jan,Overall Average,Other Immigration Violator,22.2
+2022,Feb,CBP,Convicted Criminal,37.7
+2022,Feb,CBP,Pending Criminal Charges,24.7
+2022,Feb,CBP,Other Immigration Violator,18.7
+2022,Feb,ICE,Convicted Criminal,59.6
+2022,Feb,ICE,Pending Criminal Charges,48.1
+2022,Feb,ICE,Other Immigration Violator,7.6
+2022,Feb,Overall Average,Convicted Criminal,55.7
+2022,Feb,Overall Average,Pending Criminal Charges,36.4
+2022,Feb,Overall Average,Other Immigration Violator,18.3
+2022,Mar,CBP,Convicted Criminal,35.4
+2022,Mar,CBP,Pending Criminal Charges,28.7
+2022,Mar,CBP,Other Immigration Violator,19.7
+2022,Mar,ICE,Convicted Criminal,55.0
+2022,Mar,ICE,Pending Criminal Charges,37.0
+2022,Mar,ICE,Other Immigration Violator,6.4
+2022,Mar,Overall Average,Convicted Criminal,51.1
+2022,Mar,Overall Average,Pending Criminal Charges,35.4
+2022,Mar,Overall Average,Other Immigration Violator,16.9
+2022,Apr,CBP,Convicted Criminal,24.6
+2022,Apr,CBP,Pending Criminal Charges,32.1
+2022,Apr,CBP,Other Immigration Violator,20.6
+2022,Apr,ICE,Convicted Criminal,47.8
+2022,Apr,ICE,Pending Criminal Charges,37.3
+2022,Apr,ICE,Other Immigration Violator,5.5
+2022,Apr,Overall Average,Convicted Criminal,43.5
+2022,Apr,Overall Average,Pending Criminal Charges,35.4
+2022,Apr,Overall Average,Other Immigration Violator,19.4
+2022,May,CBP,Convicted Criminal,25.4
+2022,May,CBP,Pending Criminal Charges,33.1
+2022,May,CBP,Other Immigration Violator,21.5
+2022,May,ICE,Convicted Criminal,46.2
+2022,May,ICE,Pending Criminal Charges,37.4
+2022,May,ICE,Other Immigration Violator,6.2
+2022,May,Overall Average,Convicted Criminal,41.7
+2022,May,Overall Average,Pending Criminal Charges,36.2
+2022,May,Overall Average,Other Immigration Violator,20.4
+2022,Jun,CBP,Convicted Criminal,29.3
+2022,Jun,CBP,Pending Criminal Charges,36.2
+2022,Jun,CBP,Other Immigration Violator,26.1
+2022,Jun,ICE,Convicted Criminal,48.0
+2022,Jun,ICE,Pending Criminal Charges,39.3
+2022,Jun,ICE,Other Immigration Violator,7.1
+2022,Jun,Overall Average,Convicted Criminal,44.1
+2022,Jun,Overall Average,Pending Criminal Charges,38.3
+2022,Jun,Overall Average,Other Immigration Violator,25.3
+2022,Jul,CBP,Convicted Criminal,27.5
+2022,Jul,CBP,Pending Criminal Charges,45.4
+2022,Jul,CBP,Other Immigration Violator,28.3
+2022,Jul,ICE,Convicted Criminal,43.7
+2022,Jul,ICE,Pending Criminal Charges,34.6
+2022,Jul,ICE,Other Immigration Violator,11.8
+2022,Jul,Overall Average,Convicted Criminal,40.5
+2022,Jul,Overall Average,Pending Criminal Charges,36.7
+2022,Jul,Overall Average,Other Immigration Violator,27.3
+2022,Aug,CBP,Convicted Criminal,23.6
+2022,Aug,CBP,Pending Criminal Charges,33.6
+2022,Aug,CBP,Other Immigration Violator,29.7
+2022,Aug,ICE,Convicted Criminal,43.9
+2022,Aug,ICE,Pending Criminal Charges,30.4
+2022,Aug,ICE,Other Immigration Violator,12.9
+2022,Aug,Overall Average,Convicted Criminal,39.6
+2022,Aug,Overall Average,Pending Criminal Charges,31.1
+2022,Aug,Overall Average,Other Immigration Violator,28.5
+2022,Sep,CBP,Convicted Criminal,26.4
+2022,Sep,CBP,Pending Criminal Charges,34.2
+2022,Sep,CBP,Other Immigration Violator,32.4
+2022,Sep,ICE,Convicted Criminal,40.1
+2022,Sep,ICE,Pending Criminal Charges,30.6
+2022,Sep,ICE,Other Immigration Violator,14.3
+2022,Sep,Overall Average,Convicted Criminal,37.1
+2022,Sep,Overall Average,Pending Criminal Charges,31.3
+2022,Sep,Overall Average,Other Immigration Violator,30.4
+2022,Oct,CBP,Convicted Criminal,27.0
+2022,Oct,CBP,Pending Criminal Charges,44.0
+2022,Oct,CBP,Other Immigration Violator,44.5
+2022,Oct,ICE,Convicted Criminal,40.4
+2022,Oct,ICE,Pending Criminal Charges,30.0
+2022,Oct,ICE,Other Immigration Violator,14.9
+2022,Oct,Overall Average,Convicted Criminal,38.0
+2022,Oct,Overall Average,Pending Criminal Charges,32.0
+2022,Oct,Overall Average,Other Immigration Violator,41.7
+2022,Nov,CBP,Convicted Criminal,36.5
+2022,Nov,CBP,Pending Criminal Charges,51.8
+2022,Nov,CBP,Other Immigration Violator,40.8
+2022,Nov,ICE,Convicted Criminal,41.4
+2022,Nov,ICE,Pending Criminal Charges,31.0
+2022,Nov,ICE,Other Immigration Violator,14.6
+2022,Nov,Overall Average,Convicted Criminal,40.5
+2022,Nov,Overall Average,Pending Criminal Charges,33.5
+2022,Nov,Overall Average,Other Immigration Violator,38.8
+2022,Dec,CBP,Convicted Criminal,31.2
+2022,Dec,CBP,Pending Criminal Charges,47.7
+2022,Dec,CBP,Other Immigration Violator,45.1
+2022,Dec,ICE,Convicted Criminal,45.9
+2022,Dec,ICE,Pending Criminal Charges,38.4
+2022,Dec,ICE,Other Immigration Violator,17.1
+2022,Dec,Overall Average,Convicted Criminal,42.6
+2022,Dec,Overall Average,Pending Criminal Charges,40.2
+2022,Dec,Overall Average,Other Immigration Violator,43.6
+2023,Jan,CBP,Convicted Criminal,36.6
+2023,Jan,CBP,Pending Criminal Charges,65.5
+2023,Jan,CBP,Other Immigration Violator,43.3
+2023,Jan,ICE,Convicted Criminal,0.0
+2023,Jan,ICE,Pending Criminal Charges,40.0
+2023,Jan,ICE,Other Immigration Violator,13.5
+2023,Jan,Overall Average,Convicted Criminal,44.5
+2023,Jan,Overall Average,Pending Criminal Charges,43.8
+2023,Jan,Overall Average,40.3
+2023,Feb,CBP,Convicted Criminal,40.5
+2023,Feb,CBP,Pending Criminal Charges,50.4
+2023,Feb,CBP,Other Immigration Violator,34.1
+2023,Feb,ICE,Convicted Criminal,48.1
+2023,Feb,ICE,Pending Criminal Charges,37.7
+2023,Feb,ICE,Other Immigration Violator,11.8
+2023,Feb,Overall Average,Convicted Criminal,47.0
+2023,Feb,Overall Average,Pending Criminal Charges,39.5
+2023,Feb,Overall Average,32.0
+2023,Mar,CBP,Convicted Criminal,37.5
+2023,Mar,CBP,Pending Criminal Charges,54.2
+2023,Mar,CBP,Other Immigration Violator,35.1
+2023,Mar,ICE,Convicted Criminal,43.8
+2023,Mar,ICE,Pending Criminal Charges,35.8
+2023,Mar,ICE,Other Immigration Violator,16.7
+2023,Mar,Overall Average,Convicted Criminal,42.9
+2023,Mar,Overall Average,Pending Criminal Charges,38.3
+2023,Mar,Overall Average,33.8
+2023,Apr,CBP,Convicted Criminal,45.5
+2023,Apr,CBP,Pending Criminal Charges,62.1
+2023,Apr,CBP,Other Immigration Violator,34.6
+2023,Apr,ICE,Convicted Criminal,47.3
+2023,Apr,ICE,Pending Criminal Charges,36.1
+2023,Apr,ICE,Other Immigration Violator,15.0
+2023,Apr,Overall Average,Convicted Criminal,47.1
+2023,Apr,Overall Average,Pending Criminal Charges,39.8
+2023,Apr,Overall Average,33.1
+2023,May,CBP,Convicted Criminal,46.0
+2023,May,CBP,Pending Criminal Charges,44.4
+2023,May,CBP,Other Immigration Violator,30.8
+2023,May,ICE,Convicted Criminal,43.6
+2023,May,ICE,Pending Criminal Charges,36.2
+2023,May,ICE,Other Immigration Violator,15.8
+2023,May,Overall Average,Convicted Criminal,43.9
+2023,May,Overall Average,Pending Criminal Charges,37.4
+2023,May,Overall Average,29.6
+2023,Jun,CBP,Convicted Criminal,36.6
+2023,Jun,CBP,Pending Criminal Charges,37.4
+2023,Jun,CBP,Other Immigration Violator,29.1
+2023,Jun,ICE,Convicted Criminal,42.5
+2023,Jun,ICE,Pending Criminal Charges,38.2
+2023,Jun,ICE,Other Immigration Violator,12.3
+2023,Jun,Overall Average,Convicted Criminal,41.5
+2023,Jun,Overall Average,Pending Criminal Charges,38.0
+2023,Jun,Overall Average,28.0
+2023,Jul,CBP,Convicted Criminal,35.6
+2023,Jul,CBP,Pending Criminal Charges,46.8
+2023,Jul,CBP,Other Immigration Violator,34.1
+2023,Jul,ICE,Convicted Criminal,35.8
+2023,Jul,ICE,Pending Criminal Charges,35.3
+2023,Jul,ICE,Other Immigration Violator,10.8
+2023,Jul,Overall Average,Convicted Criminal,43.4
+2023,Jul,Overall Average,Pending Criminal Charges,38.0
+2023,Jul,Overall Average,32.4
+2023,Aug,CBP,Convicted Criminal,43.0
+2023,Aug,CBP,Pending Criminal Charges,51.1
+2023,Aug,CBP,Other Immigration Violator,35.0
+2023,Aug,ICE,Convicted Criminal,48.1
+2023,Aug,ICE,Pending Criminal Charges,44.3
+2023,Aug,ICE,Other Immigration Violator,18.3
+2023,Aug,Overall Average,Convicted Criminal,47.6
+2023,Aug,Overall Average,Pending Criminal Charges,45.4
+2023,Aug,Overall Average,34.7
+2023,Sep,CBP,Convicted Criminal,43.8
+2023,Sep,CBP,Pending Criminal Charges,48.9
+2023,Sep,CBP,Other Immigration Violator,36.7
+2023,Sep,ICE,Convicted Criminal,43.4
+2023,Sep,ICE,Pending Criminal Charges,37.4
+2023,Sep,ICE,Other Immigration Violator,18.7
+2023,Sep,Overall Average,Convicted Criminal,43.9
+2023,Sep,Overall Average,Pending Criminal Charges,39.4
+2023,Sep,Overall Average,35.1
+2023,Oct,CBP,Average,44.6
+2023,Oct,CBP,Convicted Criminal,40.5
+2023,Oct,CBP,Pending Criminal Charges,60.2
+2023,Oct,CBP,Other Immigration Violator,44.5
+2023,Oct,ICE,Average,49.5
+2023,Oct,ICE,Convicted Criminal,47.4
+2023,Oct,ICE,Pending Criminal Charges,50.7
+2023,Oct,ICE,Other Immigration Violator,19.9
+2023,Oct,Overall Average,Average,46.2
+2023,Oct,Overall Average,Convicted Criminal,46.2
+2023,Oct,Overall Average,Pending Criminal Charges,52.7
+2023,Oct,Overall Average,Other Immigration Violator,42.5
+2023,Nov,CBP,Average,50.0
+2023,Nov,CBP,Convicted Criminal,43.9
+2023,Nov,CBP,Pending Criminal Charges,55.5
+2023,Nov,CBP,Other Immigration Violator,50.3
+2023,Nov,ICE,Average,42.8
+2023,Nov,ICE,Convicted Criminal,49.3
+2023,Nov,ICE,Pending Criminal Charges,43.3
+2023,Nov,ICE,Other Immigration Violator,18.3
+2023,Nov,Overall Average,Average,47.7
+2023,Nov,Overall Average,Convicted Criminal,48.2
+2023,Nov,Overall Average,Pending Criminal Charges,45.9
+2023,Nov,Overall Average,Other Immigration Violator,47.7
+2023,Dec,CBP,Average,54.4
+2023,Dec,CBP,Convicted Criminal,53.0
+2023,Dec,CBP,Pending Criminal Charges,61.7
+2023,Dec,CBP,Other Immigration Violator,54.5
+2023,Dec,ICE,Average,39.7
+2023,Dec,ICE,Convicted Criminal,50.2
+2023,Dec,ICE,Pending Criminal Charges,46.5
+2023,Dec,ICE,Other Immigration Violator,13.0
+2023,Dec,Overall Average,Average,49.5
+2023,Dec,Overall Average,Convicted Criminal,50.4
+2023,Dec,Overall Average,Pending Criminal Charges,49.4
+2023,Dec,Overall Average,Other Immigration Violator,49.2
+2024,Jan,CBP,Average,58.3
+2024,Jan,CBP,Convicted Criminal,45.6
+2024,Jan,CBP,Pending Criminal Charges,63.9
+2024,Jan,CBP,Other Immigration Violator,59.6
+2024,Jan,ICE,Average,49.8
+2024,Jan,ICE,Convicted Criminal,54.2
+2024,Jan,ICE,Pending Criminal Charges,52.1
+2024,Jan,ICE,Other Immigration Violator,29.7
+2024,Jan,Overall Average,Average,55.5
+2024,Jan,Overall Average,Convicted Criminal,52.2
+2024,Jan,Overall Average,Pending Criminal Charges,54.7
+2024,Jan,Overall Average,Other Immigration Violator,57.1
+2024,Feb,CBP,Average,44.9
+2024,Feb,CBP,Convicted Criminal,45.2
+2024,Feb,CBP,Pending Criminal Charges,58.9
+2024,Feb,CBP,Other Immigration Violator,44.5
+2024,Feb,ICE,Average,43.6
+2024,Feb,ICE,Convicted Criminal,46.8
+2024,Feb,ICE,Pending Criminal Charges,44.3
+2024,Feb,ICE,Other Immigration Violator,27.6
+2024,Feb,Overall Average,Average,44.5
+2024,Feb,Overall Average,Convicted Criminal,46.5
+2024,Feb,Overall Average,Pending Criminal Charges,47.5
+2024,Feb,Overall Average,Other Immigration Violator,43.5
+2024,Mar,CBP,Average,45.6
+2024,Mar,CBP,Convicted Criminal,44.5
+2024,Mar,CBP,Pending Criminal Charges,45.9
+2024,Mar,CBP,Other Immigration Violator,47.0
+2024,Mar,ICE,Average,42.2
+2024,Mar,ICE,Convicted Criminal,44.3
+2024,Mar,ICE,Pending Criminal Charges,43.8
+2024,Mar,ICE,Other Immigration Violator,29.7
+2024,Mar,Overall Average,Average,45.5
+2024,Mar,Overall Average,Convicted Criminal,44.9
+2024,Mar,Overall Average,Pending Criminal Charges,43.6
+2024,Mar,Overall Average,Other Immigration Violator,45.9
+2024,Apr,CBP,Average,51.2
+2024,Apr,CBP,Convicted Criminal,44.7
+2024,Apr,CBP,Pending Criminal Charges,60.6
+2024,Apr,CBP,Other Immigration Violator,51.5
+2024,Apr,ICE,Average,46.2
+2024,Apr,ICE,Convicted Criminal,49.4
+2024,Apr,ICE,Pending Criminal Charges,45.6
+2024,Apr,ICE,Other Immigration Violator,33.1
+2024,Apr,Overall Average,Average,49.6
+2024,Apr,Overall Average,Convicted Criminal,48.4
+2024,Apr,Overall Average,Pending Criminal Charges,48.8
+2024,Apr,Overall Average,Other Immigration Violator,50.2
+2024,May,CBP,Average,46.7
+2024,May,CBP,Convicted Criminal,44.8
+2024,May,CBP,Pending Criminal Charges,55.1
+2024,May,CBP,Other Immigration Violator,46.5
+2024,May,ICE,Average,45.7
+2024,May,ICE,Convicted Criminal,48.6
+2024,May,ICE,Pending Criminal Charges,41.4
+2024,May,ICE,Other Immigration Violator,35.9
+2024,May,Overall Average,Average,46.4
+2024,May,Overall Average,Convicted Criminal,48.6
+2024,May,Overall Average,Pending Criminal Charges,44.2
+2024,May,Overall Average,Other Immigration Violator,45.9
+2024,Jun,CBP,Average,42.6
+2024,Jun,CBP,Convicted Criminal,40.2
+2024,Jun,CBP,Pending Criminal Charges,50.8
+2024,Jun,CBP,Other Immigration Violator,42.6
+2024,Jun,ICE,Average,47.9
+2024,Jun,ICE,Convicted Criminal,49.9
+2024,Jun,ICE,Pending Criminal Charges,45.9
+2024,Jun,ICE,Other Immigration Violator,42.2
+2024,Jun,Overall Average,Average,44.1
+2024,Jun,Overall Average,Convicted Criminal,47.8
+2024,Jun,Overall Average,Pending Criminal Charges,46.9
+2024,Jun,Overall Average,Other Immigration Violator,42.5
+2024,Jul,CBP,Average,42.8
+2024,Jul,CBP,Convicted Criminal,44.7
+2024,Jul,CBP,Pending Criminal Charges,44.2
+2024,Jul,CBP,Other Immigration Violator,42.7
+2024,Jul,ICE,Average,49.4
+2024,Jul,ICE,Convicted Criminal,51.0
+2024,Jul,ICE,Pending Criminal Charges,50.4
+2024,Jul,ICE,Other Immigration Violator,37.0
+2024,Jul,Overall Average,Average,44.4
+2024,Jul,Overall Average,Convicted Criminal,49.0
+2024,Jul,Overall Average,Pending Criminal Charges,48.8
+2024,Jul,Overall Average,Other Immigration Violator,42.4
+2024,Aug,CBP,Average,42.6
+2024,Aug,CBP,Convicted Criminal,37.7
+2024,Aug,CBP,Pending Criminal Charges,55.8
+2024,Aug,CBP,Other Immigration Violator,44.4
+2024,Aug,ICE,Average,49.3
+2024,Aug,ICE,Convicted Criminal,52.0
+2024,Aug,ICE,Pending Criminal Charges,47.4
+2024,Aug,ICE,Other Immigration Violator,37.2
+2024,Aug,Overall Average,Average,45.9
+2024,Aug,Overall Average,Convicted Criminal,49.1
+2024,Aug,Overall Average,Pending Criminal Charges,48.8
+2024,Aug,Overall Average,Other Immigration Violator,44.0
+2024,Sep,CBP,Average,44.2
+2024,Sep,CBP,Convicted Criminal,47.0
+2024,Sep,CBP,Pending Criminal Charges,58.1
+2024,Sep,CBP,Other Immigration Violator,44.3
+2024,Sep,ICE,Average,51.3
+2024,Sep,ICE,Convicted Criminal,54.3
+2024,Sep,ICE,Pending Criminal Charges,48.9
+2024,Sep,ICE,Other Immigration Violator,38.3
+2024,Sep,Overall Average,Average,46.7
+2024,Sep,Overall Average,Convicted Criminal,50.5
+2024,Sep,Overall Average,Pending Criminal Charges,50.2
+2024,Sep,Overall Average,Other Immigration Violator,43.2
+2024,Oct,CBP,Convicted Criminal,44.3
+2024,Oct,CBP,Pending Criminal Charges,56.3
+2024,Oct,CBP,Other Immigration Violator,44.4
+2024,Oct,ICE,Convicted Criminal,54.8
+2024,Oct,ICE,Pending Criminal Charges,49.2
+2024,Oct,ICE,Other Immigration Violator,34.6
+2024,Oct,Overall Average,Convicted Criminal,46.9
+2024,Oct,Overall Average,Pending Criminal Charges,50.3
+2024,Oct,Overall Average,Other Immigration Violator,43.8
+2024,Nov,CBP,Convicted Criminal,48.1
+2024,Nov,CBP,Pending Criminal Charges,61.8
+2024,Nov,CBP,Other Immigration Violator,48.2
+2024,Nov,ICE,Convicted Criminal,50.8
+2024,Nov,ICE,Pending Criminal Charges,52.8
+2024,Nov,ICE,Other Immigration Violator,43.1
+2024,Nov,Overall Average,Convicted Criminal,49.0
+2024,Nov,Overall Average,Pending Criminal Charges,54.1
+2024,Nov,Overall Average,Other Immigration Violator,47.9
+2024,Dec,CBP,Convicted Criminal,46.8
+2024,Dec,CBP,Pending Criminal Charges,63.7
+2024,Dec,CBP,Other Immigration Violator,47.0
+2024,Dec,ICE,Convicted Criminal,55.0
+2024,Dec,ICE,Pending Criminal Charges,50.3
+2024,Dec,ICE,Other Immigration Violator,44.7
+2024,Dec,Overall Average,Convicted Criminal,49.0
+2024,Dec,Overall Average,Pending Criminal Charges,52.1
+2024,Dec,Overall Average,Other Immigration Violator,46.9
+2025,Jan,CBP,Convicted Criminal,52.3
+2025,Jan,CBP,Pending Criminal Charges,64.9
+2025,Jan,CBP,Other Immigration Violator,53.0
+2025,Jan,ICE,Convicted Criminal,53.2
+2025,Jan,ICE,Pending Criminal Charges,52.9
+2025,Jan,ICE,Other Immigration Violator,41.8
+2025,Jan,Overall Average,Convicted Criminal,52.2
+2025,Jan,Overall Average,Pending Criminal Charges,54.4
+2025,Jan,Overall Average,Other Immigration Violator,52.2
+2025,Feb,CBP,Convicted Criminal,65.4
+2025,Feb,CBP,Pending Criminal Charges,64.2
+2025,Feb,CBP,Other Immigration Violator,69.1
+2025,Feb,ICE,Convicted Criminal,45.6
+2025,Feb,ICE,Pending Criminal Charges,46.4
+2025,Feb,ICE,Other Immigration Violator,21.5
+2025,Feb,Overall Average,Convicted Criminal,51.2
+2025,Feb,Overall Average,Pending Criminal Charges,48.3
+2025,Feb,Overall Average,Other Immigration Violator,57.7
+2025,Mar,CBP,Convicted Criminal,76.8
+2025,Mar,CBP,Pending Criminal Charges,59.3
+2025,Mar,CBP,Other Immigration Violator,94.2
+2025,Mar,ICE,Convicted Criminal,47.1
+2025,Mar,ICE,Pending Criminal Charges,44.9
+2025,Mar,ICE,Other Immigration Violator,29.7
+2025,Mar,Overall Average,Convicted Criminal,51.9
+2025,Mar,Overall Average,Pending Criminal Charges,46.0
+2025,Mar,Overall Average,Other Immigration Violator,65.4
+2025,Apr,CBP,Convicted Criminal,68.5
+2025,Apr,CBP,Pending Criminal Charges,38.0
+2025,Apr,CBP,Other Immigration Violator,91.3
+2025,Apr,ICE,Convicted Criminal,42.9
+2025,Apr,ICE,Pending Criminal Charges,40.2
+2025,Apr,ICE,Other Immigration Violator,31.3
+2025,Apr,Overall Average,Convicted Criminal,46.2
+2025,Apr,Overall Average,Pending Criminal Charges,40.1
+2025,Apr,Overall Average,Other Immigration Violator,60.5

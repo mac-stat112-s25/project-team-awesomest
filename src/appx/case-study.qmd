@@ -2,4 +2,14 @@
 title: "Case Study"
 ---
 
-Your case study will go here.
+**Trump Tweets** 
+
+- The author narrated his process of retrieving, cleaning, and analyzing his dataset. 
+  - Gives a clear story/narration to his work
+- Gives a concise one sentence explanation of each of his visualizations. 
+  - "Trump on the Android does a lot more tweeting in the morning, while the campaign posts from the iPhone more in the afternoon and early evening."
+- He used multiple visualizations of different variables in his dataset to contribute to his larger research question. 
+  - There's a clear reason for each visualization, and how it contributes to our understanding of Trump's tweets. 
+- He gives a broader takeaway of his analyses at the very end. 
+
+Overall, David Robinson effectively and professionally told his audience a story about Trump's tweets through a thorough and easy-to-follow text analysis. 
