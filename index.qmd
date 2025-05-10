@@ -5,15 +5,28 @@ execute:
   echo: false      
   warning: false
   message: false
-code-fold: false  
+code-fold: false
+format: html
 ---
 
 # Presentation Video 
 
+<iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/1tAYvMj0oUw" 
+        title="Patterns of Detention: Tracking ICE + CBP Enforcement Since FY 2017 Presentation Video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen></iframe>
+
 # Presentation Slides
 
 ::: {.iframe-container}
-<iframe src="https://docs.google.com/presentation/d/1Bv_g5-6_FY2xlvrHWQ045cuAzuxnjCTQN-joLtiTdXU/embed?start=false&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1Bv_g5-6_FY2xlvrHWQ045cuAzuxnjCTQN-joLtiTdXU/embed?start=false&loop=false&delayms=5000" 
+        frameborder="0" 
+        width="960" 
+        height="569" 
+        allowfullscreen="true">
+</iframe>
 :::
 
 
@@ -23,13 +36,12 @@ code-fold: false
 In recent months, the Trump administration has announced significant expansions to immigration enforcement efforts, particularly within the Immigration and Customs Enforcement (ICE) and Customs and Border Protection (CBP) agencies under the Department of Homeland Security. Given the controversial nature of these changes—introduced just three months into Trump's return to office—this project seeks to better understand their implications by examining immigration enforcement trends. We analyze book-in and length of stay data from fiscal years 2017 through 2024 to place current developments in historical context and assess how prior enforcement patterns may inform present concerns. By studying the recent history of ICE and CBP, we aim to better understand the potential consequences of renewed policy shifts.
 
 Our research questions are: 
-1) 
-2) 
-3) 
 
-What research question(s) are you trying to answer?
-What are the key goals of the project?
-What ideas do you most want to communicate?
+ 1) What do detention trends from the fiscal years 2017-2024 look like? 
+
+ 2) What are the detention trends of 2019 specifically? Why was this a unique year?
+
+ 3) What are the current detention trends for FY2025?
 
 ## Background 
 What background information is necessary for target audience to understand?
@@ -65,6 +77,8 @@ library(maps)
 library(RColorBrewer)
 library(mosaic)
 library(leaflet)
+library(tidyr)
+library(dplyr)
 ```
 
 # RQ1: What do detention trends from the fiscal years 2017-2024 look like? 
@@ -266,7 +280,7 @@ Another key insight from the visualization involves the types of facilities. The
 
 The distribution of family facilities is especially telling. All six family detention centers are located along the Texas–Mexico border, suggesting a deliberate strategy to process and detain immigrant families—especially those from Mexico and Central America—at the point of entry. Juvenile and hospital facilities were more geographically dispersed, with hospital facilities in particular spread across a wider range of states.
 
-# RQ3: 2025 so far 
+# RQ3: What are the current detention trends for FY2025? 
 
 ```{r}
 #Load Data
@@ -279,8 +293,7 @@ Detention_Data_2025
 ### Create Faceted Line Chart ###
 
 #Load Libraries
-library(tidyr)
-library(dplyr)
+
 
 ### Create Time-Series Line Chart
 
@@ -346,39 +359,71 @@ ice_facility_data <- read_csv("data/FY2019 - Facility Types Data  - Sheet1.csv")
 ice_facility_data
 ```
 
-```{r}
-# Assuming your dataframe is named 'ice_facility_data'
 
-# Filter data for only FRC facilities
-frc_data <- ice_facility_data %>%
-  filter(`Facility Type` == "FRC")
+# Conclusions / Big Picture
 
-# Ensure 'Month' is an ordered factor with all relevant months
-month_levels <- c("October", "November", "December", "January", "February", "March", "April", "May", "June", "July", "August", "September")
-frc_data$Month <- factor(frc_data$Month, levels = month_levels, ordered = TRUE)
+This project examined detention trends from fiscal years 2017–2025 to understand how immigration enforcement has evolved across presidential administrations, with a particular focus on FY 2019 as a benchmark for assessing changes under the Trump and Biden administrations, and early indications from Trump’s current term.
 
-# Create the line chart for FRC facilities
-ggplot(frc_data, aes(x = Month, y = `ICE Daily Population`, group = 1)) +
-  geom_line(linewidth = 1.2, color = "steelblue") + # Use a distinct color
-  geom_point(size = 3, color = "steelblue") +
-  labs(
-    title = "ICE Daily Population at FRC Facilities Over Time",
-    x = "Month",
-    y = "ICE Daily Population",
-    caption = "Source: Your Data Source" # Replace with your actual data source
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
-    axis.title.x = element_text(face = "bold", size = 12),
-    axis.title.y = element_text(face = "bold", size = 12)
-  )
-```
+---
 
-# Conclusions/Big Picture 
-How do the insights connect to answer your research question(s)?
+### RQ1: What do detention trends from FY 2017–2024 look like?
+
+By comparing the Trump and Biden administrations, it becomes clear that Trump pursued a significantly more aggressive approach to immigration enforcement. Fiscal Year 2019, two years into Trump’s first term, saw an unprecedented peak of over 500,000 book-ins—a level unmatched in recent years. While Biden’s administration also maintained robust enforcement practices, it never reached this scale.
+
+The drop in detention numbers during FY 2020 and 2021 aligns with disruptions caused by the COVID-19 pandemic, which likely reduced enforcement activity and strained operational capacity.
+
+Importantly, the data show that a majority of individuals detained during the Trump administration—especially in FY 2019—had no known criminal charges beyond immigration violations. Over 300,000 arrests that year involved individuals without criminal convictions or pending charges. In contrast, FY 2020 saw a higher proportion of detainees with criminal records, likely due to prioritization amid limited resources during the pandemic. Under Biden, detention of individuals without criminal charges remained common, challenging persistent narratives, particularly from Trump-era rhetoric, that equate undocumented immigrants with criminality.
+
+When analyzing length of detention by criminality status, individuals with criminal charges were generally held for longer periods. However, in FY 2020, all groups experienced extended stays, likely due to legal system backlogs during the pandemic. Those without criminal charges may have been deprioritized, contributing to longer detention times.
+
+---
+
+### RQ2: What made FY 2019 a unique year?
+
+FY 2019 was selected as a critical year for analysis due to its timing: two years into Trump’s first term and unaffected by the pandemic. This year offers a clear picture of his administration’s immigration enforcement strategy in full effect.
+
+An agency-level analysis revealed that Customs and Border Protection (CBP) consistently recorded more book-ins than Immigration and Customs Enforcement (ICE), peaking in May before declining toward September. ICE’s figures remained more stable throughout the year. This pattern supports the idea that Trump focused more heavily on preventing unauthorized entry (via CBP) than on interior enforcement or deportation (via ICE). This aligns with his public statements framing border security as essential to national safety, often through dehumanizing rhetoric about migrants.
+
+Spatial data from early 2020—used as a proxy for the end of 2019—showed that enforcement facilities were concentrated in major cities and along the U.S.–Mexico border. Notably, there were approximately six family detention facilities located in Texas near the southern border. The placement and nature of these facilities raise serious concerns about the treatment of children and families, given numerous reports of neglect and abuse within such centers ([Detention Watch Network, 2025](https://www.detentionwatchnetwork.org/pressroom/releases/2025/family-detention-all-immigration-detention-inhumane-unjust-unnecessary)).
+
+Juvenile and hospital-based detention facilities were often located near adult facilities but were slightly more geographically dispersed. In contrast, the placement of family centers appears more strategically targeted—primarily at migrants crossing the southern border.
+
+---
+
+### RQ3: What do detention trends for 2025 indicate so far?
+
+While 2025 data are still emerging and cannot yet be used to draw firm conclusions, several notable trends are visible. One key shift is that ICE, rather than CBP, is leading in book-ins—an apparent reversal from Trump’s first term. This may suggest a shift from entry prevention to interior enforcement and deportation, which is consistent with recent rhetoric and reports of increased ICE activity.
+
+There have already been local reports of ICE operations near college campuses, including one sighting near Macalester College. The data so far show a rise in book-ins across all criminality types, including individuals with no criminal charges, indicating a steady ramp-up of enforcement. Although the average detention population remains similar to levels seen at the end of Biden’s term, early indicators point to a rising trend—especially for those with pending or confirmed criminal charges.
+
+Given the historical precedent of FY 2019, and the patterns beginning to emerge in 2025, it is likely that immigration enforcement will continue to intensify under Trump’s current administration.
+
+---
+
+### Final Thoughts
+
+Our findings demonstrate that immigration detention policy in the U.S. is highly influenced by presidential administrations and broader sociopolitical factors. The Trump administration’s rhetoric and enforcement strategies had a direct impact on who was detained, for how long, and where. The exceptional nature of FY 2019 provides a baseline for assessing the direction and intensity of future enforcement actions. The early months of 2025 suggest a potential return to aggressive enforcement, though with evolving agency roles and tactics.
+
+These insights challenge dominant narratives about the criminality of undocumented immigrants and raise important questions about the goals, fairness, and human cost of the U.S. immigration detention system.
 
 # Limitations and Future Work
-What limitations or weaknesses does your data / analysis suffer from?
-What improvements might someone make to your analysis?
 
+While this analysis provides valuable insights into immigration detention trends from FY 2017–2025, several limitations affect the scope and depth of the findings. These constraints should be taken into account when interpreting the results and considering future research directions.
+
+### Limited Historical Range of Data
+
+One significant limitation is the temporal scope of the data. Initially, we intended to include data spanning multiple administrations, including that of President Obama, to provide a broader historical context. However, ICE data available through ice.gov did not include the full span of the Obama administration, particularly the earlier years. As a result, our analysis is limited to comparisons between the Trump and Biden administrations. This constraint narrows our ability to make generalizations about long-term policy trends and makes it more difficult to assess how recent actions compare to broader historical norms.
+
+**Future Work:** Expanding the dataset to include earlier administrations—if data becomes available—would greatly strengthen the analysis. This could offer a more comprehensive view of the evolution of immigration detention policies over time, and better isolate the effects of individual administrations.
+
+### Limited Access to Demographic and Vulnerability Data
+
+Another limitation is the lack of consistent demographic and vulnerability data across administrations. While ICE provides information about vulnerable populations (such as minors, families, or individuals with medical conditions) during the Biden administration, comparable data were not available for Trump’s term. This inconsistency limits our ability to assess how enforcement impacted different subpopulations over time.
+
+The absence of this data is itself revealing; it highlights differences in transparency and reporting priorities across administrations. Still, it constrains our ability to conduct intersectional analyses that account for age, gender, family status, or health vulnerabilities in the detention system.
+
+**Future Work:** Future researchers should prioritize acquiring more comprehensive demographic data, either through FOIA requests, partnerships with NGOs, or expanded government datasets. This would enable more nuanced, equity-focused analyses and help uncover disparities in how immigration enforcement is applied.
+
+---
+
+Overall, while our findings offer important insights into federal immigration enforcement patterns, they represent only part of a larger and more complex system. Expanding the dataset both temporally and demographically would help paint a more complete and representative picture of U.S. immigration detention policy.
