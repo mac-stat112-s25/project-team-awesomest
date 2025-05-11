@@ -29,11 +29,11 @@ format: html
 </iframe>
 :::
 
-
-# Our Project
+## Our Project
 
 ## Motivation 
-In recent months, the Trump administration has announced significant expansions to immigration enforcement efforts, particularly within the Immigration and Customs Enforcement (ICE) and Customs and Border Protection (CBP) agencies under the Department of Homeland Security. Given the controversial nature of these changes—introduced just three months into Trump's return to office—this project seeks to better understand their implications by examining immigration enforcement trends. We analyze book-in and length of stay data from fiscal years 2017 through 2024 to place current developments in historical context and assess how prior enforcement patterns may inform present concerns. By studying the recent history of ICE and CBP, we aim to better understand the potential consequences of renewed policy shifts.
+
+In recent months, the Trump administration has announced significant expansions to immigration enforcement efforts, particularly within the Immigration and Customs Enforcement (ICE) and Customs and Border Protection (CBP) agencies under the Department of Homeland Security. Given the controversial nature of these changes and the fact that we are just three months into Trump's return to office, this project aims to better understand their implications by analyzing trends in immigration enforcement. We analyze book-in and length of stay data from fiscal years 2017 through 2024 to place current developments in historical context and assess how prior enforcement patterns may inform present concerns. By studying the recent history of ICE and CBP, we aim to better understand the potential consequences of recent policy shifts.
 
 Our research questions are: 
 
@@ -44,24 +44,72 @@ Our research questions are:
  3) What are the current detention trends for FY2025?
 
 ## Background 
-What background information is necessary for target audience to understand?
+
+What background information is necessary for target audience to understand? 
+
+In the United States, our immigration enforcement system involves multiple federal agencies, most importantly U.S. Immigration and Customs Enforcement (ICE) and U.S. Customs and Border Protection (CBP), both under the U.S. Department of Homeland Security (DHS). ICE is tasked with interior immigration enforcement and oversees the detention and removal of individuals already present in the United States. While CBP is responsible for securing U.S. borders and inspecting individuals  at ports of entry. While CBP apprehends unauthorized individuals attempting to cross the border, ICE may detain individuals for longer-term detention and deportation proceedings.
+
+The U.S. immigration detention regime has evolved significantly over the last several presidential administrations, reflecting broader political shifts in immigration policy. Under the Trump administration (2017–2021), immigration enforcement expanded rapidly, marked by increased arrests, prolonged detention periods, and controversial practices such as family separation. The Biden administration sought to scale back enforcement priorities and reduce reliance on detention, though results were mixed. As Trump returns to office in 2025, his administration has begun to reimplement and expand aggressive enforcement measures. 
+
 What assumptions, terms, and/or acronyms need to be clarified?
 
-## Data
-Data collection
+Fiscal Year (FY): The data in our project is organized by fiscal years, which span from October 1 to September 30 of the following year. This is important to keep in mind, as many people assume data corresponds to the calendar year (January to December). The fiscal year structure can also complicate interpretations of presidential policy impacts, since administrations change in January.
+
+U.S. Immigration and Customs Enforcement (or ICE): ICE is a federal agency responsible for interior immigration enforcement, including the arrest, detention, and removal of noncitizens within the United States.
+
+U.S. Customs and Border Protection (CBP): CBP is the agency tasked with enforcing immigration and customs laws at U.S. borders and ports of entry. 
+
+“Other Immigration Violator”: This category, used in detention data, can be misleading or not immediately clea. Despite its potentially criminal connotation, it refers to individuals without criminal convictions or pending criminal charges. These are civil immigration violators, such as those who overstayed a visa or entered the U.S. without authorization but are not being prosecuted for a separate criminal offense.
+
+## Data Collection 
+
 What was collected?
+
+That's a good start! Here's a refined and more concise answer to "What was collected?":
+
+What was collected?
+
+The ICE Detention Statistics collect crucial information for understanding and visualizing trends within the detention system. Our analysis focuses on key variables consistently tracked across multiple years, including the Number of Book-Ins, representing the total admissions into ICE detention facilities during a specific period. Criminality, which details the primary reasons for detention through various categories of criminal offenses or immigration violations, is also a core element. The Length of Stay, or the duration individuals spend in custody, and the Detention Population, indicating the number of individuals held at a given time, are essential metrics. Furthermore, the Facility Type, specifying the kind of detention center, and the Apprehending Agency, identifying whether ICE or CBP initially apprehended the individual, provide important context. Finally, the Month and Year of the data allow for meaningful temporal analysis of these trends. While specific categories within these variables might evolve slightly over time, these core elements remain consistent for our analysis.
+
 When was it collected?
+
+The data is collected continuously as individuals are apprehended, processed, and detained by ICE. However, the publicly available datasets are compiled and released on a fiscal year (FY) basis. Each dataset covers the period from October 1st of the previous calendar year to September 30th of the current calendar year. For example, the "FY 2024 Detention Statistics" covers October 1, 2023, to September 30, 2024. 
+
 Why was it collected?
+
+The data is presumably collected for a wide variety of reasons. The U.S. government, and it's agencies, collect so much data to monitor and quantify their actions. Data collection helps ICE track who is in custody, manage capacity across facilities, and allocate resources like staffing and funding. The data also serves broader purposes, including informing policy decisions, evaluating the impact of enforcement practices, and providing transparency to Congress, other oversight entities, and us (the public).
+
 How was it collected originally?
+
+While we don’t know all the details about how the data is collected, it likely originates through a combination of manual entry and electronic systems as individuals move through the immigration enforcement process. ICE personnel likely have to track information during apprehension, processing, and detention. This information is likely managed through robust systems.
+
 Who collected it?
-Data acquisition
-Where / how did you get the data?
+
+The data was collected by U.S. Immigration and Customs Enforcement (ICE), primarily through its sub-agency Enforcement and Removal Operations (ERO). Additionaly, man ICE personnel are involved in the collection, including officers who apprehend and process individuals, detention facility staff who manage records, and administrative staff who enter and maintain data in ICE’s systems. Data analysts later compile this information for reporting and oversight. 
+
+## Data acquisition
+
+Where / how did you get the data? 
+
+Molly and I spent time exploring a range of datasets to find one that best aligned with our research questions. After a lot of searching, we identified the ICE Detention Statistics as the most comprehensive and relevant source. It provides consistent and clear data directly from the government source, allowing us to analyze trends across fiscal years with a high degree of reliability.
+
 What is the source?
-Data understanding
+
+We obtained this data from the U.S. Immigration and Customs Enforcement (ICE). The ICE website has a page where they pubish their year-end detention statistics for public consumption (https://www.ice.gov/detain/detention-management#stats). 
+
+## Data Understanding
+
 How much data do you have?
+
+For our project, we are working with nine datasets total (one for each Fiscal year between 2017 through 2025). Each data set contains a wealth of information for us to work with.  
+
 What types of measurements?
+
+Our data visualizations measure temporal trends (by month and year), the number of Book-Ins (continuous numeric variable), criminality classification (three categories: Convicted Criminal, Pending Criminal Charges, Other Immigration Violator), facility type (four categories: Adult, Family, Hospital, Juvenile), and detention population (continuous numeric variable).
+
 Anything you needed to clean before getting started?
 
+Yes, the original datasets were not easily transferable into RStudio due to formatting and compatibility issues. As a result, we created our own cleaned and consolidated datasets to focusing on the variables we were interested in analyzing. 
 
 ```{r, fig.cap = "Load Packages"}
 library(readr)
@@ -125,6 +173,7 @@ BookIns |>
   ) +
   scale_y_continuous(labels = comma)
 ```
+
 ## Commentary 
 Trump’s first term spanned from 2017 to 2020, followed by Biden’s presidency from 2021 to 2024. According to arrest data from ICE.gov, 2019 stands out as a particularly significant year, with over 500,000 arrests—nearly double the second-highest year, 2022, during Biden’s term. This surge in 2019 coincided with a series of aggressive policy changes under the Trump administration aimed at mass deportations and intensified border enforcement. The sharp drop in arrests in 2020—to around 200,000—was likely driven more by the onset of the COVID-19 pandemic than by any policy shift, as public health measures and travel restrictions disrupted enforcement operations.
 
@@ -183,13 +232,18 @@ ggplot(avg_stay_by_year_criminality, aes(x = as.factor(Year), y = Avg_Length_of_
     title = "Average Length of Stay by Year and Criminality",
     x = "Year",
     y = "Average Length of Stay (Days)",
-    fill = "Criminality"
-  ) +
+    fill = "Criminality") +
+  scale_fill_viridis(discrete = TRUE) + 
   theme_minimal() +
+  
   theme(
-    legend.position = "bottom"
-  )
+    legend.position = "bottom")
 ```
+## Commentary 
+
+The grouped bar chart reveals significant variations in the average length of stay in detention between 2018 and 2025, and variation across criminality types. Notably, during 2020 we see a striking peak for all criminalities, but espeically for "Other Immigraiton Violators." I can imagine that this is a result of an increased backlog in processing and releasing detainees during the height of the COVID-19 pandemic. 
+
+Overall, while fluctuations exist year-to-year for all categories, the average length of stay fluctuates between criminality types. This visualization effectively highlights these disparities and temporal shifts, prompting further investigation into the underlying policy changes or operational factors driving these trends in detention durations.
 
 # RQ2: What are the detention trends of 2019 specifically? Why was this a unique year? 
 
@@ -203,8 +257,7 @@ BookIns_2019 <- BookIns_2019 |>
   pivot_longer(
     cols = -Agency,          
     names_to = "Month",      
-    values_to = "Count"      
-  )
+    values_to = "Count")
 ```
 
 ```{r}
@@ -292,43 +345,36 @@ Detention_Data_2025
 ```{r}
 ### Create Faceted Line Chart ###
 
-#Load Libraries
+# Define Month Order
+month_levels <- c("October", "November", "December", "January", "February", "March", "April")
 
-
-### Create Time-Series Line Chart
-
-month_levels <- c("October", "November", "December", "January", "February", "March")
-
-# Ensure 'Month' in the original dataframe is also an ordered factor with these levels
+# Ensure Month Is Ordered Factor
 Detention_Data_2025$Month <- factor(Detention_Data_2025$Month, levels = month_levels, ordered = TRUE)
 
+# Get all unique agencies and criminality types 
 all_agencies <- unique(Detention_Data_2025$Agency)
+criminalities_clean <- unique(Detention_Data_2025$Criminality[!grepl("Total", #Exclude Total
+Detention_Data_2025$Criminality, ignore.case = TRUE)])
 
-# Filter out "Total" from the unique criminalities
-all_criminalities_no_total <- unique(Detention_Data_2025$Criminality[!grepl("Total", Detention_Data_2025$Criminality, ignore.case = TRUE)])
+# Create A Complete Grid of (Month, Agency, Criminality) 
+complete_grid <- expand_grid(
+  Month = factor(month_levels, levels = month_levels, ordered = TRUE),
+  Agency = all_agencies,
+  Criminality = criminalities_clean)
 
-# Create a complete grid of all combinations, excluding "Total" criminalities
-complete_grid <- expand_grid(Month = factor(month_levels, levels = month_levels, ordered = TRUE),
-                            Agency = all_agencies,
-                            Criminality = all_criminalities_no_total)
-
-# Calculate the total Daily Population, excluding "Total" criminalities
-detention_total_criminality_agency_no_total <- Detention_Data_2025 %>%
+# Summarize daily population (excluding "Total" criminalities)
+detention_summary <- Detention_Data_2025 %>%
   filter(!grepl("Total", Criminality, ignore.case = TRUE)) %>%
   group_by(Month, Agency, Criminality) %>%
-  summarise(Total_Daily_Population = sum(`Daily Population`, na.rm = TRUE), .groups = 'drop') %>%
-  ungroup()
+  summarise(Total_Daily_Population = sum(`Daily Population`, na.rm = TRUE), .groups = 'drop')
 
-# Left-join the summarized data to the complete grid
-detention_complete_data_no_total <- complete_grid %>%
-  left_join(detention_total_criminality_agency_no_total, by = c("Month", "Agency", "Criminality")) %>%
+# Join with full grid to ensure completeness
+detention_clean <- complete_grid %>%
+  left_join(detention_summary, by = c("Month", "Agency", "Criminality")) %>%
   replace_na(list(Total_Daily_Population = 0))
 
-# Create the time series line chart faceted by Agency, excluding "Total" criminalities
-
-# Create the time series line chart faceted by Agency
-p <- ggplot(detention_complete_data_no_total,
-       aes(x = Month, y = Total_Daily_Population, color = Criminality, group = Criminality)) +
+# Plot the faceted line chart
+Detention_Population_By_Criminality <- ggplot(detention_clean, aes(x = Month, y = Total_Daily_Population, color = Criminality, group = Criminality)) +
   geom_line(linewidth = 0.8) +
   geom_point(size = 2) +
   facet_wrap(~ Agency, ncol = 1) +
@@ -337,18 +383,31 @@ p <- ggplot(detention_complete_data_no_total,
     subtitle = "Faceted by Agency (CBP, ICE, Average)",
     x = "Month",
     y = "Total Daily Population",
-    caption = "Source: FY 2025 Ice Detention Statistics from ice.gov",
+    caption = "Source: FY 2025 ICE Detention Statistics from ice.gov",
     color = "Criminality Type") +
+  scale_color_viridis_d() +
   theme_minimal() +
   theme(
     plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
     plot.subtitle = element_text(size = 10, hjust = 0.5, color = "gray50"),
     axis.title.x = element_text(face = "bold", size = 10),
-    axis.title.y = element_text(face = "bold", size = 1),
+    axis.title.y = element_text(face = "bold", size = 10),
     plot.caption = element_text(size = 8, hjust = 0.5))
 
-p
+Detention_Population_By_Criminality
 ```
+
+##Commentary 
+
+The data paints a picture of detention patterns and trends in early FY2025. Importantly, we can see that the overall detention population is heavily weighted towards "Other Immigration Violators" across all agencies. 
+
+A closer examination of agency-specific data reveals distinct trends. First, we can see that U.S. Customs and Border Protection (CBP) facilities have a much larger population of "Other Immigration Violator" that is those without any criminal charges. This is likely because their facilities apprehend those at the borders vs. ICE which appends people settled within communities (more likely going after criminals).  
+
+Moreover, we see a slight increase in average detention population in the early parts of FY2025, suggesting harsher polices towards undocumented immigrants. But it's also clear the increase in overall population can be largely attributed to increases in ICE detention, whereas detention population at CBP has remained consistent. 
+
+This increasing trend within ICE, masked by the broader "Average," suggests a potentially intensifying focus or higher volume of such cases handled by the agency. Understanding the reasons behind this divergence between CBP and ICE, and the drivers of the increasing detention of "Convicted Criminals" and those with "Pending Criminal Charges" by ICE, becomes crucial for a comprehensive understanding of immigration enforcement in FY2025. The consistently high numbers for "Other Immigration Violators" across the board also is intresting and requires further examination. 
+
+Finally, I think this visualization serves as an interesting "first look" into FY2025. However, as the Trump administration continues and expands its policies, I expect we will see even more stark increases in ICE detention population and overall detention population. 
 
 ```{r}
 ### Make Vizualization For FY 2019 Facility Type ###
@@ -358,7 +417,6 @@ ice_facility_data <- read_csv("data/FY2019 - Facility Types Data  - Sheet1.csv")
 
 ice_facility_data
 ```
-
 
 # Conclusions / Big Picture
 

@@ -1,73 +1,85 @@
 Month ,Criminality ,Agency ,Daily Population
-October,Total,CBP,2443
-October,Convicted Criminal,CBP,137
-October,Pending Criminal Charges,CBP,741
-October,Other Immigration Violator ,CBP,22319
-October,Total,ICE,14284
-October,Convicted Criminal,ICE,9242
-October,Pending Criminal Charges,ICE,4169
-October,Other Immigration Violator ,ICE,873
-October,Total,Average,38714
-October,Convicted Criminal,Average,10611
-October,Pending Criminal Charges,Average,491
-October,Other Immigration Violator ,Average,23192
-November,Total,CBP,24405
-November,Convicted Criminal,CBP,1372
-November,Pending Criminal Charges,CBP,727
-November,Other Immigration Violator ,CBP,22306
-November,Total,ICE,14594
-November,Convicted Criminal,ICE,937
-November,Pending Criminal Charges,ICE,4346
+October,Total,CBP, 24425 
+October,Convicted Criminal,CBP, 1381 
+October,Pending Criminal Charges,CBP,739 
+October,Other Immigration Violator ,CBP,22305 
+October,Total,ICE,14285 
+October,Convicted Criminal,ICE,9255 
+October,Pending Criminal Charges,ICE,4155 
+October,Other Immigration Violator ,ICE,874 
+October,Total,Average,38710 
+October,Convicted Criminal,Average,10637 
+October,Pending Criminal Charges,Average,4894 
+October,Other Immigration Violator ,Average,23179 
+November,Total,CBP,24399 
+November,Convicted Criminal,CBP,1387 
+November,Pending Criminal Charges,CBP,728
+November,Other Immigration Violator ,CBP,22284 
+November,Total,ICE,14595 
+November,Convicted Criminal,ICE,9392 
+November,Pending Criminal Charges,ICE,4324
 November,Other Immigration Violator ,ICE,878
-November,Total,Average,39000
-November,Convicted Criminal,Average,10742
-November,Pending Criminal Charges,Average,5073
-November,Other Immigration Violator ,Average,23184
-December,Total,CBP,24357
-December,Convicted Criminal,CBP,1322
-December,Pending Criminal Charges,CBP,694
-December,Other Immigration Violator ,CBP,22342
-December,Total,ICE,14783
-December,Convicted Criminal,ICE,9411
-December,Pending Criminal Charges,ICE,4499
-December,Other Immigration Violator ,ICE,883
-December,Total,Average,39150
-December,Convicted Criminal,Average,10733
-December,Pending Criminal Charges,Average,5193
-December,Other Immigration Violator ,Average,23225
-January,Total,CBP,24679
-January,Convicted Criminal,CBP,1388
-January,Pending Criminal Charges,CBP,676
-January,Other Immigration Violator ,CBP,22615
-January,Total,ICE,15536
-January,Convicted Criminal,ICE,9653
-January,Pending Criminal Charges,ICE,4817
-January,Other Immigration Violator ,ICE,1066
-January,Total,Average,40215
-January,Convicted Criminal,Average,11041
-January,Pending Criminal Charges,Average,5493
-January,Other Immigration Violator ,Average,22681
-February,Total,CBP,21558
-February,Convicted Criminal,CBP,1254
-February,Pending Criminal Charges,CBP,637
-February,Other Immigration Violator ,CBP,19667
+November,Total,Average,38994
+November,Convicted Criminal,Average,10778
+November,Pending Criminal Charges,Average,5053
+November,Other Immigration Violator ,Average,23163
+December,Total,CBP,24351
+December,Convicted Criminal,CBP,1342
+December,Pending Criminal Charges,CBP,696
+December,Other Immigration Violator ,CBP,22313
+December,Total,ICE,14791
+December,Convicted Criminal,ICE,9442
+December,Pending Criminal Charges,ICE,4468
+December,Other Immigration Violator ,ICE,880
+December,Total,Average,39142
+December,Convicted Criminal,Average,10784
+December,Pending Criminal Charges,Average,5164
+December,Other Immigration Violator ,Average,23194
+January,Total,CBP,24674
+January,Convicted Criminal,CBP,1415 
+January,Pending Criminal Charges,CBP,677
+January,Other Immigration Violator ,CBP, 22581 
+January,Total,ICE, 15533 
+January,Convicted Criminal,ICE,9689 
+January,Pending Criminal Charges,ICE,4783 
+January,Other Immigration Violator ,ICE,1061 
+January,Total,Average, 40207 
+January,Convicted Criminal,Average,11104 
+January,Pending Criminal Charges,Average,5460 
+January,Other Immigration Violator ,Average,23642 
+February,Total,CBP,21551 
+February,Convicted Criminal,CBP,1284 
+February,Pending Criminal Charges,CBP,636
+February,Other Immigration Violator ,CBP,19630 
 February,Total,ICE,21571
-February,Convicted Criminal,ICE,11387
-February,Pending Criminal Charges,ICE,6908
-February,Other Immigration Violator ,ICE,3277
-February,Total,Average,43129
-February,Convicted Criminal,Average,12641
-February,Pending Criminal Charges,Average,7544
-February,Other Immigration Violator ,Average,22944
-March,Total,CBP,20148
-March,Convicted Criminal,CBP,1177
-March,Pending Criminal Charges,CBP,690
-March,Other Immigration Violator ,CBP,18282
-March,Total,ICE,27156
-March,Convicted Criminal,ICE,13001
-March,Pending Criminal Charges,ICE,9242
-March,Other Immigration Violator ,ICE,4913
-March,Total,Average,47304
-March,Convicted Criminal,Average,14177
-March,Pending Criminal Charges,Average,9932
-March,Other Immigration Violator ,Average,23195
+February,Convicted Criminal,ICE,11440 
+February,Pending Criminal Charges,ICE,6884 
+February,Other Immigration Violator ,ICE,3247 
+February,Total,Average,43121 
+February,Convicted Criminal,Average,12724 
+February,Pending Criminal Charges,Average,7520
+February,Other Immigration Violator ,Average,22878 
+March,Total,CBP,19909 
+March,Convicted Criminal,CBP,1216 
+March,Pending Criminal Charges,CBP,687 
+March,Other Immigration Violator,CBP,18006 
+March,Total,ICE,27778 
+March,Convicted Criminal,ICE,13242 
+March,Pending Criminal Charges,ICE,9524 
+March,Other Immigration Violator ,ICE,5012 
+March,Total,Average,47688 
+March,Convicted Criminal,Average, 14458 
+March,Pending Criminal Charges,Average,10212 
+March,Other Immigration Violator ,Average,23018 
+April,Total,CBP, 18841 
+April,Convicted Criminal,CBP,1293  
+April,Pending Criminal Charges,CBP,728 
+April,Other Immigration Violator ,CBP,16821 
+April,Total,ICE,30036 
+April,Convicted Criminal,ICE,13702 
+April,Pending Criminal Charges,ICE,10901 
+April,Other Immigration Violator ,ICE,5433 
+April,Total,Average,48877 
+April,Convicted Criminal,Average,14995 
+April,Pending Criminal Charges,Average,11628 
+April,Other Immigration Violator ,Average,22254 
