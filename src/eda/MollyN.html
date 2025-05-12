@@ -229,7 +229,8 @@ cookieconsent.run({
   
 
 
-</header><div class="cell">
+</header><p>For my EDA, I include a visualization that explored criminality more closesly, which ended up being modified and improved for our story. I also include a visualization we decided against including that tries to look at book-ins compared to the annual budget.</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -374,7 +375,7 @@ Joining with `by = join_by(Year, Criminality, Arrests, `%Total`)`</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Visualizations On Book-Ins/Arrests Over Time</span></span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Visualizations On Book-Ins/Arrests Over Time by Criminality</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a></span>
 <span id="cb27-3"><a href="#cb27-3"></a>BookIns <span class="sc">|&gt;</span></span>
 <span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
@@ -522,112 +523,32 @@ num (1): Budget (in millions)
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Comparing 2019 vs. 2024</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a>BookIns_2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 3 Columns: 14
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (1): Agency
-num (13): Oct, Nov, Dec, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Total
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>BookIns_2024 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 3 Columns: 14
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (1): Agency
-num (13): Oct, Nov, Dec, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Total
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>ICEBudget <span class="ot">&lt;-</span> ICEBudget <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.integer</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>BookIns_2019 <span class="ot">&lt;-</span> BookIns_2019 <span class="sc">|&gt;</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="st">"2019"</span>)</span>
-<span id="cb45-3"><a href="#cb45-3"></a></span>
-<span id="cb45-4"><a href="#cb45-4"></a>BookIns_2024 <span class="ot">&lt;-</span> BookIns_2024 <span class="sc">|&gt;</span></span>
-<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb45-6"><a href="#cb45-6"></a>    <span class="at">cols =</span> <span class="sc">-</span>Agency,          </span>
-<span id="cb45-7"><a href="#cb45-7"></a>    <span class="at">names_to =</span> <span class="st">"Month"</span>,      </span>
-<span id="cb45-8"><a href="#cb45-8"></a>    <span class="at">values_to =</span> <span class="st">"Count"</span>      </span>
-<span id="cb45-9"><a href="#cb45-9"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb45-10"><a href="#cb45-10"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="st">"2024"</span>)</span>
-<span id="cb45-11"><a href="#cb45-11"></a></span>
-<span id="cb45-12"><a href="#cb45-12"></a>BookIns_Comp <span class="ot">&lt;-</span> BookIns_2024 <span class="sc">|&gt;</span></span>
-<span id="cb45-13"><a href="#cb45-13"></a>  <span class="fu">full_join</span>(BookIns_2019)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Joining with `by = join_by(Agency, Year)`</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>month_order <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"January"</span>, <span class="st">"February"</span>, <span class="st">"March"</span>, <span class="st">"April"</span>, <span class="st">"May"</span>, <span class="st">"June"</span>,</span>
-<span id="cb47-2"><a href="#cb47-2"></a>                 <span class="st">"July"</span>, <span class="st">"August"</span>, <span class="st">"September"</span>, <span class="st">"October"</span>, <span class="st">"November"</span>, <span class="st">"December"</span>)</span>
-<span id="cb47-3"><a href="#cb47-3"></a></span>
-<span id="cb47-4"><a href="#cb47-4"></a>BookIns_Comp <span class="sc">|&gt;</span> </span>
-<span id="cb47-5"><a href="#cb47-5"></a>  <span class="fu">filter</span>(Month <span class="sc">!=</span> <span class="st">"Total"</span>, Agency <span class="sc">==</span> <span class="st">"ICE"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb47-6"><a href="#cb47-6"></a>  <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month_order)) <span class="sc">|&gt;</span></span>
-<span id="cb47-7"><a href="#cb47-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Count, <span class="at">fill =</span> Agency)) <span class="sc">+</span></span>
-<span id="cb47-8"><a href="#cb47-8"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb47-9"><a href="#cb47-9"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Year) <span class="sc">+</span></span>
-<span id="cb47-10"><a href="#cb47-10"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Agency Book-Ins by Month"</span>,</span>
-<span id="cb47-11"><a href="#cb47-11"></a>       <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb47-12"><a href="#cb47-12"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb47-13"><a href="#cb47-13"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(ICEBudget, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Budget)) <span class="sc">+</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"cyan4"</span>) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ICE Budget"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Budget (in millions)"</span>, <span class="at">caption =</span> <span class="st">"Source: ICE Detention Statics from ice.gov"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="MollyN_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>BookIns_Comp <span class="sc">|&gt;</span> </span>
-<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">filter</span>(Month <span class="sc">!=</span> <span class="st">"Total"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month_order)) <span class="sc">|&gt;</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Count, <span class="at">fill =</span> Agency)) <span class="sc">+</span></span>
-<span id="cb48-5"><a href="#cb48-5"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb48-6"><a href="#cb48-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Year) <span class="sc">+</span></span>
-<span id="cb48-7"><a href="#cb48-7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Agency Book-Ins by Month"</span>,</span>
-<span id="cb48-8"><a href="#cb48-8"></a>       <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb48-9"><a href="#cb48-9"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb48-10"><a href="#cb48-10"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="MollyN_files/figure-html/unnamed-chunk-15-2.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="MollyN_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>ICEBudget <span class="ot">&lt;-</span> ICEBudget <span class="sc">|&gt;</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.integer</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">ggplot</span>(ICEBudget, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Budget)) <span class="sc">+</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"cyan4"</span>) <span class="sc">+</span></span>
-<span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ICE Budget"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Budget (in millions)"</span>, <span class="at">caption =</span> <span class="st">"Source: ICE Detention Statics from ice.gov"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="MollyN_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">full_join</span>(ICEBudget) <span class="sc">|&gt;</span></span>
-<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb51-4"><a href="#cb51-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Budget, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb51-5"><a href="#cb51-5"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">full_join</span>(ICEBudget) <span class="sc">|&gt;</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Budget, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(Year)`</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="MollyN_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="MollyN_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1267,207 +1188,159 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb53" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb53-1"><a href="#cb53-1"></a><span class="co">---</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a><span class="an">title:</span><span class="co"> "EDA - MollyN"</span></span>
-<span id="cb53-3"><a href="#cb53-3"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb53-4"><a href="#cb53-4"></a><span class="co">  echo: true      </span></span>
-<span id="cb53-5"><a href="#cb53-5"></a><span class="an">code-fold:</span><span class="co"> false  </span></span>
-<span id="cb53-6"><a href="#cb53-6"></a><span class="co">---</span></span>
-<span id="cb53-7"><a href="#cb53-7"></a></span>
-<span id="cb53-10"><a href="#cb53-10"></a><span class="in">```{r}</span></span>
-<span id="cb53-11"><a href="#cb53-11"></a><span class="fu">library</span>(readr)</span>
-<span id="cb53-12"><a href="#cb53-12"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb53-13"><a href="#cb53-13"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb53-14"><a href="#cb53-14"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb53-15"><a href="#cb53-15"></a><span class="in">```</span></span>
-<span id="cb53-16"><a href="#cb53-16"></a></span>
-<span id="cb53-17"><a href="#cb53-17"></a></span>
-<span id="cb53-20"><a href="#cb53-20"></a><span class="in">```{r}</span></span>
-<span id="cb53-21"><a href="#cb53-21"></a>BookIns2017 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2017.csv"</span>)</span>
-<span id="cb53-22"><a href="#cb53-22"></a>BookIns2018 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2018.csv"</span>)</span>
-<span id="cb53-23"><a href="#cb53-23"></a>BookIns2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2019.csv"</span>)</span>
-<span id="cb53-24"><a href="#cb53-24"></a>BookIns2020 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2020.csv"</span>)</span>
-<span id="cb53-25"><a href="#cb53-25"></a>BookIns2021 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2021.csv"</span>)</span>
-<span id="cb53-26"><a href="#cb53-26"></a>BookIns2022 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2022.csv"</span>)</span>
-<span id="cb53-27"><a href="#cb53-27"></a>BookIns2023 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2023.csv"</span>)</span>
-<span id="cb53-28"><a href="#cb53-28"></a>BookIns2024 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2024.csv"</span>)</span>
-<span id="cb53-29"><a href="#cb53-29"></a><span class="in">```</span></span>
-<span id="cb53-32"><a href="#cb53-32"></a><span class="in">```{r}</span></span>
-<span id="cb53-33"><a href="#cb53-33"></a>BookIns <span class="ot">&lt;-</span> BookIns2017 <span class="sc">|&gt;</span></span>
-<span id="cb53-34"><a href="#cb53-34"></a>  <span class="fu">full_join</span>(BookIns2018) <span class="sc">|&gt;</span></span>
-<span id="cb53-35"><a href="#cb53-35"></a>  <span class="fu">full_join</span>(BookIns2019) <span class="sc">|&gt;</span></span>
-<span id="cb53-36"><a href="#cb53-36"></a>  <span class="fu">full_join</span>(BookIns2020) <span class="sc">|&gt;</span></span>
-<span id="cb53-37"><a href="#cb53-37"></a>  <span class="fu">full_join</span>(BookIns2021) <span class="sc">|&gt;</span></span>
-<span id="cb53-38"><a href="#cb53-38"></a>  <span class="fu">full_join</span>(BookIns2022) <span class="sc">|&gt;</span></span>
-<span id="cb53-39"><a href="#cb53-39"></a>  <span class="fu">full_join</span>(BookIns2023) <span class="sc">|&gt;</span></span>
-<span id="cb53-40"><a href="#cb53-40"></a>  <span class="fu">full_join</span>(BookIns2024) </span>
-<span id="cb53-41"><a href="#cb53-41"></a><span class="in">```</span></span>
-<span id="cb53-42"><a href="#cb53-42"></a></span>
-<span id="cb53-45"><a href="#cb53-45"></a><span class="in">```{r}</span></span>
-<span id="cb53-46"><a href="#cb53-46"></a><span class="co"># Visualizations On Book-Ins/Arrests Over Time</span></span>
-<span id="cb53-47"><a href="#cb53-47"></a></span>
-<span id="cb53-48"><a href="#cb53-48"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-49"><a href="#cb53-49"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb53-50"><a href="#cb53-50"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb53-51"><a href="#cb53-51"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb53-52"><a href="#cb53-52"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
-<span id="cb53-53"><a href="#cb53-53"></a></span>
-<span id="cb53-54"><a href="#cb53-54"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-55"><a href="#cb53-55"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Criminal Convictions"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb53-56"><a href="#cb53-56"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb53-57"><a href="#cb53-57"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb53-58"><a href="#cb53-58"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Criminal Convictions Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
-<span id="cb53-59"><a href="#cb53-59"></a>  </span>
-<span id="cb53-60"><a href="#cb53-60"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-61"><a href="#cb53-61"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Pending Criminal Charges"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb53-62"><a href="#cb53-62"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb53-63"><a href="#cb53-63"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb53-64"><a href="#cb53-64"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pending Criminal Charges Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
-<span id="cb53-65"><a href="#cb53-65"></a></span>
-<span id="cb53-66"><a href="#cb53-66"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-67"><a href="#cb53-67"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Other Immigration Violator"</span> , <span class="st">"No Known Criminal Charges or Convictions"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb53-68"><a href="#cb53-68"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb53-69"><a href="#cb53-69"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb53-70"><a href="#cb53-70"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Non-Criminal/Other Violation Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
-<span id="cb53-71"><a href="#cb53-71"></a><span class="in">```</span></span>
-<span id="cb53-72"><a href="#cb53-72"></a></span>
-<span id="cb53-73"><a href="#cb53-73"></a></span>
-<span id="cb53-74"><a href="#cb53-74"></a></span>
-<span id="cb53-77"><a href="#cb53-77"></a><span class="in">```{r}</span></span>
-<span id="cb53-78"><a href="#cb53-78"></a>BookIns <span class="ot">&lt;-</span> BookIns <span class="sc">%&gt;%</span></span>
-<span id="cb53-79"><a href="#cb53-79"></a>  <span class="fu">mutate</span>(<span class="at">Criminality =</span> <span class="fu">case_when</span>(</span>
-<span id="cb53-80"><a href="#cb53-80"></a>    Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Other Immigration Violator"</span>, <span class="st">"No Known Criminal Charges or Convictions"</span>) <span class="sc">~</span> </span>
-<span id="cb53-81"><a href="#cb53-81"></a>      <span class="st">"Other Immigration Violator/No Known Criminal Charges or Convictions"</span>,</span>
-<span id="cb53-82"><a href="#cb53-82"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> Criminality</span>
-<span id="cb53-83"><a href="#cb53-83"></a>  ))</span>
-<span id="cb53-84"><a href="#cb53-84"></a><span class="in">```</span></span>
-<span id="cb53-85"><a href="#cb53-85"></a></span>
-<span id="cb53-86"><a href="#cb53-86"></a></span>
-<span id="cb53-89"><a href="#cb53-89"></a><span class="in">```{r}</span></span>
-<span id="cb53-90"><a href="#cb53-90"></a><span class="co"># Visualizations On Book-Ins/Arrests Over Time</span></span>
-<span id="cb53-91"><a href="#cb53-91"></a></span>
-<span id="cb53-92"><a href="#cb53-92"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-93"><a href="#cb53-93"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb53-94"><a href="#cb53-94"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb53-95"><a href="#cb53-95"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb53-96"><a href="#cb53-96"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
-<span id="cb53-97"><a href="#cb53-97"></a><span class="in">```</span></span>
-<span id="cb53-98"><a href="#cb53-98"></a></span>
-<span id="cb53-101"><a href="#cb53-101"></a><span class="in">```{r}</span></span>
-<span id="cb53-102"><a href="#cb53-102"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-103"><a href="#cb53-103"></a>   <span class="fu">filter</span>(Criminality <span class="sc">!=</span> <span class="st">"Total Arrests"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb53-104"><a href="#cb53-104"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb53-105"><a href="#cb53-105"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb53-106"><a href="#cb53-106"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> Criminality, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb53-107"><a href="#cb53-107"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Arrests Over Time by Criminality"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
-<span id="cb53-108"><a href="#cb53-108"></a><span class="in">```</span></span>
-<span id="cb53-109"><a href="#cb53-109"></a></span>
-<span id="cb53-110"><a href="#cb53-110"></a></span>
-<span id="cb53-113"><a href="#cb53-113"></a><span class="in">```{r}</span></span>
-<span id="cb53-114"><a href="#cb53-114"></a><span class="co"># Budget</span></span>
-<span id="cb53-115"><a href="#cb53-115"></a></span>
-<span id="cb53-116"><a href="#cb53-116"></a>ICEBudget <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/ICE_Budget.csv"</span>)</span>
-<span id="cb53-117"><a href="#cb53-117"></a><span class="in">```</span></span>
-<span id="cb53-118"><a href="#cb53-118"></a></span>
-<span id="cb53-121"><a href="#cb53-121"></a><span class="in">```{r}</span></span>
-<span id="cb53-122"><a href="#cb53-122"></a>ICEBudget <span class="ot">&lt;-</span> ICEBudget <span class="sc">|&gt;</span></span>
-<span id="cb53-123"><a href="#cb53-123"></a>  <span class="fu">rename</span>(<span class="at">Budget =</span> <span class="st">'Budget (in millions)'</span>)</span>
-<span id="cb53-124"><a href="#cb53-124"></a><span class="in">```</span></span>
-<span id="cb53-125"><a href="#cb53-125"></a></span>
-<span id="cb53-128"><a href="#cb53-128"></a><span class="in">```{r}</span></span>
-<span id="cb53-129"><a href="#cb53-129"></a><span class="fu">ggplot</span>(ICEBudget, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Budget)) <span class="sc">+</span></span>
-<span id="cb53-130"><a href="#cb53-130"></a>  <span class="fu">geom_line</span>()</span>
-<span id="cb53-131"><a href="#cb53-131"></a><span class="in">```</span></span>
-<span id="cb53-132"><a href="#cb53-132"></a></span>
-<span id="cb53-135"><a href="#cb53-135"></a><span class="in">```{r}</span></span>
-<span id="cb53-136"><a href="#cb53-136"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-137"><a href="#cb53-137"></a>  <span class="fu">full_join</span>(ICEBudget, <span class="at">by =</span> <span class="st">"Year"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb53-138"><a href="#cb53-138"></a>  <span class="fu">filter</span>(Criminality <span class="sc">==</span> <span class="st">"Total Arrests"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb53-139"><a href="#cb53-139"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Budget, <span class="at">y =</span> Arrests, <span class="at">color =</span> <span class="fu">factor</span>(Year))) <span class="sc">+</span></span>
-<span id="cb53-140"><a href="#cb53-140"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb53-141"><a href="#cb53-141"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Arrests vs. ICE Budget by Year"</span>,</span>
-<span id="cb53-142"><a href="#cb53-142"></a>       <span class="at">x =</span> <span class="st">"ICE Budget"</span>,</span>
-<span id="cb53-143"><a href="#cb53-143"></a>       <span class="at">y =</span> <span class="st">"Total Arrests"</span>,</span>
-<span id="cb53-144"><a href="#cb53-144"></a>       <span class="at">color =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb53-145"><a href="#cb53-145"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb53-146"><a href="#cb53-146"></a><span class="in">```</span></span>
-<span id="cb53-147"><a href="#cb53-147"></a></span>
-<span id="cb53-150"><a href="#cb53-150"></a><span class="in">```{r}</span></span>
-<span id="cb53-151"><a href="#cb53-151"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-152"><a href="#cb53-152"></a>  <span class="fu">full_join</span>(ICEBudget) <span class="sc">|&gt;</span></span>
-<span id="cb53-153"><a href="#cb53-153"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb53-154"><a href="#cb53-154"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Budget, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb53-155"><a href="#cb53-155"></a>  <span class="fu">geom_line</span>()</span>
-<span id="cb53-156"><a href="#cb53-156"></a><span class="in">```</span></span>
-<span id="cb53-157"><a href="#cb53-157"></a></span>
-<span id="cb53-160"><a href="#cb53-160"></a><span class="in">```{r}</span></span>
-<span id="cb53-161"><a href="#cb53-161"></a><span class="co"># Comparing 2019 vs. 2024</span></span>
-<span id="cb53-162"><a href="#cb53-162"></a>BookIns_2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv"</span>)</span>
-<span id="cb53-163"><a href="#cb53-163"></a>BookIns_2024 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv"</span>)</span>
-<span id="cb53-164"><a href="#cb53-164"></a><span class="in">```</span></span>
-<span id="cb53-165"><a href="#cb53-165"></a></span>
-<span id="cb53-168"><a href="#cb53-168"></a><span class="in">```{r}</span></span>
-<span id="cb53-169"><a href="#cb53-169"></a>BookIns_2019 <span class="ot">&lt;-</span> BookIns_2019 <span class="sc">|&gt;</span></span>
-<span id="cb53-170"><a href="#cb53-170"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="st">"2019"</span>)</span>
-<span id="cb53-171"><a href="#cb53-171"></a></span>
-<span id="cb53-172"><a href="#cb53-172"></a>BookIns_2024 <span class="ot">&lt;-</span> BookIns_2024 <span class="sc">|&gt;</span></span>
-<span id="cb53-173"><a href="#cb53-173"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb53-174"><a href="#cb53-174"></a>    <span class="at">cols =</span> <span class="sc">-</span>Agency,          </span>
-<span id="cb53-175"><a href="#cb53-175"></a>    <span class="at">names_to =</span> <span class="st">"Month"</span>,      </span>
-<span id="cb53-176"><a href="#cb53-176"></a>    <span class="at">values_to =</span> <span class="st">"Count"</span>      </span>
-<span id="cb53-177"><a href="#cb53-177"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb53-178"><a href="#cb53-178"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="st">"2024"</span>)</span>
-<span id="cb53-179"><a href="#cb53-179"></a></span>
-<span id="cb53-180"><a href="#cb53-180"></a>BookIns_Comp <span class="ot">&lt;-</span> BookIns_2024 <span class="sc">|&gt;</span></span>
-<span id="cb53-181"><a href="#cb53-181"></a>  <span class="fu">full_join</span>(BookIns_2019)</span>
-<span id="cb53-182"><a href="#cb53-182"></a><span class="in">```</span></span>
-<span id="cb53-183"><a href="#cb53-183"></a></span>
-<span id="cb53-186"><a href="#cb53-186"></a><span class="in">```{r}</span></span>
-<span id="cb53-187"><a href="#cb53-187"></a>month_order <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"January"</span>, <span class="st">"February"</span>, <span class="st">"March"</span>, <span class="st">"April"</span>, <span class="st">"May"</span>, <span class="st">"June"</span>,</span>
-<span id="cb53-188"><a href="#cb53-188"></a>                 <span class="st">"July"</span>, <span class="st">"August"</span>, <span class="st">"September"</span>, <span class="st">"October"</span>, <span class="st">"November"</span>, <span class="st">"December"</span>)</span>
-<span id="cb53-189"><a href="#cb53-189"></a></span>
-<span id="cb53-190"><a href="#cb53-190"></a>BookIns_Comp <span class="sc">|&gt;</span> </span>
-<span id="cb53-191"><a href="#cb53-191"></a>  <span class="fu">filter</span>(Month <span class="sc">!=</span> <span class="st">"Total"</span>, Agency <span class="sc">==</span> <span class="st">"ICE"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb53-192"><a href="#cb53-192"></a>  <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month_order)) <span class="sc">|&gt;</span></span>
-<span id="cb53-193"><a href="#cb53-193"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Count, <span class="at">fill =</span> Agency)) <span class="sc">+</span></span>
-<span id="cb53-194"><a href="#cb53-194"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb53-195"><a href="#cb53-195"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Year) <span class="sc">+</span></span>
-<span id="cb53-196"><a href="#cb53-196"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Agency Book-Ins by Month"</span>,</span>
-<span id="cb53-197"><a href="#cb53-197"></a>       <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb53-198"><a href="#cb53-198"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb53-199"><a href="#cb53-199"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb53-200"><a href="#cb53-200"></a></span>
-<span id="cb53-201"><a href="#cb53-201"></a>BookIns_Comp <span class="sc">|&gt;</span> </span>
-<span id="cb53-202"><a href="#cb53-202"></a>  <span class="fu">filter</span>(Month <span class="sc">!=</span> <span class="st">"Total"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb53-203"><a href="#cb53-203"></a>  <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month_order)) <span class="sc">|&gt;</span></span>
-<span id="cb53-204"><a href="#cb53-204"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Count, <span class="at">fill =</span> Agency)) <span class="sc">+</span></span>
-<span id="cb53-205"><a href="#cb53-205"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb53-206"><a href="#cb53-206"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Year) <span class="sc">+</span></span>
-<span id="cb53-207"><a href="#cb53-207"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Agency Book-Ins by Month"</span>,</span>
-<span id="cb53-208"><a href="#cb53-208"></a>       <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb53-209"><a href="#cb53-209"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb53-210"><a href="#cb53-210"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb53-211"><a href="#cb53-211"></a><span class="in">```</span></span>
-<span id="cb53-212"><a href="#cb53-212"></a></span>
-<span id="cb53-213"><a href="#cb53-213"></a></span>
-<span id="cb53-214"><a href="#cb53-214"></a><span class="in">```{r, fig.cap = "Wrangling"}</span></span>
-<span id="cb53-215"><a href="#cb53-215"></a><span class="in">ICEBudget &lt;- ICEBudget |&gt;</span></span>
-<span id="cb53-216"><a href="#cb53-216"></a><span class="in">  mutate(Year = as.integer(Year))</span></span>
-<span id="cb53-217"><a href="#cb53-217"></a><span class="in">```</span></span>
-<span id="cb53-218"><a href="#cb53-218"></a></span>
-<span id="cb53-221"><a href="#cb53-221"></a><span class="in">```{r}</span></span>
-<span id="cb53-222"><a href="#cb53-222"></a><span class="fu">ggplot</span>(ICEBudget, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Budget)) <span class="sc">+</span></span>
-<span id="cb53-223"><a href="#cb53-223"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"cyan4"</span>) <span class="sc">+</span></span>
-<span id="cb53-224"><a href="#cb53-224"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ICE Budget"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Budget (in millions)"</span>, <span class="at">caption =</span> <span class="st">"Source: ICE Detention Statics from ice.gov"</span>)</span>
-<span id="cb53-225"><a href="#cb53-225"></a><span class="in">```</span></span>
-<span id="cb53-226"><a href="#cb53-226"></a></span>
-<span id="cb53-229"><a href="#cb53-229"></a><span class="in">```{r}</span></span>
-<span id="cb53-230"><a href="#cb53-230"></a>BookIns <span class="sc">|&gt;</span></span>
-<span id="cb53-231"><a href="#cb53-231"></a>  <span class="fu">full_join</span>(ICEBudget) <span class="sc">|&gt;</span></span>
-<span id="cb53-232"><a href="#cb53-232"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb53-233"><a href="#cb53-233"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Budget, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
-<span id="cb53-234"><a href="#cb53-234"></a>  <span class="fu">geom_line</span>()</span>
-<span id="cb53-235"><a href="#cb53-235"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb45" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="#cb45-1"></a><span class="co">---</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="an">title:</span><span class="co"> "EDA - MollyN"</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="co">  echo: true      </span></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="an">code-fold:</span><span class="co"> false  </span></span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="co">---</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a>For my EDA, I include a visualization that explored criminality more closesly, which ended up being modified and improved for our story. I also include a visualization we decided against including that tries to look at book-ins compared to the annual budget. </span>
+<span id="cb45-8"><a href="#cb45-8"></a></span>
+<span id="cb45-11"><a href="#cb45-11"></a><span class="in">```{r}</span></span>
+<span id="cb45-12"><a href="#cb45-12"></a><span class="fu">library</span>(readr)</span>
+<span id="cb45-13"><a href="#cb45-13"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb45-14"><a href="#cb45-14"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb45-15"><a href="#cb45-15"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb45-16"><a href="#cb45-16"></a><span class="in">```</span></span>
+<span id="cb45-17"><a href="#cb45-17"></a></span>
+<span id="cb45-18"><a href="#cb45-18"></a></span>
+<span id="cb45-21"><a href="#cb45-21"></a><span class="in">```{r}</span></span>
+<span id="cb45-22"><a href="#cb45-22"></a>BookIns2017 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2017.csv"</span>)</span>
+<span id="cb45-23"><a href="#cb45-23"></a>BookIns2018 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2018.csv"</span>)</span>
+<span id="cb45-24"><a href="#cb45-24"></a>BookIns2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2019.csv"</span>)</span>
+<span id="cb45-25"><a href="#cb45-25"></a>BookIns2020 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2020.csv"</span>)</span>
+<span id="cb45-26"><a href="#cb45-26"></a>BookIns2021 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2021.csv"</span>)</span>
+<span id="cb45-27"><a href="#cb45-27"></a>BookIns2022 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2022.csv"</span>)</span>
+<span id="cb45-28"><a href="#cb45-28"></a>BookIns2023 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2023.csv"</span>)</span>
+<span id="cb45-29"><a href="#cb45-29"></a>BookIns2024 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/Book-Ins FY2024.csv"</span>)</span>
+<span id="cb45-30"><a href="#cb45-30"></a><span class="in">```</span></span>
+<span id="cb45-33"><a href="#cb45-33"></a><span class="in">```{r}</span></span>
+<span id="cb45-34"><a href="#cb45-34"></a>BookIns <span class="ot">&lt;-</span> BookIns2017 <span class="sc">|&gt;</span></span>
+<span id="cb45-35"><a href="#cb45-35"></a>  <span class="fu">full_join</span>(BookIns2018) <span class="sc">|&gt;</span></span>
+<span id="cb45-36"><a href="#cb45-36"></a>  <span class="fu">full_join</span>(BookIns2019) <span class="sc">|&gt;</span></span>
+<span id="cb45-37"><a href="#cb45-37"></a>  <span class="fu">full_join</span>(BookIns2020) <span class="sc">|&gt;</span></span>
+<span id="cb45-38"><a href="#cb45-38"></a>  <span class="fu">full_join</span>(BookIns2021) <span class="sc">|&gt;</span></span>
+<span id="cb45-39"><a href="#cb45-39"></a>  <span class="fu">full_join</span>(BookIns2022) <span class="sc">|&gt;</span></span>
+<span id="cb45-40"><a href="#cb45-40"></a>  <span class="fu">full_join</span>(BookIns2023) <span class="sc">|&gt;</span></span>
+<span id="cb45-41"><a href="#cb45-41"></a>  <span class="fu">full_join</span>(BookIns2024) </span>
+<span id="cb45-42"><a href="#cb45-42"></a><span class="in">```</span></span>
+<span id="cb45-43"><a href="#cb45-43"></a></span>
+<span id="cb45-46"><a href="#cb45-46"></a><span class="in">```{r}</span></span>
+<span id="cb45-47"><a href="#cb45-47"></a><span class="co"># Visualizations On Book-Ins/Arrests Over Time by Criminality</span></span>
+<span id="cb45-48"><a href="#cb45-48"></a></span>
+<span id="cb45-49"><a href="#cb45-49"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-50"><a href="#cb45-50"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb45-51"><a href="#cb45-51"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb45-52"><a href="#cb45-52"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb45-53"><a href="#cb45-53"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
+<span id="cb45-54"><a href="#cb45-54"></a></span>
+<span id="cb45-55"><a href="#cb45-55"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-56"><a href="#cb45-56"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Criminal Convictions"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb45-57"><a href="#cb45-57"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb45-58"><a href="#cb45-58"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb45-59"><a href="#cb45-59"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Criminal Convictions Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
+<span id="cb45-60"><a href="#cb45-60"></a>  </span>
+<span id="cb45-61"><a href="#cb45-61"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-62"><a href="#cb45-62"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Pending Criminal Charges"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb45-63"><a href="#cb45-63"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb45-64"><a href="#cb45-64"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb45-65"><a href="#cb45-65"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pending Criminal Charges Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
+<span id="cb45-66"><a href="#cb45-66"></a></span>
+<span id="cb45-67"><a href="#cb45-67"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-68"><a href="#cb45-68"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Other Immigration Violator"</span> , <span class="st">"No Known Criminal Charges or Convictions"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb45-69"><a href="#cb45-69"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb45-70"><a href="#cb45-70"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb45-71"><a href="#cb45-71"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Non-Criminal/Other Violation Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
+<span id="cb45-72"><a href="#cb45-72"></a><span class="in">```</span></span>
+<span id="cb45-73"><a href="#cb45-73"></a></span>
+<span id="cb45-74"><a href="#cb45-74"></a></span>
+<span id="cb45-75"><a href="#cb45-75"></a></span>
+<span id="cb45-78"><a href="#cb45-78"></a><span class="in">```{r}</span></span>
+<span id="cb45-79"><a href="#cb45-79"></a>BookIns <span class="ot">&lt;-</span> BookIns <span class="sc">%&gt;%</span></span>
+<span id="cb45-80"><a href="#cb45-80"></a>  <span class="fu">mutate</span>(<span class="at">Criminality =</span> <span class="fu">case_when</span>(</span>
+<span id="cb45-81"><a href="#cb45-81"></a>    Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Other Immigration Violator"</span>, <span class="st">"No Known Criminal Charges or Convictions"</span>) <span class="sc">~</span> </span>
+<span id="cb45-82"><a href="#cb45-82"></a>      <span class="st">"Other Immigration Violator/No Known Criminal Charges or Convictions"</span>,</span>
+<span id="cb45-83"><a href="#cb45-83"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> Criminality</span>
+<span id="cb45-84"><a href="#cb45-84"></a>  ))</span>
+<span id="cb45-85"><a href="#cb45-85"></a><span class="in">```</span></span>
+<span id="cb45-86"><a href="#cb45-86"></a></span>
+<span id="cb45-87"><a href="#cb45-87"></a></span>
+<span id="cb45-90"><a href="#cb45-90"></a><span class="in">```{r}</span></span>
+<span id="cb45-91"><a href="#cb45-91"></a><span class="co"># Visualizations On Book-Ins/Arrests Over Time</span></span>
+<span id="cb45-92"><a href="#cb45-92"></a></span>
+<span id="cb45-93"><a href="#cb45-93"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-94"><a href="#cb45-94"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb45-95"><a href="#cb45-95"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb45-96"><a href="#cb45-96"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb45-97"><a href="#cb45-97"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Arrests Over Time"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
+<span id="cb45-98"><a href="#cb45-98"></a><span class="in">```</span></span>
+<span id="cb45-99"><a href="#cb45-99"></a></span>
+<span id="cb45-102"><a href="#cb45-102"></a><span class="in">```{r}</span></span>
+<span id="cb45-103"><a href="#cb45-103"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-104"><a href="#cb45-104"></a>   <span class="fu">filter</span>(Criminality <span class="sc">!=</span> <span class="st">"Total Arrests"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb45-105"><a href="#cb45-105"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb45-106"><a href="#cb45-106"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb45-107"><a href="#cb45-107"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> Criminality, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb45-108"><a href="#cb45-108"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Arrests Over Time by Criminality"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Number of Arrests"</span>)</span>
+<span id="cb45-109"><a href="#cb45-109"></a><span class="in">```</span></span>
+<span id="cb45-110"><a href="#cb45-110"></a></span>
+<span id="cb45-111"><a href="#cb45-111"></a></span>
+<span id="cb45-114"><a href="#cb45-114"></a><span class="in">```{r}</span></span>
+<span id="cb45-115"><a href="#cb45-115"></a><span class="co"># Budget</span></span>
+<span id="cb45-116"><a href="#cb45-116"></a></span>
+<span id="cb45-117"><a href="#cb45-117"></a>ICEBudget <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../../data/ICE_Budget.csv"</span>)</span>
+<span id="cb45-118"><a href="#cb45-118"></a><span class="in">```</span></span>
+<span id="cb45-119"><a href="#cb45-119"></a></span>
+<span id="cb45-122"><a href="#cb45-122"></a><span class="in">```{r}</span></span>
+<span id="cb45-123"><a href="#cb45-123"></a>ICEBudget <span class="ot">&lt;-</span> ICEBudget <span class="sc">|&gt;</span></span>
+<span id="cb45-124"><a href="#cb45-124"></a>  <span class="fu">rename</span>(<span class="at">Budget =</span> <span class="st">'Budget (in millions)'</span>)</span>
+<span id="cb45-125"><a href="#cb45-125"></a><span class="in">```</span></span>
+<span id="cb45-126"><a href="#cb45-126"></a></span>
+<span id="cb45-129"><a href="#cb45-129"></a><span class="in">```{r}</span></span>
+<span id="cb45-130"><a href="#cb45-130"></a><span class="fu">ggplot</span>(ICEBudget, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Budget)) <span class="sc">+</span></span>
+<span id="cb45-131"><a href="#cb45-131"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb45-132"><a href="#cb45-132"></a><span class="in">```</span></span>
+<span id="cb45-133"><a href="#cb45-133"></a></span>
+<span id="cb45-136"><a href="#cb45-136"></a><span class="in">```{r}</span></span>
+<span id="cb45-137"><a href="#cb45-137"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-138"><a href="#cb45-138"></a>  <span class="fu">full_join</span>(ICEBudget, <span class="at">by =</span> <span class="st">"Year"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb45-139"><a href="#cb45-139"></a>  <span class="fu">filter</span>(Criminality <span class="sc">==</span> <span class="st">"Total Arrests"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb45-140"><a href="#cb45-140"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Budget, <span class="at">y =</span> Arrests, <span class="at">color =</span> <span class="fu">factor</span>(Year))) <span class="sc">+</span></span>
+<span id="cb45-141"><a href="#cb45-141"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb45-142"><a href="#cb45-142"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Arrests vs. ICE Budget by Year"</span>,</span>
+<span id="cb45-143"><a href="#cb45-143"></a>       <span class="at">x =</span> <span class="st">"ICE Budget"</span>,</span>
+<span id="cb45-144"><a href="#cb45-144"></a>       <span class="at">y =</span> <span class="st">"Total Arrests"</span>,</span>
+<span id="cb45-145"><a href="#cb45-145"></a>       <span class="at">color =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb45-146"><a href="#cb45-146"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb45-147"><a href="#cb45-147"></a><span class="in">```</span></span>
+<span id="cb45-148"><a href="#cb45-148"></a></span>
+<span id="cb45-151"><a href="#cb45-151"></a><span class="in">```{r}</span></span>
+<span id="cb45-152"><a href="#cb45-152"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-153"><a href="#cb45-153"></a>  <span class="fu">full_join</span>(ICEBudget) <span class="sc">|&gt;</span></span>
+<span id="cb45-154"><a href="#cb45-154"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb45-155"><a href="#cb45-155"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Budget, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb45-156"><a href="#cb45-156"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb45-157"><a href="#cb45-157"></a><span class="in">```</span></span>
+<span id="cb45-158"><a href="#cb45-158"></a></span>
+<span id="cb45-159"><a href="#cb45-159"></a></span>
+<span id="cb45-160"><a href="#cb45-160"></a><span class="in">```{r, fig.cap = "Wrangling"}</span></span>
+<span id="cb45-161"><a href="#cb45-161"></a><span class="in">ICEBudget &lt;- ICEBudget |&gt;</span></span>
+<span id="cb45-162"><a href="#cb45-162"></a><span class="in">  mutate(Year = as.integer(Year))</span></span>
+<span id="cb45-163"><a href="#cb45-163"></a><span class="in">```</span></span>
+<span id="cb45-164"><a href="#cb45-164"></a></span>
+<span id="cb45-167"><a href="#cb45-167"></a><span class="in">```{r}</span></span>
+<span id="cb45-168"><a href="#cb45-168"></a><span class="fu">ggplot</span>(ICEBudget, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Budget)) <span class="sc">+</span></span>
+<span id="cb45-169"><a href="#cb45-169"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"cyan4"</span>) <span class="sc">+</span></span>
+<span id="cb45-170"><a href="#cb45-170"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"ICE Budget"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Budget (in millions)"</span>, <span class="at">caption =</span> <span class="st">"Source: ICE Detention Statics from ice.gov"</span>)</span>
+<span id="cb45-171"><a href="#cb45-171"></a><span class="in">```</span></span>
+<span id="cb45-172"><a href="#cb45-172"></a></span>
+<span id="cb45-175"><a href="#cb45-175"></a><span class="in">```{r}</span></span>
+<span id="cb45-176"><a href="#cb45-176"></a>BookIns <span class="sc">|&gt;</span></span>
+<span id="cb45-177"><a href="#cb45-177"></a>  <span class="fu">full_join</span>(ICEBudget) <span class="sc">|&gt;</span></span>
+<span id="cb45-178"><a href="#cb45-178"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Total Arrests"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb45-179"><a href="#cb45-179"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Budget, <span class="at">y =</span> Arrests)) <span class="sc">+</span> </span>
+<span id="cb45-180"><a href="#cb45-180"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb45-181"><a href="#cb45-181"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
