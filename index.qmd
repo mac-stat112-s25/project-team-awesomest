@@ -69,7 +69,7 @@ While we don’t know all the details about how the data is collected, it likely
 
 The data was collected by U.S. Immigration and Customs Enforcement (ICE), primarily through its sub-agency Enforcement and Removal Operations (ERO). Additionaly, man ICE personnel are involved in the collection, including officers who apprehend and process individuals, detention facility staff who manage records, and administrative staff who enter and maintain data in ICE’s systems. Data analysts later compile this information for reporting and oversight. 
 
-## Data acquisition
+## Data Acquisition
 
 Molly and I spent time exploring a range of datasets to find one that best aligned with our research questions. After a lot of searching, we identified the ICE Detention Statistics as the most comprehensive and relevant source. It provides consistent and clear data directly from the government source, allowing us to analyze trends across fiscal years with a high degree of reliability.
 
@@ -78,17 +78,11 @@ We obtained this data from the U.S. Immigration and Customs Enforcement (ICE). T
 
 ## Data Understanding
 
-How much data do you have?
-
 For our project, we are working with nine datasets total (one for each Fiscal year between 2017 through 2025). Each data set contains a wealth of information for us to work with.  
-
-What types of measurements?
 
 Our data visualizations measure temporal trends (by month and year), the number of Book-Ins (continuous numeric variable), criminality classification (three categories: Convicted Criminal, Pending Criminal Charges, Other Immigration Violator), facility type (four categories: Adult, Family, Hospital, Juvenile), and detention population (continuous numeric variable).
 
-Anything you needed to clean before getting started?
-
-Yes, the original datasets were not easily transferable into RStudio due to formatting and compatibility issues. As a result, we created our own cleaned and consolidated datasets to focusing on the variables we were interested in analyzing. 
+The original datasets were not easily transferable into RStudio due to formatting and compatibility issues. As a result, we created our own cleaned and consolidated datasets to focusing on the variables we were interested in analyzing. 
 
 ```{r, fig.cap = "Load Packages"}
 library(readr)
