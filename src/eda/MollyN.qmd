@@ -4,6 +4,7 @@ execute:
   echo: true      
 code-fold: false  
 ---
+For my EDA, I include a visualization that explored criminality more closesly, which ended up being modified and improved for our story. I also include a visualization we decided against including that tries to look at book-ins compared to the annual budget. 
 
 ```{r}
 library(readr)
@@ -35,7 +36,7 @@ BookIns <- BookIns2017 |>
 ```
 
 ```{r}
-# Visualizations On Book-Ins/Arrests Over Time
+# Visualizations On Book-Ins/Arrests Over Time by Criminality
 
 BookIns |>
   filter(Criminality %in% c("Total Arrests")) |>
