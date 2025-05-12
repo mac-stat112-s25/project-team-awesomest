@@ -45,13 +45,9 @@ Our research questions are:
 
 ## Background 
 
-What background information is necessary for target audience to understand? 
-
 In the United States, our immigration enforcement system involves multiple federal agencies, most importantly U.S. Immigration and Customs Enforcement (ICE) and U.S. Customs and Border Protection (CBP), both under the U.S. Department of Homeland Security (DHS). ICE is tasked with interior immigration enforcement and oversees the detention and removal of individuals already present in the United States. While CBP is responsible for securing U.S. borders and inspecting individuals  at ports of entry. While CBP apprehends unauthorized individuals attempting to cross the border, ICE may detain individuals for longer-term detention and deportation proceedings.
 
 The U.S. immigration detention regime has evolved significantly over the last several presidential administrations, reflecting broader political shifts in immigration policy. Under the Trump administration (2017–2021), immigration enforcement expanded rapidly, marked by increased arrests, prolonged detention periods, and controversial practices such as family separation. The Biden administration sought to scale back enforcement priorities and reduce reliance on detention, though results were mixed. As Trump returns to office in 2025, his administration has begun to reimplement and expand aggressive enforcement measures. 
-
-What assumptions, terms, and/or acronyms need to be clarified?
 
 Fiscal Year (FY): The data in our project is organized by fiscal years, which span from October 1 to September 30 of the following year. This is important to keep in mind, as many people assume data corresponds to the calendar year (January to December). The fiscal year structure can also complicate interpretations of presidential policy impacts, since administrations change in January.
 
@@ -63,37 +59,20 @@ U.S. Customs and Border Protection (CBP): CBP is the agency tasked with enforcin
 
 ## Data Collection 
 
-What was collected?
-
-That's a good start! Here's a refined and more concise answer to "What was collected?":
-
-What was collected?
-
 The ICE Detention Statistics collect crucial information for understanding and visualizing trends within the detention system. Our analysis focuses on key variables consistently tracked across multiple years, including the Number of Book-Ins, representing the total admissions into ICE detention facilities during a specific period. Criminality, which details the primary reasons for detention through various categories of criminal offenses or immigration violations, is also a core element. The Length of Stay, or the duration individuals spend in custody, and the Detention Population, indicating the number of individuals held at a given time, are essential metrics. Furthermore, the Facility Type, specifying the kind of detention center, and the Apprehending Agency, identifying whether ICE or CBP initially apprehended the individual, provide important context. Finally, the Month and Year of the data allow for meaningful temporal analysis of these trends. While specific categories within these variables might evolve slightly over time, these core elements remain consistent for our analysis.
-
-When was it collected?
 
 The data is collected continuously as individuals are apprehended, processed, and detained by ICE. However, the publicly available datasets are compiled and released on a fiscal year (FY) basis. Each dataset covers the period from October 1st of the previous calendar year to September 30th of the current calendar year. For example, the "FY 2024 Detention Statistics" covers October 1, 2023, to September 30, 2024. 
 
-Why was it collected?
-
 The data is presumably collected for a wide variety of reasons. The U.S. government, and it's agencies, collect so much data to monitor and quantify their actions. Data collection helps ICE track who is in custody, manage capacity across facilities, and allocate resources like staffing and funding. The data also serves broader purposes, including informing policy decisions, evaluating the impact of enforcement practices, and providing transparency to Congress, other oversight entities, and us (the public).
 
-How was it collected originally?
-
 While we don’t know all the details about how the data is collected, it likely originates through a combination of manual entry and electronic systems as individuals move through the immigration enforcement process. ICE personnel likely have to track information during apprehension, processing, and detention. This information is likely managed through robust systems.
-
-Who collected it?
 
 The data was collected by U.S. Immigration and Customs Enforcement (ICE), primarily through its sub-agency Enforcement and Removal Operations (ERO). Additionaly, man ICE personnel are involved in the collection, including officers who apprehend and process individuals, detention facility staff who manage records, and administrative staff who enter and maintain data in ICE’s systems. Data analysts later compile this information for reporting and oversight. 
 
 ## Data acquisition
 
-Where / how did you get the data? 
-
 Molly and I spent time exploring a range of datasets to find one that best aligned with our research questions. After a lot of searching, we identified the ICE Detention Statistics as the most comprehensive and relevant source. It provides consistent and clear data directly from the government source, allowing us to analyze trends across fiscal years with a high degree of reliability.
 
-What is the source?
 
 We obtained this data from the U.S. Immigration and Customs Enforcement (ICE). The ICE website has a page where they pubish their year-end detention statistics for public consumption (https://www.ice.gov/detain/detention-management#stats). 
 
