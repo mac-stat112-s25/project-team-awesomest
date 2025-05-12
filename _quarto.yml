@@ -27,7 +27,6 @@ book:
   # repo-actions: [edit, issue]
   # repo-link-target: "_blank" #makes issue and edit links open in a new window/tab 
 
-
   sidebar:
     title: "Immigration Enforcement Data"
     collapse-level: 2
@@ -35,14 +34,17 @@ book:
     pinned: true
     search: true
 
+
   chapters:
     - index.qmd
-    - src/eda/MollyN.qmd
 
   appendices:
   - src/appx/proposal.qmd
   - src/appx/case-study.qmd
-  - src/et/MollyN.qmd
+  - src/et/MollyN.qmd     
+  - src/et/BarrettE.qmd
+  - src/eda/MollyN.qmd
+  - src/eda/BarrettE.qmd
 
 
 

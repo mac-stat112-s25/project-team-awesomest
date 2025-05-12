@@ -56,4 +56,5 @@ To run this project, you’ll need to have Git, R, and RStudio Desktop installed
 - Double-click the .Rproj file to open the project in RStudio.
 
 # What is the expected output look like? 
-- You can use one or more screenshots of the main features.
+
+![Screenshot of report](data/Screenshot.png)

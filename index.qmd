@@ -190,7 +190,7 @@ BookIns <- BookIns |> mutate(Year = as.integer(Year))
 
 
 ```{r}
-length_of_stay_data <- read_delim("~/Documents/GitHub/project-team-awesomest/data/length_of_stay_data.txt", delim = ",", show_col_types = FALSE)
+length_of_stay_data <- read_delim("data/length_of_stay_data.txt", delim = ",", show_col_types = FALSE)
 
 length_of_stay_data
 ```

@@ -1,0 +1,7 @@
+---
+title: "EDA - BarrettE"
+execute: 
+  echo: true      
+code-fold: false  
+---
+
