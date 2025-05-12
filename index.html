@@ -227,7 +227,7 @@ cookieconsent.run({
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a></li>
-  <li><a href="#data-acquisition" id="toc-data-acquisition" class="nav-link" data-scroll-target="#data-acquisition">Data acquisition</a></li>
+  <li><a href="#data-acquisition" id="toc-data-acquisition" class="nav-link" data-scroll-target="#data-acquisition">Data Acquisition</a></li>
   <li><a href="#data-understanding" id="toc-data-understanding" class="nav-link" data-scroll-target="#data-understanding">Data Understanding</a></li>
   </ul>
 </li>
@@ -323,16 +323,13 @@ cookieconsent.run({
 <p>The data is presumably collected for a wide variety of reasons. The U.S. government, and it’s agencies, collect so much data to monitor and quantify their actions. Data collection helps ICE track who is in custody, manage capacity across facilities, and allocate resources like staffing and funding. The data also serves broader purposes, including informing policy decisions, evaluating the impact of enforcement practices, and providing transparency to Congress, other oversight entities, and us (the public).</p>
 <p>While we don’t know all the details about how the data is collected, it likely originates through a combination of manual entry and electronic systems as individuals move through the immigration enforcement process. ICE personnel likely have to track information during apprehension, processing, and detention. This information is likely managed through robust systems.</p>
 <p>The data was collected by U.S. Immigration and Customs Enforcement (ICE), primarily through its sub-agency Enforcement and Removal Operations (ERO). Additionaly, man ICE personnel are involved in the collection, including officers who apprehend and process individuals, detention facility staff who manage records, and administrative staff who enter and maintain data in ICE’s systems. Data analysts later compile this information for reporting and oversight.</p>
-</section><section id="data-acquisition" class="level2"><h2 class="anchored" data-anchor-id="data-acquisition">Data acquisition</h2>
+</section><section id="data-acquisition" class="level2"><h2 class="anchored" data-anchor-id="data-acquisition">Data Acquisition</h2>
 <p>Molly and I spent time exploring a range of datasets to find one that best aligned with our research questions. After a lot of searching, we identified the ICE Detention Statistics as the most comprehensive and relevant source. It provides consistent and clear data directly from the government source, allowing us to analyze trends across fiscal years with a high degree of reliability.</p>
 <p>We obtained this data from the U.S. Immigration and Customs Enforcement (ICE). The <a href="https://www.ice.gov/detain/detention-management">ICE website</a> has a page where they pubish their year-end detention statistics for public consumption.</p>
 </section><section id="data-understanding" class="level2"><h2 class="anchored" data-anchor-id="data-understanding">Data Understanding</h2>
-<p>How much data do you have?</p>
 <p>For our project, we are working with nine datasets total (one for each Fiscal year between 2017 through 2025). Each data set contains a wealth of information for us to work with.</p>
-<p>What types of measurements?</p>
 <p>Our data visualizations measure temporal trends (by month and year), the number of Book-Ins (continuous numeric variable), criminality classification (three categories: Convicted Criminal, Pending Criminal Charges, Other Immigration Violator), facility type (four categories: Adult, Family, Hospital, Juvenile), and detention population (continuous numeric variable).</p>
-<p>Anything you needed to clean before getting started?</p>
-<p>Yes, the original datasets were not easily transferable into RStudio due to formatting and compatibility issues. As a result, we created our own cleaned and consolidated datasets to focusing on the variables we were interested in analyzing.</p>
+<p>The original datasets were not easily transferable into RStudio due to formatting and compatibility issues. As a result, we created our own cleaned and consolidated datasets to focusing on the variables we were interested in analyzing.</p>
 </section></section><section id="rq1-what-do-detention-trends-from-the-fiscal-years-2017-2024-look-like" class="level1"><h1>RQ1: What do detention trends from the fiscal years 2017-2024 look like?</h1>
 <div class="cell">
 <div class="cell-output-display">
@@ -1243,7 +1240,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-69"><a href="#cb9-69"></a></span>
 <span id="cb9-70"><a href="#cb9-70"></a>The data was collected by U.S. Immigration and Customs Enforcement (ICE), primarily through its sub-agency Enforcement and Removal Operations (ERO). Additionaly, man ICE personnel are involved in the collection, including officers who apprehend and process individuals, detention facility staff who manage records, and administrative staff who enter and maintain data in ICE’s systems. Data analysts later compile this information for reporting and oversight. </span>
 <span id="cb9-71"><a href="#cb9-71"></a></span>
-<span id="cb9-72"><a href="#cb9-72"></a><span class="fu">## Data acquisition</span></span>
+<span id="cb9-72"><a href="#cb9-72"></a><span class="fu">## Data Acquisition</span></span>
 <span id="cb9-73"><a href="#cb9-73"></a></span>
 <span id="cb9-74"><a href="#cb9-74"></a>Molly and I spent time exploring a range of datasets to find one that best aligned with our research questions. After a lot of searching, we identified the ICE Detention Statistics as the most comprehensive and relevant source. It provides consistent and clear data directly from the government source, allowing us to analyze trends across fiscal years with a high degree of reliability.</span>
 <span id="cb9-75"><a href="#cb9-75"></a></span>
@@ -1252,392 +1249,386 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-78"><a href="#cb9-78"></a></span>
 <span id="cb9-79"><a href="#cb9-79"></a><span class="fu">## Data Understanding</span></span>
 <span id="cb9-80"><a href="#cb9-80"></a></span>
-<span id="cb9-81"><a href="#cb9-81"></a>How much data do you have?</span>
+<span id="cb9-81"><a href="#cb9-81"></a>For our project, we are working with nine datasets total (one for each Fiscal year between 2017 through 2025). Each data set contains a wealth of information for us to work with.  </span>
 <span id="cb9-82"><a href="#cb9-82"></a></span>
-<span id="cb9-83"><a href="#cb9-83"></a>For our project, we are working with nine datasets total (one for each Fiscal year between 2017 through 2025). Each data set contains a wealth of information for us to work with.  </span>
+<span id="cb9-83"><a href="#cb9-83"></a>Our data visualizations measure temporal trends (by month and year), the number of Book-Ins (continuous numeric variable), criminality classification (three categories: Convicted Criminal, Pending Criminal Charges, Other Immigration Violator), facility type (four categories: Adult, Family, Hospital, Juvenile), and detention population (continuous numeric variable).</span>
 <span id="cb9-84"><a href="#cb9-84"></a></span>
-<span id="cb9-85"><a href="#cb9-85"></a>What types of measurements?</span>
+<span id="cb9-85"><a href="#cb9-85"></a>The original datasets were not easily transferable into RStudio due to formatting and compatibility issues. As a result, we created our own cleaned and consolidated datasets to focusing on the variables we were interested in analyzing. </span>
 <span id="cb9-86"><a href="#cb9-86"></a></span>
-<span id="cb9-87"><a href="#cb9-87"></a>Our data visualizations measure temporal trends (by month and year), the number of Book-Ins (continuous numeric variable), criminality classification (three categories: Convicted Criminal, Pending Criminal Charges, Other Immigration Violator), facility type (four categories: Adult, Family, Hospital, Juvenile), and detention population (continuous numeric variable).</span>
-<span id="cb9-88"><a href="#cb9-88"></a></span>
-<span id="cb9-89"><a href="#cb9-89"></a>Anything you needed to clean before getting started?</span>
-<span id="cb9-90"><a href="#cb9-90"></a></span>
-<span id="cb9-91"><a href="#cb9-91"></a>Yes, the original datasets were not easily transferable into RStudio due to formatting and compatibility issues. As a result, we created our own cleaned and consolidated datasets to focusing on the variables we were interested in analyzing. </span>
-<span id="cb9-92"><a href="#cb9-92"></a></span>
-<span id="cb9-93"><a href="#cb9-93"></a><span class="in">```{r, fig.cap = "Load Packages"}</span></span>
-<span id="cb9-94"><a href="#cb9-94"></a><span class="in">library(readr)</span></span>
-<span id="cb9-95"><a href="#cb9-95"></a><span class="in">library(dplyr)</span></span>
-<span id="cb9-96"><a href="#cb9-96"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb9-97"><a href="#cb9-97"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb9-98"><a href="#cb9-98"></a><span class="in">library(viridis)</span></span>
-<span id="cb9-99"><a href="#cb9-99"></a><span class="in">library(scales)</span></span>
-<span id="cb9-100"><a href="#cb9-100"></a><span class="in">library(ggrepel)</span></span>
-<span id="cb9-101"><a href="#cb9-101"></a><span class="in">library(sf)</span></span>
-<span id="cb9-102"><a href="#cb9-102"></a><span class="in">library(gplots)</span></span>
-<span id="cb9-103"><a href="#cb9-103"></a><span class="in">library(maps)</span></span>
-<span id="cb9-104"><a href="#cb9-104"></a><span class="in">library(RColorBrewer)</span></span>
-<span id="cb9-105"><a href="#cb9-105"></a><span class="in">library(mosaic)</span></span>
-<span id="cb9-106"><a href="#cb9-106"></a><span class="in">library(leaflet)</span></span>
-<span id="cb9-107"><a href="#cb9-107"></a><span class="in">library(tidyr)</span></span>
-<span id="cb9-108"><a href="#cb9-108"></a><span class="in">library(dplyr)</span></span>
-<span id="cb9-109"><a href="#cb9-109"></a><span class="in">```</span></span>
-<span id="cb9-110"><a href="#cb9-110"></a></span>
-<span id="cb9-111"><a href="#cb9-111"></a><span class="fu"># RQ1: What do detention trends from the fiscal years 2017-2024 look like? </span></span>
-<span id="cb9-112"><a href="#cb9-112"></a></span>
-<span id="cb9-113"><a href="#cb9-113"></a><span class="in">```{r, fig.cap = "Reading RQ1 Datasets"}</span></span>
-<span id="cb9-114"><a href="#cb9-114"></a><span class="in">BookIns2017 &lt;- read_csv("data/Book-Ins FY2017.csv")</span></span>
-<span id="cb9-115"><a href="#cb9-115"></a><span class="in">BookIns2018 &lt;- read_csv("data/Book-Ins FY2018.csv")</span></span>
-<span id="cb9-116"><a href="#cb9-116"></a><span class="in">BookIns2019 &lt;- read_csv("data/Book-Ins FY2019.csv")</span></span>
-<span id="cb9-117"><a href="#cb9-117"></a><span class="in">BookIns2020 &lt;- read_csv("data/Book-Ins FY2020.csv")</span></span>
-<span id="cb9-118"><a href="#cb9-118"></a><span class="in">BookIns2021 &lt;- read_csv("data/Book-Ins FY2021.csv")</span></span>
-<span id="cb9-119"><a href="#cb9-119"></a><span class="in">BookIns2022 &lt;- read_csv("data/Book-Ins FY2022.csv")</span></span>
-<span id="cb9-120"><a href="#cb9-120"></a><span class="in">BookIns2023 &lt;- read_csv("data/Book-Ins FY2023.csv")</span></span>
-<span id="cb9-121"><a href="#cb9-121"></a><span class="in">BookIns2024 &lt;- read_csv("data/Book-Ins FY2024.csv")</span></span>
-<span id="cb9-122"><a href="#cb9-122"></a><span class="in">```</span></span>
-<span id="cb9-123"><a href="#cb9-123"></a></span>
-<span id="cb9-124"><a href="#cb9-124"></a><span class="in">```{r, fig.cap = "Wrangling"}</span></span>
-<span id="cb9-125"><a href="#cb9-125"></a><span class="in">BookIns &lt;- BookIns2017 |&gt;</span></span>
-<span id="cb9-126"><a href="#cb9-126"></a><span class="in">  full_join(BookIns2018) |&gt;</span></span>
-<span id="cb9-127"><a href="#cb9-127"></a><span class="in">  full_join(BookIns2019) |&gt;</span></span>
-<span id="cb9-128"><a href="#cb9-128"></a><span class="in">  full_join(BookIns2020) |&gt;</span></span>
-<span id="cb9-129"><a href="#cb9-129"></a><span class="in">  full_join(BookIns2021) |&gt;</span></span>
-<span id="cb9-130"><a href="#cb9-130"></a><span class="in">  full_join(BookIns2022) |&gt;</span></span>
-<span id="cb9-131"><a href="#cb9-131"></a><span class="in">  full_join(BookIns2023) |&gt;</span></span>
-<span id="cb9-132"><a href="#cb9-132"></a><span class="in">  full_join(BookIns2024) </span></span>
-<span id="cb9-133"><a href="#cb9-133"></a></span>
-<span id="cb9-134"><a href="#cb9-134"></a><span class="in">BookIns &lt;- BookIns %&gt;%</span></span>
-<span id="cb9-135"><a href="#cb9-135"></a><span class="in">  mutate(Criminality = case_when(</span></span>
-<span id="cb9-136"><a href="#cb9-136"></a><span class="in">    Criminality %in% c("Other Immigration Violator", "No Known Criminal Charges or Convictions") ~ </span></span>
-<span id="cb9-137"><a href="#cb9-137"></a><span class="in">      "Other Immigration Violator/No Known Criminal Charges or Convictions",</span></span>
-<span id="cb9-138"><a href="#cb9-138"></a><span class="in">    TRUE ~ Criminality))</span></span>
-<span id="cb9-139"><a href="#cb9-139"></a><span class="in">```</span></span>
-<span id="cb9-140"><a href="#cb9-140"></a></span>
-<span id="cb9-141"><a href="#cb9-141"></a><span class="in">```{r, fig.cap = "Visualizations On Book-Ins/Arrests Over Time"}</span></span>
-<span id="cb9-142"><a href="#cb9-142"></a><span class="in">BookIns |&gt;</span></span>
-<span id="cb9-143"><a href="#cb9-143"></a><span class="in">  filter(Criminality %in% c("Total Arrests")) |&gt;</span></span>
-<span id="cb9-144"><a href="#cb9-144"></a><span class="in">  ggplot(aes(x = Year, y = Arrests)) + </span></span>
-<span id="cb9-145"><a href="#cb9-145"></a><span class="in">  geom_line(color = "cyan4", size = 1.2) + </span></span>
-<span id="cb9-146"><a href="#cb9-146"></a><span class="in">  geom_point(color = "blue4", size = 2) +</span></span>
-<span id="cb9-147"><a href="#cb9-147"></a><span class="in">  labs(</span></span>
-<span id="cb9-148"><a href="#cb9-148"></a><span class="in">    title = "Total Arrests Over Time", </span></span>
-<span id="cb9-149"><a href="#cb9-149"></a><span class="in">    x = "Fiscal Year", </span></span>
-<span id="cb9-150"><a href="#cb9-150"></a><span class="in">    y = "Number of Arrests", </span></span>
-<span id="cb9-151"><a href="#cb9-151"></a><span class="in">    caption = "Source: ICE Detention Statics from ice.gov"</span></span>
-<span id="cb9-152"><a href="#cb9-152"></a><span class="in">  ) +</span></span>
-<span id="cb9-153"><a href="#cb9-153"></a><span class="in">  scale_y_continuous(labels = comma)</span></span>
-<span id="cb9-154"><a href="#cb9-154"></a><span class="in">```</span></span>
-<span id="cb9-155"><a href="#cb9-155"></a></span>
-<span id="cb9-156"><a href="#cb9-156"></a><span class="fu">## Commentary </span></span>
-<span id="cb9-157"><a href="#cb9-157"></a>Trump’s first term spanned from 2017 to 2020, followed by Biden’s presidency from 2021 to 2024. According to arrest data from ICE.gov, 2019 stands out as a particularly significant year, with over 500,000 arrests—nearly double the second-highest year, 2022, during Biden’s term. This surge in 2019 coincided with a series of aggressive policy changes under the Trump administration aimed at mass deportations and intensified border enforcement. The sharp drop in arrests in 2020—to around 200,000—was likely driven more by the onset of the COVID-19 pandemic than by any policy shift, as public health measures and travel restrictions disrupted enforcement operations.</span>
-<span id="cb9-158"><a href="#cb9-158"></a></span>
-<span id="cb9-159"><a href="#cb9-159"></a>Given this context, 2019 offers the clearest view into the full impact of Trump-era immigration enforcement policies, free from the external disruptions seen in 2020. While the Biden administration did not see low arrest numbers—averaging around 300,000 per year—this level of enforcement appears more stable and less extreme compared to the peak under Trump. The data suggests that Trump’s administration facilitated a particularly aggressive spike in arrests, reflective of its hardline immigration stance.</span>
-<span id="cb9-160"><a href="#cb9-160"></a></span>
-<span id="cb9-161"><a href="#cb9-161"></a><span class="in">```{r, fig.cap = "Book-Ins/Arrests by Criminality"}</span></span>
-<span id="cb9-162"><a href="#cb9-162"></a><span class="in">#| fig-width: 13</span></span>
-<span id="cb9-163"><a href="#cb9-163"></a><span class="in">#| fig-height: 6</span></span>
-<span id="cb9-164"><a href="#cb9-164"></a><span class="in">BookIns |&gt;</span></span>
-<span id="cb9-165"><a href="#cb9-165"></a><span class="in">  filter(Criminality!=("Total Arrests")) |&gt;</span></span>
-<span id="cb9-166"><a href="#cb9-166"></a><span class="in">  ggplot(aes(x = Year, y = Arrests)) + </span></span>
-<span id="cb9-167"><a href="#cb9-167"></a><span class="in">  geom_line(color = "cyan4", size = 1.2) + </span></span>
-<span id="cb9-168"><a href="#cb9-168"></a><span class="in">  geom_point(color = "blue4", size = 2) +</span></span>
-<span id="cb9-169"><a href="#cb9-169"></a><span class="in">  facet_wrap(~ Criminality, ncol = 3) +</span></span>
-<span id="cb9-170"><a href="#cb9-170"></a><span class="in">  labs(</span></span>
-<span id="cb9-171"><a href="#cb9-171"></a><span class="in">    title = "Total Arrests Over Time", </span></span>
-<span id="cb9-172"><a href="#cb9-172"></a><span class="in">    x = "Year", </span></span>
-<span id="cb9-173"><a href="#cb9-173"></a><span class="in">    y = "Number of Arrests", </span></span>
-<span id="cb9-174"><a href="#cb9-174"></a><span class="in">    caption = "Source: ICE Detention Statics from ice.gov"</span></span>
-<span id="cb9-175"><a href="#cb9-175"></a><span class="in">  ) +</span></span>
-<span id="cb9-176"><a href="#cb9-176"></a><span class="in">  scale_y_continuous(labels = comma)</span></span>
-<span id="cb9-177"><a href="#cb9-177"></a><span class="in">```</span></span>
-<span id="cb9-178"><a href="#cb9-178"></a><span class="fu">## Commentary </span></span>
+<span id="cb9-87"><a href="#cb9-87"></a><span class="in">```{r, fig.cap = "Load Packages"}</span></span>
+<span id="cb9-88"><a href="#cb9-88"></a><span class="in">library(readr)</span></span>
+<span id="cb9-89"><a href="#cb9-89"></a><span class="in">library(dplyr)</span></span>
+<span id="cb9-90"><a href="#cb9-90"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb9-91"><a href="#cb9-91"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb9-92"><a href="#cb9-92"></a><span class="in">library(viridis)</span></span>
+<span id="cb9-93"><a href="#cb9-93"></a><span class="in">library(scales)</span></span>
+<span id="cb9-94"><a href="#cb9-94"></a><span class="in">library(ggrepel)</span></span>
+<span id="cb9-95"><a href="#cb9-95"></a><span class="in">library(sf)</span></span>
+<span id="cb9-96"><a href="#cb9-96"></a><span class="in">library(gplots)</span></span>
+<span id="cb9-97"><a href="#cb9-97"></a><span class="in">library(maps)</span></span>
+<span id="cb9-98"><a href="#cb9-98"></a><span class="in">library(RColorBrewer)</span></span>
+<span id="cb9-99"><a href="#cb9-99"></a><span class="in">library(mosaic)</span></span>
+<span id="cb9-100"><a href="#cb9-100"></a><span class="in">library(leaflet)</span></span>
+<span id="cb9-101"><a href="#cb9-101"></a><span class="in">library(tidyr)</span></span>
+<span id="cb9-102"><a href="#cb9-102"></a><span class="in">library(dplyr)</span></span>
+<span id="cb9-103"><a href="#cb9-103"></a><span class="in">```</span></span>
+<span id="cb9-104"><a href="#cb9-104"></a></span>
+<span id="cb9-105"><a href="#cb9-105"></a><span class="fu"># RQ1: What do detention trends from the fiscal years 2017-2024 look like? </span></span>
+<span id="cb9-106"><a href="#cb9-106"></a></span>
+<span id="cb9-107"><a href="#cb9-107"></a><span class="in">```{r, fig.cap = "Reading RQ1 Datasets"}</span></span>
+<span id="cb9-108"><a href="#cb9-108"></a><span class="in">BookIns2017 &lt;- read_csv("data/Book-Ins FY2017.csv")</span></span>
+<span id="cb9-109"><a href="#cb9-109"></a><span class="in">BookIns2018 &lt;- read_csv("data/Book-Ins FY2018.csv")</span></span>
+<span id="cb9-110"><a href="#cb9-110"></a><span class="in">BookIns2019 &lt;- read_csv("data/Book-Ins FY2019.csv")</span></span>
+<span id="cb9-111"><a href="#cb9-111"></a><span class="in">BookIns2020 &lt;- read_csv("data/Book-Ins FY2020.csv")</span></span>
+<span id="cb9-112"><a href="#cb9-112"></a><span class="in">BookIns2021 &lt;- read_csv("data/Book-Ins FY2021.csv")</span></span>
+<span id="cb9-113"><a href="#cb9-113"></a><span class="in">BookIns2022 &lt;- read_csv("data/Book-Ins FY2022.csv")</span></span>
+<span id="cb9-114"><a href="#cb9-114"></a><span class="in">BookIns2023 &lt;- read_csv("data/Book-Ins FY2023.csv")</span></span>
+<span id="cb9-115"><a href="#cb9-115"></a><span class="in">BookIns2024 &lt;- read_csv("data/Book-Ins FY2024.csv")</span></span>
+<span id="cb9-116"><a href="#cb9-116"></a><span class="in">```</span></span>
+<span id="cb9-117"><a href="#cb9-117"></a></span>
+<span id="cb9-118"><a href="#cb9-118"></a><span class="in">```{r, fig.cap = "Wrangling"}</span></span>
+<span id="cb9-119"><a href="#cb9-119"></a><span class="in">BookIns &lt;- BookIns2017 |&gt;</span></span>
+<span id="cb9-120"><a href="#cb9-120"></a><span class="in">  full_join(BookIns2018) |&gt;</span></span>
+<span id="cb9-121"><a href="#cb9-121"></a><span class="in">  full_join(BookIns2019) |&gt;</span></span>
+<span id="cb9-122"><a href="#cb9-122"></a><span class="in">  full_join(BookIns2020) |&gt;</span></span>
+<span id="cb9-123"><a href="#cb9-123"></a><span class="in">  full_join(BookIns2021) |&gt;</span></span>
+<span id="cb9-124"><a href="#cb9-124"></a><span class="in">  full_join(BookIns2022) |&gt;</span></span>
+<span id="cb9-125"><a href="#cb9-125"></a><span class="in">  full_join(BookIns2023) |&gt;</span></span>
+<span id="cb9-126"><a href="#cb9-126"></a><span class="in">  full_join(BookIns2024) </span></span>
+<span id="cb9-127"><a href="#cb9-127"></a></span>
+<span id="cb9-128"><a href="#cb9-128"></a><span class="in">BookIns &lt;- BookIns %&gt;%</span></span>
+<span id="cb9-129"><a href="#cb9-129"></a><span class="in">  mutate(Criminality = case_when(</span></span>
+<span id="cb9-130"><a href="#cb9-130"></a><span class="in">    Criminality %in% c("Other Immigration Violator", "No Known Criminal Charges or Convictions") ~ </span></span>
+<span id="cb9-131"><a href="#cb9-131"></a><span class="in">      "Other Immigration Violator/No Known Criminal Charges or Convictions",</span></span>
+<span id="cb9-132"><a href="#cb9-132"></a><span class="in">    TRUE ~ Criminality))</span></span>
+<span id="cb9-133"><a href="#cb9-133"></a><span class="in">```</span></span>
+<span id="cb9-134"><a href="#cb9-134"></a></span>
+<span id="cb9-135"><a href="#cb9-135"></a><span class="in">```{r, fig.cap = "Visualizations On Book-Ins/Arrests Over Time"}</span></span>
+<span id="cb9-136"><a href="#cb9-136"></a><span class="in">BookIns |&gt;</span></span>
+<span id="cb9-137"><a href="#cb9-137"></a><span class="in">  filter(Criminality %in% c("Total Arrests")) |&gt;</span></span>
+<span id="cb9-138"><a href="#cb9-138"></a><span class="in">  ggplot(aes(x = Year, y = Arrests)) + </span></span>
+<span id="cb9-139"><a href="#cb9-139"></a><span class="in">  geom_line(color = "cyan4", size = 1.2) + </span></span>
+<span id="cb9-140"><a href="#cb9-140"></a><span class="in">  geom_point(color = "blue4", size = 2) +</span></span>
+<span id="cb9-141"><a href="#cb9-141"></a><span class="in">  labs(</span></span>
+<span id="cb9-142"><a href="#cb9-142"></a><span class="in">    title = "Total Arrests Over Time", </span></span>
+<span id="cb9-143"><a href="#cb9-143"></a><span class="in">    x = "Fiscal Year", </span></span>
+<span id="cb9-144"><a href="#cb9-144"></a><span class="in">    y = "Number of Arrests", </span></span>
+<span id="cb9-145"><a href="#cb9-145"></a><span class="in">    caption = "Source: ICE Detention Statics from ice.gov"</span></span>
+<span id="cb9-146"><a href="#cb9-146"></a><span class="in">  ) +</span></span>
+<span id="cb9-147"><a href="#cb9-147"></a><span class="in">  scale_y_continuous(labels = comma)</span></span>
+<span id="cb9-148"><a href="#cb9-148"></a><span class="in">```</span></span>
+<span id="cb9-149"><a href="#cb9-149"></a></span>
+<span id="cb9-150"><a href="#cb9-150"></a><span class="fu">## Commentary </span></span>
+<span id="cb9-151"><a href="#cb9-151"></a>Trump’s first term spanned from 2017 to 2020, followed by Biden’s presidency from 2021 to 2024. According to arrest data from ICE.gov, 2019 stands out as a particularly significant year, with over 500,000 arrests—nearly double the second-highest year, 2022, during Biden’s term. This surge in 2019 coincided with a series of aggressive policy changes under the Trump administration aimed at mass deportations and intensified border enforcement. The sharp drop in arrests in 2020—to around 200,000—was likely driven more by the onset of the COVID-19 pandemic than by any policy shift, as public health measures and travel restrictions disrupted enforcement operations.</span>
+<span id="cb9-152"><a href="#cb9-152"></a></span>
+<span id="cb9-153"><a href="#cb9-153"></a>Given this context, 2019 offers the clearest view into the full impact of Trump-era immigration enforcement policies, free from the external disruptions seen in 2020. While the Biden administration did not see low arrest numbers—averaging around 300,000 per year—this level of enforcement appears more stable and less extreme compared to the peak under Trump. The data suggests that Trump’s administration facilitated a particularly aggressive spike in arrests, reflective of its hardline immigration stance.</span>
+<span id="cb9-154"><a href="#cb9-154"></a></span>
+<span id="cb9-155"><a href="#cb9-155"></a><span class="in">```{r, fig.cap = "Book-Ins/Arrests by Criminality"}</span></span>
+<span id="cb9-156"><a href="#cb9-156"></a><span class="in">#| fig-width: 13</span></span>
+<span id="cb9-157"><a href="#cb9-157"></a><span class="in">#| fig-height: 6</span></span>
+<span id="cb9-158"><a href="#cb9-158"></a><span class="in">BookIns |&gt;</span></span>
+<span id="cb9-159"><a href="#cb9-159"></a><span class="in">  filter(Criminality!=("Total Arrests")) |&gt;</span></span>
+<span id="cb9-160"><a href="#cb9-160"></a><span class="in">  ggplot(aes(x = Year, y = Arrests)) + </span></span>
+<span id="cb9-161"><a href="#cb9-161"></a><span class="in">  geom_line(color = "cyan4", size = 1.2) + </span></span>
+<span id="cb9-162"><a href="#cb9-162"></a><span class="in">  geom_point(color = "blue4", size = 2) +</span></span>
+<span id="cb9-163"><a href="#cb9-163"></a><span class="in">  facet_wrap(~ Criminality, ncol = 3) +</span></span>
+<span id="cb9-164"><a href="#cb9-164"></a><span class="in">  labs(</span></span>
+<span id="cb9-165"><a href="#cb9-165"></a><span class="in">    title = "Total Arrests Over Time", </span></span>
+<span id="cb9-166"><a href="#cb9-166"></a><span class="in">    x = "Year", </span></span>
+<span id="cb9-167"><a href="#cb9-167"></a><span class="in">    y = "Number of Arrests", </span></span>
+<span id="cb9-168"><a href="#cb9-168"></a><span class="in">    caption = "Source: ICE Detention Statics from ice.gov"</span></span>
+<span id="cb9-169"><a href="#cb9-169"></a><span class="in">  ) +</span></span>
+<span id="cb9-170"><a href="#cb9-170"></a><span class="in">  scale_y_continuous(labels = comma)</span></span>
+<span id="cb9-171"><a href="#cb9-171"></a><span class="in">```</span></span>
+<span id="cb9-172"><a href="#cb9-172"></a><span class="fu">## Commentary </span></span>
+<span id="cb9-173"><a href="#cb9-173"></a></span>
+<span id="cb9-174"><a href="#cb9-174"></a>While ICE does not provide much publicly available demographic data, it does report arrest data by "criminality" status. We chose to facet our analysis by this variable—not only because it is emphasized by ICE itself, but also because it aligns with common rhetoric from the Trump administration, which has frequently portrayed undocumented immigrants as criminals.</span>
+<span id="cb9-175"><a href="#cb9-175"></a></span>
+<span id="cb9-176"><a href="#cb9-176"></a>However, the data challenges this narrative. In nearly every fiscal year we examined (with the exception of 2020, which was significantly affected by the COVID-19 pandemic), the largest category of arrests involved individuals classified as having “no known criminal charges” or labeled as “other immigration violators.” The latter is a term often used to describe individuals whose only offense is a civil violation of U.S. immigration law—not a criminal conviction.</span>
+<span id="cb9-177"><a href="#cb9-177"></a></span>
+<span id="cb9-178"><a href="#cb9-178"></a>By framing immigrants as criminals, the Trump administration sought to position immigration enforcement as a matter of public safety and law enforcement. But the data tells a different story: the vast majority of those arrested do not fit the profile of dangerous criminals. This disconnect underscores the importance of critically examining how enforcement policies are justified and who they actually target.</span>
 <span id="cb9-179"><a href="#cb9-179"></a></span>
-<span id="cb9-180"><a href="#cb9-180"></a>While ICE does not provide much publicly available demographic data, it does report arrest data by "criminality" status. We chose to facet our analysis by this variable—not only because it is emphasized by ICE itself, but also because it aligns with common rhetoric from the Trump administration, which has frequently portrayed undocumented immigrants as criminals.</span>
-<span id="cb9-181"><a href="#cb9-181"></a></span>
-<span id="cb9-182"><a href="#cb9-182"></a>However, the data challenges this narrative. In nearly every fiscal year we examined (with the exception of 2020, which was significantly affected by the COVID-19 pandemic), the largest category of arrests involved individuals classified as having “no known criminal charges” or labeled as “other immigration violators.” The latter is a term often used to describe individuals whose only offense is a civil violation of U.S. immigration law—not a criminal conviction.</span>
-<span id="cb9-183"><a href="#cb9-183"></a></span>
-<span id="cb9-184"><a href="#cb9-184"></a>By framing immigrants as criminals, the Trump administration sought to position immigration enforcement as a matter of public safety and law enforcement. But the data tells a different story: the vast majority of those arrested do not fit the profile of dangerous criminals. This disconnect underscores the importance of critically examining how enforcement policies are justified and who they actually target.</span>
+<span id="cb9-180"><a href="#cb9-180"></a></span>
+<span id="cb9-181"><a href="#cb9-181"></a><span class="in">```{r, fig.cap = "Wrangling"}</span></span>
+<span id="cb9-182"><a href="#cb9-182"></a><span class="in">BookIns &lt;- BookIns |&gt; mutate(Year = as.integer(Year))</span></span>
+<span id="cb9-183"><a href="#cb9-183"></a><span class="in">```</span></span>
+<span id="cb9-184"><a href="#cb9-184"></a></span>
 <span id="cb9-185"><a href="#cb9-185"></a></span>
-<span id="cb9-186"><a href="#cb9-186"></a></span>
-<span id="cb9-187"><a href="#cb9-187"></a><span class="in">```{r, fig.cap = "Wrangling"}</span></span>
-<span id="cb9-188"><a href="#cb9-188"></a><span class="in">BookIns &lt;- BookIns |&gt; mutate(Year = as.integer(Year))</span></span>
-<span id="cb9-189"><a href="#cb9-189"></a><span class="in">```</span></span>
+<span id="cb9-188"><a href="#cb9-188"></a><span class="in">```{r}</span></span>
+<span id="cb9-189"><a href="#cb9-189"></a>length_of_stay_data <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"data/length_of_stay_data.txt"</span>, <span class="at">delim =</span> <span class="st">","</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb9-190"><a href="#cb9-190"></a></span>
-<span id="cb9-191"><a href="#cb9-191"></a></span>
-<span id="cb9-194"><a href="#cb9-194"></a><span class="in">```{r}</span></span>
-<span id="cb9-195"><a href="#cb9-195"></a>length_of_stay_data <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"data/length_of_stay_data.txt"</span>, <span class="at">delim =</span> <span class="st">","</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb9-196"><a href="#cb9-196"></a></span>
-<span id="cb9-197"><a href="#cb9-197"></a>length_of_stay_data</span>
-<span id="cb9-198"><a href="#cb9-198"></a><span class="in">```</span></span>
-<span id="cb9-199"><a href="#cb9-199"></a></span>
-<span id="cb9-202"><a href="#cb9-202"></a><span class="in">```{r}</span></span>
-<span id="cb9-203"><a href="#cb9-203"></a>allowed_criminalities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Convicted Criminal"</span>, <span class="st">"Pending Criminal Charges"</span>, <span class="st">"Other Immigration Violator"</span>)</span>
-<span id="cb9-204"><a href="#cb9-204"></a></span>
-<span id="cb9-205"><a href="#cb9-205"></a>length_of_stay_data <span class="ot">&lt;-</span> length_of_stay_data <span class="sc">%&gt;%</span></span>
-<span id="cb9-206"><a href="#cb9-206"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> allowed_criminalities)</span>
-<span id="cb9-207"><a href="#cb9-207"></a></span>
-<span id="cb9-208"><a href="#cb9-208"></a>avg_stay_by_year_criminality <span class="ot">&lt;-</span> length_of_stay_data <span class="sc">%&gt;%</span></span>
-<span id="cb9-209"><a href="#cb9-209"></a>  <span class="fu">group_by</span>(Year, Criminality) <span class="sc">%&gt;%</span></span>
-<span id="cb9-210"><a href="#cb9-210"></a>  <span class="fu">summarise</span>(<span class="at">Avg_Length_of_Stay =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Length of Stay</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
-<span id="cb9-211"><a href="#cb9-211"></a></span>
-<span id="cb9-212"><a href="#cb9-212"></a><span class="fu">ggplot</span>(avg_stay_by_year_criminality, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Year), <span class="at">y =</span> Avg_Length_of_Stay, <span class="at">fill =</span> Criminality)) <span class="sc">+</span></span>
-<span id="cb9-213"><a href="#cb9-213"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> <span class="co"># Use 'dodge' to group bars</span></span>
-<span id="cb9-214"><a href="#cb9-214"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-215"><a href="#cb9-215"></a>    <span class="at">title =</span> <span class="st">"Average Length of Stay by Year and Criminality"</span>,</span>
-<span id="cb9-216"><a href="#cb9-216"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb9-217"><a href="#cb9-217"></a>    <span class="at">y =</span> <span class="st">"Average Length of Stay (Days)"</span>,</span>
-<span id="cb9-218"><a href="#cb9-218"></a>    <span class="at">fill =</span> <span class="st">"Criminality"</span>) <span class="sc">+</span></span>
-<span id="cb9-219"><a href="#cb9-219"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb9-220"><a href="#cb9-220"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb9-221"><a href="#cb9-221"></a>  </span>
-<span id="cb9-222"><a href="#cb9-222"></a>  <span class="fu">theme</span>(</span>
-<span id="cb9-223"><a href="#cb9-223"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
-<span id="cb9-224"><a href="#cb9-224"></a><span class="in">```</span></span>
-<span id="cb9-225"><a href="#cb9-225"></a><span class="fu">## Commentary </span></span>
+<span id="cb9-191"><a href="#cb9-191"></a>length_of_stay_data</span>
+<span id="cb9-192"><a href="#cb9-192"></a><span class="in">```</span></span>
+<span id="cb9-193"><a href="#cb9-193"></a></span>
+<span id="cb9-196"><a href="#cb9-196"></a><span class="in">```{r}</span></span>
+<span id="cb9-197"><a href="#cb9-197"></a>allowed_criminalities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Convicted Criminal"</span>, <span class="st">"Pending Criminal Charges"</span>, <span class="st">"Other Immigration Violator"</span>)</span>
+<span id="cb9-198"><a href="#cb9-198"></a></span>
+<span id="cb9-199"><a href="#cb9-199"></a>length_of_stay_data <span class="ot">&lt;-</span> length_of_stay_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-200"><a href="#cb9-200"></a>  <span class="fu">filter</span>(Criminality <span class="sc">%in%</span> allowed_criminalities)</span>
+<span id="cb9-201"><a href="#cb9-201"></a></span>
+<span id="cb9-202"><a href="#cb9-202"></a>avg_stay_by_year_criminality <span class="ot">&lt;-</span> length_of_stay_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-203"><a href="#cb9-203"></a>  <span class="fu">group_by</span>(Year, Criminality) <span class="sc">%&gt;%</span></span>
+<span id="cb9-204"><a href="#cb9-204"></a>  <span class="fu">summarise</span>(<span class="at">Avg_Length_of_Stay =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Length of Stay</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb9-205"><a href="#cb9-205"></a></span>
+<span id="cb9-206"><a href="#cb9-206"></a><span class="fu">ggplot</span>(avg_stay_by_year_criminality, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(Year), <span class="at">y =</span> Avg_Length_of_Stay, <span class="at">fill =</span> Criminality)) <span class="sc">+</span></span>
+<span id="cb9-207"><a href="#cb9-207"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> <span class="co"># Use 'dodge' to group bars</span></span>
+<span id="cb9-208"><a href="#cb9-208"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-209"><a href="#cb9-209"></a>    <span class="at">title =</span> <span class="st">"Average Length of Stay by Year and Criminality"</span>,</span>
+<span id="cb9-210"><a href="#cb9-210"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb9-211"><a href="#cb9-211"></a>    <span class="at">y =</span> <span class="st">"Average Length of Stay (Days)"</span>,</span>
+<span id="cb9-212"><a href="#cb9-212"></a>    <span class="at">fill =</span> <span class="st">"Criminality"</span>) <span class="sc">+</span></span>
+<span id="cb9-213"><a href="#cb9-213"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb9-214"><a href="#cb9-214"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-215"><a href="#cb9-215"></a>  </span>
+<span id="cb9-216"><a href="#cb9-216"></a>  <span class="fu">theme</span>(</span>
+<span id="cb9-217"><a href="#cb9-217"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb9-218"><a href="#cb9-218"></a><span class="in">```</span></span>
+<span id="cb9-219"><a href="#cb9-219"></a><span class="fu">## Commentary </span></span>
+<span id="cb9-220"><a href="#cb9-220"></a></span>
+<span id="cb9-221"><a href="#cb9-221"></a>The grouped bar chart reveals significant variations in the average length of stay in detention between 2018 and 2025, and variation across criminality types. Notably, during 2020 we see a striking peak for all criminalities, but espeically for "Other Immigraiton Violators." I can imagine that this is a result of an increased backlog in processing and releasing detainees during the height of the COVID-19 pandemic. </span>
+<span id="cb9-222"><a href="#cb9-222"></a></span>
+<span id="cb9-223"><a href="#cb9-223"></a>Overall, while fluctuations exist year-to-year for all categories, the average length of stay fluctuates between criminality types. This visualization effectively highlights these disparities and temporal shifts, prompting further investigation into the underlying policy changes or operational factors driving these trends in detention durations.</span>
+<span id="cb9-224"><a href="#cb9-224"></a></span>
+<span id="cb9-225"><a href="#cb9-225"></a><span class="fu"># RQ2: What are the detention trends of 2019 specifically? Why was this a unique year? </span></span>
 <span id="cb9-226"><a href="#cb9-226"></a></span>
-<span id="cb9-227"><a href="#cb9-227"></a>The grouped bar chart reveals significant variations in the average length of stay in detention between 2018 and 2025, and variation across criminality types. Notably, during 2020 we see a striking peak for all criminalities, but espeically for "Other Immigraiton Violators." I can imagine that this is a result of an increased backlog in processing and releasing detainees during the height of the COVID-19 pandemic. </span>
-<span id="cb9-228"><a href="#cb9-228"></a></span>
-<span id="cb9-229"><a href="#cb9-229"></a>Overall, while fluctuations exist year-to-year for all categories, the average length of stay fluctuates between criminality types. This visualization effectively highlights these disparities and temporal shifts, prompting further investigation into the underlying policy changes or operational factors driving these trends in detention durations.</span>
-<span id="cb9-230"><a href="#cb9-230"></a></span>
-<span id="cb9-231"><a href="#cb9-231"></a><span class="fu"># RQ2: What are the detention trends of 2019 specifically? Why was this a unique year? </span></span>
-<span id="cb9-232"><a href="#cb9-232"></a></span>
-<span id="cb9-233"><a href="#cb9-233"></a><span class="in">```{r, fig.cap = "Set Up for RQ2"}</span></span>
-<span id="cb9-234"><a href="#cb9-234"></a><span class="in"># Calling Datasets</span></span>
-<span id="cb9-235"><a href="#cb9-235"></a><span class="in">BookIns_2019 &lt;- read_csv("data/ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv")</span></span>
-<span id="cb9-236"><a href="#cb9-236"></a><span class="in">```</span></span>
-<span id="cb9-237"><a href="#cb9-237"></a></span>
-<span id="cb9-240"><a href="#cb9-240"></a><span class="in">```{r}</span></span>
-<span id="cb9-241"><a href="#cb9-241"></a>BookIns_2019 <span class="ot">&lt;-</span> BookIns_2019 <span class="sc">|&gt;</span></span>
-<span id="cb9-242"><a href="#cb9-242"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb9-243"><a href="#cb9-243"></a>    <span class="at">cols =</span> <span class="sc">-</span>Agency,          </span>
-<span id="cb9-244"><a href="#cb9-244"></a>    <span class="at">names_to =</span> <span class="st">"Month"</span>,      </span>
-<span id="cb9-245"><a href="#cb9-245"></a>    <span class="at">values_to =</span> <span class="st">"Count"</span>)</span>
-<span id="cb9-246"><a href="#cb9-246"></a><span class="in">```</span></span>
-<span id="cb9-247"><a href="#cb9-247"></a></span>
-<span id="cb9-250"><a href="#cb9-250"></a><span class="in">```{r}</span></span>
-<span id="cb9-251"><a href="#cb9-251"></a>month_order <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>, <span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>)</span>
-<span id="cb9-252"><a href="#cb9-252"></a></span>
-<span id="cb9-253"><a href="#cb9-253"></a>BookIns_2019 <span class="sc">|&gt;</span> </span>
-<span id="cb9-254"><a href="#cb9-254"></a>  <span class="fu">filter</span>(Month <span class="sc">!=</span> <span class="st">"Total"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-255"><a href="#cb9-255"></a>  <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month_order)) <span class="sc">|&gt;</span></span>
-<span id="cb9-256"><a href="#cb9-256"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Count, <span class="at">fill =</span> Agency)) <span class="sc">+</span></span>
-<span id="cb9-257"><a href="#cb9-257"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb9-258"><a href="#cb9-258"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Agency Book-Ins by Month (FY2019)"</span>,</span>
-<span id="cb9-259"><a href="#cb9-259"></a>       <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb9-260"><a href="#cb9-260"></a>       <span class="at">y =</span> <span class="st">"Book-Ins"</span>,</span>
-<span id="cb9-261"><a href="#cb9-261"></a>       <span class="at">caption =</span> <span class="st">"Source: ICE Detention Statics from ice.gov"</span>) <span class="sc">+</span></span>
-<span id="cb9-262"><a href="#cb9-262"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb9-263"><a href="#cb9-263"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb9-264"><a href="#cb9-264"></a><span class="in">```</span></span>
-<span id="cb9-265"><a href="#cb9-265"></a></span>
-<span id="cb9-266"><a href="#cb9-266"></a><span class="fu">## Commentary </span></span>
-<span id="cb9-267"><a href="#cb9-267"></a></span>
-<span id="cb9-268"><a href="#cb9-268"></a>Focusing specifically on fiscal year 2019 reveals a noticeable difference in activity between ICE and CBP. While ICE maintained relatively consistent levels of Book-Ins throughout the year, CBP experienced a significant spike between March and May. This surge likely reflects a shift in border enforcement policy rather than changes in deportation practices. The timing and nature of this increase align with the Trump administration’s heightened focus on the U.S.–Mexico border during his first term. These trends suggest that resources and enforcement efforts during this period were disproportionately directed toward CBP, while ICE operations remained more stable.</span>
-<span id="cb9-269"><a href="#cb9-269"></a></span>
-<span id="cb9-270"><a href="#cb9-270"></a></span>
-<span id="cb9-271"><a href="#cb9-271"></a><span class="in">```{r, fig.cap = "Setting Up Spatial Viz"}</span></span>
-<span id="cb9-272"><a href="#cb9-272"></a><span class="in">Facilities &lt;- read_csv("data/ice-detention-trends-main/metadata/facilities.csv")</span></span>
-<span id="cb9-273"><a href="#cb9-273"></a><span class="in">```</span></span>
-<span id="cb9-274"><a href="#cb9-274"></a></span>
-<span id="cb9-275"><a href="#cb9-275"></a><span class="in">```{r, fig.cap = "Wrangling"}</span></span>
-<span id="cb9-276"><a href="#cb9-276"></a><span class="in">unique(Facilities$type_detailed)</span></span>
-<span id="cb9-277"><a href="#cb9-277"></a><span class="in">library(dplyr)</span></span>
-<span id="cb9-278"><a href="#cb9-278"></a></span>
-<span id="cb9-279"><a href="#cb9-279"></a><span class="in">Facilities %&gt;%</span></span>
-<span id="cb9-280"><a href="#cb9-280"></a><span class="in">  count(type_detailed, sort = TRUE)</span></span>
-<span id="cb9-281"><a href="#cb9-281"></a></span>
-<span id="cb9-282"><a href="#cb9-282"></a></span>
-<span id="cb9-283"><a href="#cb9-283"></a><span class="in"># Modify 'type_detailed' to create new categories</span></span>
-<span id="cb9-284"><a href="#cb9-284"></a><span class="in">Facilities &lt;- Facilities %&gt;%</span></span>
-<span id="cb9-285"><a href="#cb9-285"></a><span class="in">  mutate(type_detailed = case_when(</span></span>
-<span id="cb9-286"><a href="#cb9-286"></a><span class="in">    type_detailed == "Juvenile" ~ "Juvenile",  </span></span>
-<span id="cb9-287"><a href="#cb9-287"></a><span class="in">    grepl("family", tolower(trimws(type_detailed)), ignore.case = TRUE) ~ "Family",  </span></span>
-<span id="cb9-288"><a href="#cb9-288"></a><span class="in">    type_detailed == "Hospital" ~ "Hospital",  # Keep Hospital as it is</span></span>
-<span id="cb9-289"><a href="#cb9-289"></a><span class="in">    TRUE ~ "Adult"</span></span>
-<span id="cb9-290"><a href="#cb9-290"></a><span class="in">  ))</span></span>
-<span id="cb9-291"><a href="#cb9-291"></a></span>
-<span id="cb9-292"><a href="#cb9-292"></a><span class="in">head(Facilities$type_detailed)</span></span>
-<span id="cb9-293"><a href="#cb9-293"></a></span>
-<span id="cb9-294"><a href="#cb9-294"></a><span class="in">table(Facilities$type_detailed)</span></span>
-<span id="cb9-295"><a href="#cb9-295"></a><span class="in">  </span></span>
-<span id="cb9-296"><a href="#cb9-296"></a><span class="in">Facilities %&gt;%</span></span>
-<span id="cb9-297"><a href="#cb9-297"></a><span class="in">  count(type_detailed, sort = TRUE)</span></span>
-<span id="cb9-298"><a href="#cb9-298"></a></span>
-<span id="cb9-299"><a href="#cb9-299"></a><span class="in">pal &lt;- colorFactor(palette = rev(plasma(4)), domain = Facilities$type_detailed)</span></span>
-<span id="cb9-300"><a href="#cb9-300"></a><span class="in">```</span></span>
-<span id="cb9-301"><a href="#cb9-301"></a></span>
-<span id="cb9-302"><a href="#cb9-302"></a><span class="in">```{r, fig.cap = "Source: ICE Detention Trends - vera.org"}</span></span>
-<span id="cb9-303"><a href="#cb9-303"></a><span class="in">leaflet(data = Facilities) |&gt; </span></span>
-<span id="cb9-304"><a href="#cb9-304"></a><span class="in">  addTiles()  |&gt;</span></span>
-<span id="cb9-305"><a href="#cb9-305"></a><span class="in">  addCircles(lng = ~longitude, </span></span>
-<span id="cb9-306"><a href="#cb9-306"></a><span class="in">             lat = ~latitude, </span></span>
-<span id="cb9-307"><a href="#cb9-307"></a><span class="in">             color = ~pal(type_detailed),</span></span>
-<span id="cb9-308"><a href="#cb9-308"></a><span class="in">             label = ~type_detailed) |&gt;</span></span>
-<span id="cb9-309"><a href="#cb9-309"></a><span class="in">  addLegend("bottomright",</span></span>
-<span id="cb9-310"><a href="#cb9-310"></a><span class="in">            pal = pal,</span></span>
-<span id="cb9-311"><a href="#cb9-311"></a><span class="in">            values = ~type_detailed,</span></span>
-<span id="cb9-312"><a href="#cb9-312"></a><span class="in">            title = "Facility Type",</span></span>
-<span id="cb9-313"><a href="#cb9-313"></a><span class="in">            opacity = 1)</span></span>
-<span id="cb9-314"><a href="#cb9-314"></a><span class="in">```</span></span>
-<span id="cb9-315"><a href="#cb9-315"></a></span>
-<span id="cb9-316"><a href="#cb9-316"></a><span class="fu">## Commentary </span></span>
-<span id="cb9-317"><a href="#cb9-317"></a>After examining overall trends in 2019, we turned our attention to the physical locations of ICE detention facilities, particularly in light of the differences in arrest patterns between CBP and ICE. The geographic distribution of facilities reveals clear concentrations along the U.S.–Mexico border, the coasts, and in major metropolitan areas. Notably, there is a dense cluster of facilities both at the southern border and in the Northeastern U.S., underscoring enforcement priorities in those regions.</span>
+<span id="cb9-227"><a href="#cb9-227"></a><span class="in">```{r, fig.cap = "Set Up for RQ2"}</span></span>
+<span id="cb9-228"><a href="#cb9-228"></a><span class="in"># Calling Datasets</span></span>
+<span id="cb9-229"><a href="#cb9-229"></a><span class="in">BookIns_2019 &lt;- read_csv("data/ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv")</span></span>
+<span id="cb9-230"><a href="#cb9-230"></a><span class="in">```</span></span>
+<span id="cb9-231"><a href="#cb9-231"></a></span>
+<span id="cb9-234"><a href="#cb9-234"></a><span class="in">```{r}</span></span>
+<span id="cb9-235"><a href="#cb9-235"></a>BookIns_2019 <span class="ot">&lt;-</span> BookIns_2019 <span class="sc">|&gt;</span></span>
+<span id="cb9-236"><a href="#cb9-236"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb9-237"><a href="#cb9-237"></a>    <span class="at">cols =</span> <span class="sc">-</span>Agency,          </span>
+<span id="cb9-238"><a href="#cb9-238"></a>    <span class="at">names_to =</span> <span class="st">"Month"</span>,      </span>
+<span id="cb9-239"><a href="#cb9-239"></a>    <span class="at">values_to =</span> <span class="st">"Count"</span>)</span>
+<span id="cb9-240"><a href="#cb9-240"></a><span class="in">```</span></span>
+<span id="cb9-241"><a href="#cb9-241"></a></span>
+<span id="cb9-244"><a href="#cb9-244"></a><span class="in">```{r}</span></span>
+<span id="cb9-245"><a href="#cb9-245"></a>month_order <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>, <span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>)</span>
+<span id="cb9-246"><a href="#cb9-246"></a></span>
+<span id="cb9-247"><a href="#cb9-247"></a>BookIns_2019 <span class="sc">|&gt;</span> </span>
+<span id="cb9-248"><a href="#cb9-248"></a>  <span class="fu">filter</span>(Month <span class="sc">!=</span> <span class="st">"Total"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-249"><a href="#cb9-249"></a>  <span class="fu">mutate</span>(<span class="at">Month =</span> <span class="fu">factor</span>(Month, <span class="at">levels =</span> month_order)) <span class="sc">|&gt;</span></span>
+<span id="cb9-250"><a href="#cb9-250"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Count, <span class="at">fill =</span> Agency)) <span class="sc">+</span></span>
+<span id="cb9-251"><a href="#cb9-251"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb9-252"><a href="#cb9-252"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Agency Book-Ins by Month (FY2019)"</span>,</span>
+<span id="cb9-253"><a href="#cb9-253"></a>       <span class="at">x =</span> <span class="st">"Month"</span>,</span>
+<span id="cb9-254"><a href="#cb9-254"></a>       <span class="at">y =</span> <span class="st">"Book-Ins"</span>,</span>
+<span id="cb9-255"><a href="#cb9-255"></a>       <span class="at">caption =</span> <span class="st">"Source: ICE Detention Statics from ice.gov"</span>) <span class="sc">+</span></span>
+<span id="cb9-256"><a href="#cb9-256"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb9-257"><a href="#cb9-257"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb9-258"><a href="#cb9-258"></a><span class="in">```</span></span>
+<span id="cb9-259"><a href="#cb9-259"></a></span>
+<span id="cb9-260"><a href="#cb9-260"></a><span class="fu">## Commentary </span></span>
+<span id="cb9-261"><a href="#cb9-261"></a></span>
+<span id="cb9-262"><a href="#cb9-262"></a>Focusing specifically on fiscal year 2019 reveals a noticeable difference in activity between ICE and CBP. While ICE maintained relatively consistent levels of Book-Ins throughout the year, CBP experienced a significant spike between March and May. This surge likely reflects a shift in border enforcement policy rather than changes in deportation practices. The timing and nature of this increase align with the Trump administration’s heightened focus on the U.S.–Mexico border during his first term. These trends suggest that resources and enforcement efforts during this period were disproportionately directed toward CBP, while ICE operations remained more stable.</span>
+<span id="cb9-263"><a href="#cb9-263"></a></span>
+<span id="cb9-264"><a href="#cb9-264"></a></span>
+<span id="cb9-265"><a href="#cb9-265"></a><span class="in">```{r, fig.cap = "Setting Up Spatial Viz"}</span></span>
+<span id="cb9-266"><a href="#cb9-266"></a><span class="in">Facilities &lt;- read_csv("data/ice-detention-trends-main/metadata/facilities.csv")</span></span>
+<span id="cb9-267"><a href="#cb9-267"></a><span class="in">```</span></span>
+<span id="cb9-268"><a href="#cb9-268"></a></span>
+<span id="cb9-269"><a href="#cb9-269"></a><span class="in">```{r, fig.cap = "Wrangling"}</span></span>
+<span id="cb9-270"><a href="#cb9-270"></a><span class="in">unique(Facilities$type_detailed)</span></span>
+<span id="cb9-271"><a href="#cb9-271"></a><span class="in">library(dplyr)</span></span>
+<span id="cb9-272"><a href="#cb9-272"></a></span>
+<span id="cb9-273"><a href="#cb9-273"></a><span class="in">Facilities %&gt;%</span></span>
+<span id="cb9-274"><a href="#cb9-274"></a><span class="in">  count(type_detailed, sort = TRUE)</span></span>
+<span id="cb9-275"><a href="#cb9-275"></a></span>
+<span id="cb9-276"><a href="#cb9-276"></a></span>
+<span id="cb9-277"><a href="#cb9-277"></a><span class="in"># Modify 'type_detailed' to create new categories</span></span>
+<span id="cb9-278"><a href="#cb9-278"></a><span class="in">Facilities &lt;- Facilities %&gt;%</span></span>
+<span id="cb9-279"><a href="#cb9-279"></a><span class="in">  mutate(type_detailed = case_when(</span></span>
+<span id="cb9-280"><a href="#cb9-280"></a><span class="in">    type_detailed == "Juvenile" ~ "Juvenile",  </span></span>
+<span id="cb9-281"><a href="#cb9-281"></a><span class="in">    grepl("family", tolower(trimws(type_detailed)), ignore.case = TRUE) ~ "Family",  </span></span>
+<span id="cb9-282"><a href="#cb9-282"></a><span class="in">    type_detailed == "Hospital" ~ "Hospital",  # Keep Hospital as it is</span></span>
+<span id="cb9-283"><a href="#cb9-283"></a><span class="in">    TRUE ~ "Adult"</span></span>
+<span id="cb9-284"><a href="#cb9-284"></a><span class="in">  ))</span></span>
+<span id="cb9-285"><a href="#cb9-285"></a></span>
+<span id="cb9-286"><a href="#cb9-286"></a><span class="in">head(Facilities$type_detailed)</span></span>
+<span id="cb9-287"><a href="#cb9-287"></a></span>
+<span id="cb9-288"><a href="#cb9-288"></a><span class="in">table(Facilities$type_detailed)</span></span>
+<span id="cb9-289"><a href="#cb9-289"></a><span class="in">  </span></span>
+<span id="cb9-290"><a href="#cb9-290"></a><span class="in">Facilities %&gt;%</span></span>
+<span id="cb9-291"><a href="#cb9-291"></a><span class="in">  count(type_detailed, sort = TRUE)</span></span>
+<span id="cb9-292"><a href="#cb9-292"></a></span>
+<span id="cb9-293"><a href="#cb9-293"></a><span class="in">pal &lt;- colorFactor(palette = rev(plasma(4)), domain = Facilities$type_detailed)</span></span>
+<span id="cb9-294"><a href="#cb9-294"></a><span class="in">```</span></span>
+<span id="cb9-295"><a href="#cb9-295"></a></span>
+<span id="cb9-296"><a href="#cb9-296"></a><span class="in">```{r, fig.cap = "Source: ICE Detention Trends - vera.org"}</span></span>
+<span id="cb9-297"><a href="#cb9-297"></a><span class="in">leaflet(data = Facilities) |&gt; </span></span>
+<span id="cb9-298"><a href="#cb9-298"></a><span class="in">  addTiles()  |&gt;</span></span>
+<span id="cb9-299"><a href="#cb9-299"></a><span class="in">  addCircles(lng = ~longitude, </span></span>
+<span id="cb9-300"><a href="#cb9-300"></a><span class="in">             lat = ~latitude, </span></span>
+<span id="cb9-301"><a href="#cb9-301"></a><span class="in">             color = ~pal(type_detailed),</span></span>
+<span id="cb9-302"><a href="#cb9-302"></a><span class="in">             label = ~type_detailed) |&gt;</span></span>
+<span id="cb9-303"><a href="#cb9-303"></a><span class="in">  addLegend("bottomright",</span></span>
+<span id="cb9-304"><a href="#cb9-304"></a><span class="in">            pal = pal,</span></span>
+<span id="cb9-305"><a href="#cb9-305"></a><span class="in">            values = ~type_detailed,</span></span>
+<span id="cb9-306"><a href="#cb9-306"></a><span class="in">            title = "Facility Type",</span></span>
+<span id="cb9-307"><a href="#cb9-307"></a><span class="in">            opacity = 1)</span></span>
+<span id="cb9-308"><a href="#cb9-308"></a><span class="in">```</span></span>
+<span id="cb9-309"><a href="#cb9-309"></a></span>
+<span id="cb9-310"><a href="#cb9-310"></a><span class="fu">## Commentary </span></span>
+<span id="cb9-311"><a href="#cb9-311"></a>After examining overall trends in 2019, we turned our attention to the physical locations of ICE detention facilities, particularly in light of the differences in arrest patterns between CBP and ICE. The geographic distribution of facilities reveals clear concentrations along the U.S.–Mexico border, the coasts, and in major metropolitan areas. Notably, there is a dense cluster of facilities both at the southern border and in the Northeastern U.S., underscoring enforcement priorities in those regions.</span>
+<span id="cb9-312"><a href="#cb9-312"></a></span>
+<span id="cb9-313"><a href="#cb9-313"></a>Another key insight from the visualization involves the types of facilities. The original dataset—sourced from the Vera Institute’s ICE Detention Trends project—categorizes facilities not only by function but also by funding structure. Since our focus was on the operational role of the facilities rather than their funding sources, we simplified the categories to emphasize their core functions. In particular, we grouped most adult-serving facilities under the label “Adult.”</span>
+<span id="cb9-314"><a href="#cb9-314"></a></span>
+<span id="cb9-315"><a href="#cb9-315"></a>The distribution of family facilities is especially telling. All six family detention centers are located along the Texas–Mexico border, suggesting a deliberate strategy to process and detain immigrant families—especially those from Mexico and Central America—at the point of entry. Juvenile and hospital facilities were more geographically dispersed, with hospital facilities in particular spread across a wider range of states.</span>
+<span id="cb9-316"><a href="#cb9-316"></a></span>
+<span id="cb9-317"><a href="#cb9-317"></a><span class="fu"># RQ3: What are the current detention trends for FY2025? </span></span>
 <span id="cb9-318"><a href="#cb9-318"></a></span>
-<span id="cb9-319"><a href="#cb9-319"></a>Another key insight from the visualization involves the types of facilities. The original dataset—sourced from the Vera Institute’s ICE Detention Trends project—categorizes facilities not only by function but also by funding structure. Since our focus was on the operational role of the facilities rather than their funding sources, we simplified the categories to emphasize their core functions. In particular, we grouped most adult-serving facilities under the label “Adult.”</span>
-<span id="cb9-320"><a href="#cb9-320"></a></span>
-<span id="cb9-321"><a href="#cb9-321"></a>The distribution of family facilities is especially telling. All six family detention centers are located along the Texas–Mexico border, suggesting a deliberate strategy to process and detain immigrant families—especially those from Mexico and Central America—at the point of entry. Juvenile and hospital facilities were more geographically dispersed, with hospital facilities in particular spread across a wider range of states.</span>
-<span id="cb9-322"><a href="#cb9-322"></a></span>
-<span id="cb9-323"><a href="#cb9-323"></a><span class="fu"># RQ3: What are the current detention trends for FY2025? </span></span>
+<span id="cb9-321"><a href="#cb9-321"></a><span class="in">```{r}</span></span>
+<span id="cb9-322"><a href="#cb9-322"></a><span class="co">#Load Data</span></span>
+<span id="cb9-323"><a href="#cb9-323"></a>Detention_Data_2025 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/FY2025 - Daily Detention Population  - Sheet1.csv"</span>)</span>
 <span id="cb9-324"><a href="#cb9-324"></a></span>
-<span id="cb9-327"><a href="#cb9-327"></a><span class="in">```{r}</span></span>
-<span id="cb9-328"><a href="#cb9-328"></a><span class="co">#Load Data</span></span>
-<span id="cb9-329"><a href="#cb9-329"></a>Detention_Data_2025 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/FY2025 - Daily Detention Population  - Sheet1.csv"</span>)</span>
-<span id="cb9-330"><a href="#cb9-330"></a></span>
-<span id="cb9-331"><a href="#cb9-331"></a>Detention_Data_2025</span>
-<span id="cb9-332"><a href="#cb9-332"></a><span class="in">```</span></span>
-<span id="cb9-333"><a href="#cb9-333"></a></span>
-<span id="cb9-336"><a href="#cb9-336"></a><span class="in">```{r}</span></span>
-<span id="cb9-337"><a href="#cb9-337"></a><span class="do">### Create Faceted Line Chart </span><span class="al">###</span></span>
+<span id="cb9-325"><a href="#cb9-325"></a>Detention_Data_2025</span>
+<span id="cb9-326"><a href="#cb9-326"></a><span class="in">```</span></span>
+<span id="cb9-327"><a href="#cb9-327"></a></span>
+<span id="cb9-330"><a href="#cb9-330"></a><span class="in">```{r}</span></span>
+<span id="cb9-331"><a href="#cb9-331"></a><span class="do">### Create Faceted Line Chart </span><span class="al">###</span></span>
+<span id="cb9-332"><a href="#cb9-332"></a></span>
+<span id="cb9-333"><a href="#cb9-333"></a><span class="co"># Define Month Order</span></span>
+<span id="cb9-334"><a href="#cb9-334"></a>month_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"October"</span>, <span class="st">"November"</span>, <span class="st">"December"</span>, <span class="st">"January"</span>, <span class="st">"February"</span>, <span class="st">"March"</span>, <span class="st">"April"</span>)</span>
+<span id="cb9-335"><a href="#cb9-335"></a></span>
+<span id="cb9-336"><a href="#cb9-336"></a><span class="co"># Ensure Month Is Ordered Factor</span></span>
+<span id="cb9-337"><a href="#cb9-337"></a>Detention_Data_2025<span class="sc">$</span>Month <span class="ot">&lt;-</span> <span class="fu">factor</span>(Detention_Data_2025<span class="sc">$</span>Month, <span class="at">levels =</span> month_levels, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb9-338"><a href="#cb9-338"></a></span>
-<span id="cb9-339"><a href="#cb9-339"></a><span class="co"># Define Month Order</span></span>
-<span id="cb9-340"><a href="#cb9-340"></a>month_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"October"</span>, <span class="st">"November"</span>, <span class="st">"December"</span>, <span class="st">"January"</span>, <span class="st">"February"</span>, <span class="st">"March"</span>, <span class="st">"April"</span>)</span>
-<span id="cb9-341"><a href="#cb9-341"></a></span>
-<span id="cb9-342"><a href="#cb9-342"></a><span class="co"># Ensure Month Is Ordered Factor</span></span>
-<span id="cb9-343"><a href="#cb9-343"></a>Detention_Data_2025<span class="sc">$</span>Month <span class="ot">&lt;-</span> <span class="fu">factor</span>(Detention_Data_2025<span class="sc">$</span>Month, <span class="at">levels =</span> month_levels, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-344"><a href="#cb9-344"></a></span>
-<span id="cb9-345"><a href="#cb9-345"></a><span class="co"># Get all unique agencies and criminality types </span></span>
-<span id="cb9-346"><a href="#cb9-346"></a>all_agencies <span class="ot">&lt;-</span> <span class="fu">unique</span>(Detention_Data_2025<span class="sc">$</span>Agency)</span>
-<span id="cb9-347"><a href="#cb9-347"></a>criminalities_clean <span class="ot">&lt;-</span> <span class="fu">unique</span>(Detention_Data_2025<span class="sc">$</span>Criminality[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"Total"</span>, <span class="co">#Exclude Total</span></span>
-<span id="cb9-348"><a href="#cb9-348"></a>Detention_Data_2025<span class="sc">$</span>Criminality, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)])</span>
+<span id="cb9-339"><a href="#cb9-339"></a><span class="co"># Get all unique agencies and criminality types </span></span>
+<span id="cb9-340"><a href="#cb9-340"></a>all_agencies <span class="ot">&lt;-</span> <span class="fu">unique</span>(Detention_Data_2025<span class="sc">$</span>Agency)</span>
+<span id="cb9-341"><a href="#cb9-341"></a>criminalities_clean <span class="ot">&lt;-</span> <span class="fu">unique</span>(Detention_Data_2025<span class="sc">$</span>Criminality[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"Total"</span>, <span class="co">#Exclude Total</span></span>
+<span id="cb9-342"><a href="#cb9-342"></a>Detention_Data_2025<span class="sc">$</span>Criminality, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)])</span>
+<span id="cb9-343"><a href="#cb9-343"></a></span>
+<span id="cb9-344"><a href="#cb9-344"></a><span class="co"># Create A Complete Grid of (Month, Agency, Criminality) </span></span>
+<span id="cb9-345"><a href="#cb9-345"></a>complete_grid <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb9-346"><a href="#cb9-346"></a>  <span class="at">Month =</span> <span class="fu">factor</span>(month_levels, <span class="at">levels =</span> month_levels, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-347"><a href="#cb9-347"></a>  <span class="at">Agency =</span> all_agencies,</span>
+<span id="cb9-348"><a href="#cb9-348"></a>  <span class="at">Criminality =</span> criminalities_clean)</span>
 <span id="cb9-349"><a href="#cb9-349"></a></span>
-<span id="cb9-350"><a href="#cb9-350"></a><span class="co"># Create A Complete Grid of (Month, Agency, Criminality) </span></span>
-<span id="cb9-351"><a href="#cb9-351"></a>complete_grid <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
-<span id="cb9-352"><a href="#cb9-352"></a>  <span class="at">Month =</span> <span class="fu">factor</span>(month_levels, <span class="at">levels =</span> month_levels, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb9-353"><a href="#cb9-353"></a>  <span class="at">Agency =</span> all_agencies,</span>
-<span id="cb9-354"><a href="#cb9-354"></a>  <span class="at">Criminality =</span> criminalities_clean)</span>
+<span id="cb9-350"><a href="#cb9-350"></a><span class="co"># Summarize daily population (excluding "Total" criminalities)</span></span>
+<span id="cb9-351"><a href="#cb9-351"></a>detention_summary <span class="ot">&lt;-</span> Detention_Data_2025 <span class="sc">%&gt;%</span></span>
+<span id="cb9-352"><a href="#cb9-352"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"Total"</span>, Criminality, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-353"><a href="#cb9-353"></a>  <span class="fu">group_by</span>(Month, Agency, Criminality) <span class="sc">%&gt;%</span></span>
+<span id="cb9-354"><a href="#cb9-354"></a>  <span class="fu">summarise</span>(<span class="at">Total_Daily_Population =</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">Daily Population</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
 <span id="cb9-355"><a href="#cb9-355"></a></span>
-<span id="cb9-356"><a href="#cb9-356"></a><span class="co"># Summarize daily population (excluding "Total" criminalities)</span></span>
-<span id="cb9-357"><a href="#cb9-357"></a>detention_summary <span class="ot">&lt;-</span> Detention_Data_2025 <span class="sc">%&gt;%</span></span>
-<span id="cb9-358"><a href="#cb9-358"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"Total"</span>, Criminality, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-359"><a href="#cb9-359"></a>  <span class="fu">group_by</span>(Month, Agency, Criminality) <span class="sc">%&gt;%</span></span>
-<span id="cb9-360"><a href="#cb9-360"></a>  <span class="fu">summarise</span>(<span class="at">Total_Daily_Population =</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">Daily Population</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
-<span id="cb9-361"><a href="#cb9-361"></a></span>
-<span id="cb9-362"><a href="#cb9-362"></a><span class="co"># Join with full grid to ensure completeness</span></span>
-<span id="cb9-363"><a href="#cb9-363"></a>detention_clean <span class="ot">&lt;-</span> complete_grid <span class="sc">%&gt;%</span></span>
-<span id="cb9-364"><a href="#cb9-364"></a>  <span class="fu">left_join</span>(detention_summary, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Month"</span>, <span class="st">"Agency"</span>, <span class="st">"Criminality"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-365"><a href="#cb9-365"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">Total_Daily_Population =</span> <span class="dv">0</span>))</span>
-<span id="cb9-366"><a href="#cb9-366"></a></span>
-<span id="cb9-367"><a href="#cb9-367"></a><span class="co"># Plot the faceted line chart</span></span>
-<span id="cb9-368"><a href="#cb9-368"></a>Detention_Population_By_Criminality <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(detention_clean, <span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Total_Daily_Population, <span class="at">color =</span> Criminality, <span class="at">group =</span> Criminality)) <span class="sc">+</span></span>
-<span id="cb9-369"><a href="#cb9-369"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb9-370"><a href="#cb9-370"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb9-371"><a href="#cb9-371"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Agency, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb9-372"><a href="#cb9-372"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-373"><a href="#cb9-373"></a>    <span class="at">title =</span> <span class="st">"Detention Population by Criminality (FY2025)"</span>,</span>
-<span id="cb9-374"><a href="#cb9-374"></a>    <span class="at">subtitle =</span> <span class="st">"Faceted by Agency (CBP, ICE, Average)"</span>,</span>
-<span id="cb9-375"><a href="#cb9-375"></a>    <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb9-376"><a href="#cb9-376"></a>    <span class="at">y =</span> <span class="st">"Total Daily Population"</span>,</span>
-<span id="cb9-377"><a href="#cb9-377"></a>    <span class="at">caption =</span> <span class="st">"Source: FY 2025 ICE Detention Statistics from ice.gov"</span>,</span>
-<span id="cb9-378"><a href="#cb9-378"></a>    <span class="at">color =</span> <span class="st">"Criminality Type"</span>) <span class="sc">+</span></span>
-<span id="cb9-379"><a href="#cb9-379"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb9-380"><a href="#cb9-380"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb9-381"><a href="#cb9-381"></a>  <span class="fu">theme</span>(</span>
-<span id="cb9-382"><a href="#cb9-382"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb9-383"><a href="#cb9-383"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray50"</span>),</span>
-<span id="cb9-384"><a href="#cb9-384"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb9-385"><a href="#cb9-385"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb9-386"><a href="#cb9-386"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
-<span id="cb9-387"><a href="#cb9-387"></a></span>
-<span id="cb9-388"><a href="#cb9-388"></a>Detention_Population_By_Criminality</span>
-<span id="cb9-389"><a href="#cb9-389"></a><span class="in">```</span></span>
+<span id="cb9-356"><a href="#cb9-356"></a><span class="co"># Join with full grid to ensure completeness</span></span>
+<span id="cb9-357"><a href="#cb9-357"></a>detention_clean <span class="ot">&lt;-</span> complete_grid <span class="sc">%&gt;%</span></span>
+<span id="cb9-358"><a href="#cb9-358"></a>  <span class="fu">left_join</span>(detention_summary, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Month"</span>, <span class="st">"Agency"</span>, <span class="st">"Criminality"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-359"><a href="#cb9-359"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">Total_Daily_Population =</span> <span class="dv">0</span>))</span>
+<span id="cb9-360"><a href="#cb9-360"></a></span>
+<span id="cb9-361"><a href="#cb9-361"></a><span class="co"># Plot the faceted line chart</span></span>
+<span id="cb9-362"><a href="#cb9-362"></a>Detention_Population_By_Criminality <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(detention_clean, <span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Total_Daily_Population, <span class="at">color =</span> Criminality, <span class="at">group =</span> Criminality)) <span class="sc">+</span></span>
+<span id="cb9-363"><a href="#cb9-363"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb9-364"><a href="#cb9-364"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb9-365"><a href="#cb9-365"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Agency, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb9-366"><a href="#cb9-366"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-367"><a href="#cb9-367"></a>    <span class="at">title =</span> <span class="st">"Detention Population by Criminality (FY2025)"</span>,</span>
+<span id="cb9-368"><a href="#cb9-368"></a>    <span class="at">subtitle =</span> <span class="st">"Faceted by Agency (CBP, ICE, Average)"</span>,</span>
+<span id="cb9-369"><a href="#cb9-369"></a>    <span class="at">x =</span> <span class="st">"Month"</span>,</span>
+<span id="cb9-370"><a href="#cb9-370"></a>    <span class="at">y =</span> <span class="st">"Total Daily Population"</span>,</span>
+<span id="cb9-371"><a href="#cb9-371"></a>    <span class="at">caption =</span> <span class="st">"Source: FY 2025 ICE Detention Statistics from ice.gov"</span>,</span>
+<span id="cb9-372"><a href="#cb9-372"></a>    <span class="at">color =</span> <span class="st">"Criminality Type"</span>) <span class="sc">+</span></span>
+<span id="cb9-373"><a href="#cb9-373"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb9-374"><a href="#cb9-374"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-375"><a href="#cb9-375"></a>  <span class="fu">theme</span>(</span>
+<span id="cb9-376"><a href="#cb9-376"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb9-377"><a href="#cb9-377"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray50"</span>),</span>
+<span id="cb9-378"><a href="#cb9-378"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb9-379"><a href="#cb9-379"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb9-380"><a href="#cb9-380"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb9-381"><a href="#cb9-381"></a></span>
+<span id="cb9-382"><a href="#cb9-382"></a>Detention_Population_By_Criminality</span>
+<span id="cb9-383"><a href="#cb9-383"></a><span class="in">```</span></span>
+<span id="cb9-384"><a href="#cb9-384"></a></span>
+<span id="cb9-385"><a href="#cb9-385"></a>##Commentary </span>
+<span id="cb9-386"><a href="#cb9-386"></a></span>
+<span id="cb9-387"><a href="#cb9-387"></a>The data paints a picture of detention patterns and trends in early FY2025. Importantly, we can see that the overall detention population is heavily weighted towards "Other Immigration Violators" across all agencies. </span>
+<span id="cb9-388"><a href="#cb9-388"></a></span>
+<span id="cb9-389"><a href="#cb9-389"></a>A closer examination of agency-specific data reveals distinct trends. First, we can see that U.S. Customs and Border Protection (CBP) facilities have a much larger population of "Other Immigration Violator" that is those without any criminal charges. This is likely because their facilities apprehend those at the borders vs. ICE which appends people settled within communities (more likely going after criminals).  </span>
 <span id="cb9-390"><a href="#cb9-390"></a></span>
-<span id="cb9-391"><a href="#cb9-391"></a>##Commentary </span>
+<span id="cb9-391"><a href="#cb9-391"></a>Moreover, we see a slight increase in average detention population in the early parts of FY2025, suggesting harsher polices towards undocumented immigrants. But it's also clear the increase in overall population can be largely attributed to increases in ICE detention, whereas detention population at CBP has remained consistent. </span>
 <span id="cb9-392"><a href="#cb9-392"></a></span>
-<span id="cb9-393"><a href="#cb9-393"></a>The data paints a picture of detention patterns and trends in early FY2025. Importantly, we can see that the overall detention population is heavily weighted towards "Other Immigration Violators" across all agencies. </span>
+<span id="cb9-393"><a href="#cb9-393"></a>This increasing trend within ICE, masked by the broader "Average," suggests a potentially intensifying focus or higher volume of such cases handled by the agency. Understanding the reasons behind this divergence between CBP and ICE, and the drivers of the increasing detention of "Convicted Criminals" and those with "Pending Criminal Charges" by ICE, becomes crucial for a comprehensive understanding of immigration enforcement in FY2025. The consistently high numbers for "Other Immigration Violators" across the board also is intresting and requires further examination. </span>
 <span id="cb9-394"><a href="#cb9-394"></a></span>
-<span id="cb9-395"><a href="#cb9-395"></a>A closer examination of agency-specific data reveals distinct trends. First, we can see that U.S. Customs and Border Protection (CBP) facilities have a much larger population of "Other Immigration Violator" that is those without any criminal charges. This is likely because their facilities apprehend those at the borders vs. ICE which appends people settled within communities (more likely going after criminals).  </span>
+<span id="cb9-395"><a href="#cb9-395"></a>Finally, I think this visualization serves as an interesting "first look" into FY2025. However, as the Trump administration continues and expands its policies, I expect we will see even more stark increases in ICE detention population and overall detention population. </span>
 <span id="cb9-396"><a href="#cb9-396"></a></span>
-<span id="cb9-397"><a href="#cb9-397"></a>Moreover, we see a slight increase in average detention population in the early parts of FY2025, suggesting harsher polices towards undocumented immigrants. But it's also clear the increase in overall population can be largely attributed to increases in ICE detention, whereas detention population at CBP has remained consistent. </span>
-<span id="cb9-398"><a href="#cb9-398"></a></span>
-<span id="cb9-399"><a href="#cb9-399"></a>This increasing trend within ICE, masked by the broader "Average," suggests a potentially intensifying focus or higher volume of such cases handled by the agency. Understanding the reasons behind this divergence between CBP and ICE, and the drivers of the increasing detention of "Convicted Criminals" and those with "Pending Criminal Charges" by ICE, becomes crucial for a comprehensive understanding of immigration enforcement in FY2025. The consistently high numbers for "Other Immigration Violators" across the board also is intresting and requires further examination. </span>
-<span id="cb9-400"><a href="#cb9-400"></a></span>
-<span id="cb9-401"><a href="#cb9-401"></a>Finally, I think this visualization serves as an interesting "first look" into FY2025. However, as the Trump administration continues and expands its policies, I expect we will see even more stark increases in ICE detention population and overall detention population. </span>
-<span id="cb9-402"><a href="#cb9-402"></a></span>
-<span id="cb9-405"><a href="#cb9-405"></a><span class="in">```{r}</span></span>
-<span id="cb9-406"><a href="#cb9-406"></a><span class="do">### Make Vizualization For FY 2019 Facility Type </span><span class="al">###</span></span>
+<span id="cb9-399"><a href="#cb9-399"></a><span class="in">```{r}</span></span>
+<span id="cb9-400"><a href="#cb9-400"></a><span class="do">### Make Vizualization For FY 2019 Facility Type </span><span class="al">###</span></span>
+<span id="cb9-401"><a href="#cb9-401"></a></span>
+<span id="cb9-402"><a href="#cb9-402"></a><span class="co">#Import Data</span></span>
+<span id="cb9-403"><a href="#cb9-403"></a>ice_facility_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/FY2019 - Facility Types Data  - Sheet1.csv"</span>)</span>
+<span id="cb9-404"><a href="#cb9-404"></a></span>
+<span id="cb9-405"><a href="#cb9-405"></a>ice_facility_data</span>
+<span id="cb9-406"><a href="#cb9-406"></a><span class="in">```</span></span>
 <span id="cb9-407"><a href="#cb9-407"></a></span>
-<span id="cb9-408"><a href="#cb9-408"></a><span class="co">#Import Data</span></span>
-<span id="cb9-409"><a href="#cb9-409"></a>ice_facility_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/FY2019 - Facility Types Data  - Sheet1.csv"</span>)</span>
-<span id="cb9-410"><a href="#cb9-410"></a></span>
-<span id="cb9-411"><a href="#cb9-411"></a>ice_facility_data</span>
-<span id="cb9-412"><a href="#cb9-412"></a><span class="in">```</span></span>
+<span id="cb9-408"><a href="#cb9-408"></a><span class="fu"># Conclusions / Big Picture</span></span>
+<span id="cb9-409"><a href="#cb9-409"></a></span>
+<span id="cb9-410"><a href="#cb9-410"></a>This project examined detention trends from fiscal years 2017–2025 to understand how immigration enforcement has evolved across presidential administrations, with a particular focus on FY 2019 as a benchmark for assessing changes under the Trump and Biden administrations, and early indications from Trump’s current term.</span>
+<span id="cb9-411"><a href="#cb9-411"></a></span>
+<span id="cb9-412"><a href="#cb9-412"></a>---</span>
 <span id="cb9-413"><a href="#cb9-413"></a></span>
-<span id="cb9-414"><a href="#cb9-414"></a><span class="fu"># Conclusions / Big Picture</span></span>
+<span id="cb9-414"><a href="#cb9-414"></a><span class="fu">### RQ1: What do detention trends from FY 2017–2024 look like?</span></span>
 <span id="cb9-415"><a href="#cb9-415"></a></span>
-<span id="cb9-416"><a href="#cb9-416"></a>This project examined detention trends from fiscal years 2017–2025 to understand how immigration enforcement has evolved across presidential administrations, with a particular focus on FY 2019 as a benchmark for assessing changes under the Trump and Biden administrations, and early indications from Trump’s current term.</span>
+<span id="cb9-416"><a href="#cb9-416"></a>By comparing the Trump and Biden administrations, it becomes clear that Trump pursued a significantly more aggressive approach to immigration enforcement. Fiscal Year 2019, two years into Trump’s first term, saw an unprecedented peak of over 500,000 book-ins—a level unmatched in recent years. While Biden’s administration also maintained robust enforcement practices, it never reached this scale.</span>
 <span id="cb9-417"><a href="#cb9-417"></a></span>
-<span id="cb9-418"><a href="#cb9-418"></a>---</span>
+<span id="cb9-418"><a href="#cb9-418"></a>The drop in detention numbers during FY 2020 and 2021 aligns with disruptions caused by the COVID-19 pandemic, which likely reduced enforcement activity and strained operational capacity.</span>
 <span id="cb9-419"><a href="#cb9-419"></a></span>
-<span id="cb9-420"><a href="#cb9-420"></a><span class="fu">### RQ1: What do detention trends from FY 2017–2024 look like?</span></span>
+<span id="cb9-420"><a href="#cb9-420"></a>Importantly, the data show that a majority of individuals detained during the Trump administration—especially in FY 2019—had no known criminal charges beyond immigration violations. Over 300,000 arrests that year involved individuals without criminal convictions or pending charges. In contrast, FY 2020 saw a higher proportion of detainees with criminal records, likely due to prioritization amid limited resources during the pandemic. Under Biden, detention of individuals without criminal charges remained common, challenging persistent narratives, particularly from Trump-era rhetoric, that equate undocumented immigrants with criminality.</span>
 <span id="cb9-421"><a href="#cb9-421"></a></span>
-<span id="cb9-422"><a href="#cb9-422"></a>By comparing the Trump and Biden administrations, it becomes clear that Trump pursued a significantly more aggressive approach to immigration enforcement. Fiscal Year 2019, two years into Trump’s first term, saw an unprecedented peak of over 500,000 book-ins—a level unmatched in recent years. While Biden’s administration also maintained robust enforcement practices, it never reached this scale.</span>
+<span id="cb9-422"><a href="#cb9-422"></a>When analyzing length of detention by criminality status, individuals with criminal charges were generally held for longer periods. However, in FY 2020, all groups experienced extended stays, likely due to legal system backlogs during the pandemic. Those without criminal charges may have been deprioritized, contributing to longer detention times.</span>
 <span id="cb9-423"><a href="#cb9-423"></a></span>
-<span id="cb9-424"><a href="#cb9-424"></a>The drop in detention numbers during FY 2020 and 2021 aligns with disruptions caused by the COVID-19 pandemic, which likely reduced enforcement activity and strained operational capacity.</span>
+<span id="cb9-424"><a href="#cb9-424"></a>---</span>
 <span id="cb9-425"><a href="#cb9-425"></a></span>
-<span id="cb9-426"><a href="#cb9-426"></a>Importantly, the data show that a majority of individuals detained during the Trump administration—especially in FY 2019—had no known criminal charges beyond immigration violations. Over 300,000 arrests that year involved individuals without criminal convictions or pending charges. In contrast, FY 2020 saw a higher proportion of detainees with criminal records, likely due to prioritization amid limited resources during the pandemic. Under Biden, detention of individuals without criminal charges remained common, challenging persistent narratives, particularly from Trump-era rhetoric, that equate undocumented immigrants with criminality.</span>
+<span id="cb9-426"><a href="#cb9-426"></a><span class="fu">### RQ2: What made FY 2019 a unique year?</span></span>
 <span id="cb9-427"><a href="#cb9-427"></a></span>
-<span id="cb9-428"><a href="#cb9-428"></a>When analyzing length of detention by criminality status, individuals with criminal charges were generally held for longer periods. However, in FY 2020, all groups experienced extended stays, likely due to legal system backlogs during the pandemic. Those without criminal charges may have been deprioritized, contributing to longer detention times.</span>
+<span id="cb9-428"><a href="#cb9-428"></a>FY 2019 was selected as a critical year for analysis due to its timing: two years into Trump’s first term and unaffected by the pandemic. This year offers a clear picture of his administration’s immigration enforcement strategy in full effect.</span>
 <span id="cb9-429"><a href="#cb9-429"></a></span>
-<span id="cb9-430"><a href="#cb9-430"></a>---</span>
+<span id="cb9-430"><a href="#cb9-430"></a>An agency-level analysis revealed that Customs and Border Protection (CBP) consistently recorded more book-ins than Immigration and Customs Enforcement (ICE), peaking in May before declining toward September. ICE’s figures remained more stable throughout the year. This pattern supports the idea that Trump focused more heavily on preventing unauthorized entry (via CBP) than on interior enforcement or deportation (via ICE). This aligns with his public statements framing border security as essential to national safety, often through dehumanizing rhetoric about migrants.</span>
 <span id="cb9-431"><a href="#cb9-431"></a></span>
-<span id="cb9-432"><a href="#cb9-432"></a><span class="fu">### RQ2: What made FY 2019 a unique year?</span></span>
+<span id="cb9-432"><a href="#cb9-432"></a>Spatial data from early 2020—used as a proxy for the end of 2019—showed that enforcement facilities were concentrated in major cities and along the U.S.–Mexico border. Notably, there were approximately six family detention facilities located in Texas near the southern border. The placement and nature of these facilities raise serious concerns about the treatment of children and families, given numerous reports of neglect and abuse within such centers (<span class="co">[</span><span class="ot">Detention Watch Network, 2025</span><span class="co">](https://www.detentionwatchnetwork.org/pressroom/releases/2025/family-detention-all-immigration-detention-inhumane-unjust-unnecessary)</span>).</span>
 <span id="cb9-433"><a href="#cb9-433"></a></span>
-<span id="cb9-434"><a href="#cb9-434"></a>FY 2019 was selected as a critical year for analysis due to its timing: two years into Trump’s first term and unaffected by the pandemic. This year offers a clear picture of his administration’s immigration enforcement strategy in full effect.</span>
+<span id="cb9-434"><a href="#cb9-434"></a>Juvenile and hospital-based detention facilities were often located near adult facilities but were slightly more geographically dispersed. In contrast, the placement of family centers appears more strategically targeted—primarily at migrants crossing the southern border.</span>
 <span id="cb9-435"><a href="#cb9-435"></a></span>
-<span id="cb9-436"><a href="#cb9-436"></a>An agency-level analysis revealed that Customs and Border Protection (CBP) consistently recorded more book-ins than Immigration and Customs Enforcement (ICE), peaking in May before declining toward September. ICE’s figures remained more stable throughout the year. This pattern supports the idea that Trump focused more heavily on preventing unauthorized entry (via CBP) than on interior enforcement or deportation (via ICE). This aligns with his public statements framing border security as essential to national safety, often through dehumanizing rhetoric about migrants.</span>
+<span id="cb9-436"><a href="#cb9-436"></a>---</span>
 <span id="cb9-437"><a href="#cb9-437"></a></span>
-<span id="cb9-438"><a href="#cb9-438"></a>Spatial data from early 2020—used as a proxy for the end of 2019—showed that enforcement facilities were concentrated in major cities and along the U.S.–Mexico border. Notably, there were approximately six family detention facilities located in Texas near the southern border. The placement and nature of these facilities raise serious concerns about the treatment of children and families, given numerous reports of neglect and abuse within such centers (<span class="co">[</span><span class="ot">Detention Watch Network, 2025</span><span class="co">](https://www.detentionwatchnetwork.org/pressroom/releases/2025/family-detention-all-immigration-detention-inhumane-unjust-unnecessary)</span>).</span>
+<span id="cb9-438"><a href="#cb9-438"></a><span class="fu">### RQ3: What do detention trends for 2025 indicate so far?</span></span>
 <span id="cb9-439"><a href="#cb9-439"></a></span>
-<span id="cb9-440"><a href="#cb9-440"></a>Juvenile and hospital-based detention facilities were often located near adult facilities but were slightly more geographically dispersed. In contrast, the placement of family centers appears more strategically targeted—primarily at migrants crossing the southern border.</span>
+<span id="cb9-440"><a href="#cb9-440"></a>While 2025 data are still emerging and cannot yet be used to draw firm conclusions, several notable trends are visible. One key shift is that ICE, rather than CBP, is leading in book-ins—an apparent reversal from Trump’s first term. This may suggest a shift from entry prevention to interior enforcement and deportation, which is consistent with recent rhetoric and reports of increased ICE activity.</span>
 <span id="cb9-441"><a href="#cb9-441"></a></span>
-<span id="cb9-442"><a href="#cb9-442"></a>---</span>
+<span id="cb9-442"><a href="#cb9-442"></a>There have already been local reports of ICE operations near college campuses, including one sighting near Macalester College. The data so far show a rise in book-ins across all criminality types, including individuals with no criminal charges, indicating a steady ramp-up of enforcement. Although the average detention population remains similar to levels seen at the end of Biden’s term, early indicators point to a rising trend—especially for those with pending or confirmed criminal charges.</span>
 <span id="cb9-443"><a href="#cb9-443"></a></span>
-<span id="cb9-444"><a href="#cb9-444"></a><span class="fu">### RQ3: What do detention trends for 2025 indicate so far?</span></span>
+<span id="cb9-444"><a href="#cb9-444"></a>Given the historical precedent of FY 2019, and the patterns beginning to emerge in 2025, it is likely that immigration enforcement will continue to intensify under Trump’s current administration.</span>
 <span id="cb9-445"><a href="#cb9-445"></a></span>
-<span id="cb9-446"><a href="#cb9-446"></a>While 2025 data are still emerging and cannot yet be used to draw firm conclusions, several notable trends are visible. One key shift is that ICE, rather than CBP, is leading in book-ins—an apparent reversal from Trump’s first term. This may suggest a shift from entry prevention to interior enforcement and deportation, which is consistent with recent rhetoric and reports of increased ICE activity.</span>
+<span id="cb9-446"><a href="#cb9-446"></a>---</span>
 <span id="cb9-447"><a href="#cb9-447"></a></span>
-<span id="cb9-448"><a href="#cb9-448"></a>There have already been local reports of ICE operations near college campuses, including one sighting near Macalester College. The data so far show a rise in book-ins across all criminality types, including individuals with no criminal charges, indicating a steady ramp-up of enforcement. Although the average detention population remains similar to levels seen at the end of Biden’s term, early indicators point to a rising trend—especially for those with pending or confirmed criminal charges.</span>
+<span id="cb9-448"><a href="#cb9-448"></a><span class="fu">### Final Thoughts</span></span>
 <span id="cb9-449"><a href="#cb9-449"></a></span>
-<span id="cb9-450"><a href="#cb9-450"></a>Given the historical precedent of FY 2019, and the patterns beginning to emerge in 2025, it is likely that immigration enforcement will continue to intensify under Trump’s current administration.</span>
+<span id="cb9-450"><a href="#cb9-450"></a>Our findings demonstrate that immigration detention policy in the U.S. is highly influenced by presidential administrations and broader sociopolitical factors. The Trump administration’s rhetoric and enforcement strategies had a direct impact on who was detained, for how long, and where. The exceptional nature of FY 2019 provides a baseline for assessing the direction and intensity of future enforcement actions. The early months of 2025 suggest a potential return to aggressive enforcement, though with evolving agency roles and tactics.</span>
 <span id="cb9-451"><a href="#cb9-451"></a></span>
-<span id="cb9-452"><a href="#cb9-452"></a>---</span>
+<span id="cb9-452"><a href="#cb9-452"></a>These insights challenge dominant narratives about the criminality of undocumented immigrants and raise important questions about the goals, fairness, and human cost of the U.S. immigration detention system.</span>
 <span id="cb9-453"><a href="#cb9-453"></a></span>
-<span id="cb9-454"><a href="#cb9-454"></a><span class="fu">### Final Thoughts</span></span>
+<span id="cb9-454"><a href="#cb9-454"></a><span class="fu"># Limitations and Future Work</span></span>
 <span id="cb9-455"><a href="#cb9-455"></a></span>
-<span id="cb9-456"><a href="#cb9-456"></a>Our findings demonstrate that immigration detention policy in the U.S. is highly influenced by presidential administrations and broader sociopolitical factors. The Trump administration’s rhetoric and enforcement strategies had a direct impact on who was detained, for how long, and where. The exceptional nature of FY 2019 provides a baseline for assessing the direction and intensity of future enforcement actions. The early months of 2025 suggest a potential return to aggressive enforcement, though with evolving agency roles and tactics.</span>
+<span id="cb9-456"><a href="#cb9-456"></a>While this analysis provides valuable insights into immigration detention trends from FY 2017–2025, several limitations affect the scope and depth of the findings. These constraints should be taken into account when interpreting the results and considering future research directions.</span>
 <span id="cb9-457"><a href="#cb9-457"></a></span>
-<span id="cb9-458"><a href="#cb9-458"></a>These insights challenge dominant narratives about the criminality of undocumented immigrants and raise important questions about the goals, fairness, and human cost of the U.S. immigration detention system.</span>
+<span id="cb9-458"><a href="#cb9-458"></a><span class="fu">### Limited Historical Range of Data</span></span>
 <span id="cb9-459"><a href="#cb9-459"></a></span>
-<span id="cb9-460"><a href="#cb9-460"></a><span class="fu"># Limitations and Future Work</span></span>
+<span id="cb9-460"><a href="#cb9-460"></a>One significant limitation is the temporal scope of the data. Initially, we intended to include data spanning multiple administrations, including that of President Obama, to provide a broader historical context. However, ICE data available through ice.gov did not include the full span of the Obama administration, particularly the earlier years. As a result, our analysis is limited to comparisons between the Trump and Biden administrations. This constraint narrows our ability to make generalizations about long-term policy trends and makes it more difficult to assess how recent actions compare to broader historical norms.</span>
 <span id="cb9-461"><a href="#cb9-461"></a></span>
-<span id="cb9-462"><a href="#cb9-462"></a>While this analysis provides valuable insights into immigration detention trends from FY 2017–2025, several limitations affect the scope and depth of the findings. These constraints should be taken into account when interpreting the results and considering future research directions.</span>
+<span id="cb9-462"><a href="#cb9-462"></a>**Future Work:** Expanding the dataset to include earlier administrations—if data becomes available—would greatly strengthen the analysis. This could offer a more comprehensive view of the evolution of immigration detention policies over time, and better isolate the effects of individual administrations.</span>
 <span id="cb9-463"><a href="#cb9-463"></a></span>
-<span id="cb9-464"><a href="#cb9-464"></a><span class="fu">### Limited Historical Range of Data</span></span>
+<span id="cb9-464"><a href="#cb9-464"></a><span class="fu">### Limited Access to Demographic and Vulnerability Data</span></span>
 <span id="cb9-465"><a href="#cb9-465"></a></span>
-<span id="cb9-466"><a href="#cb9-466"></a>One significant limitation is the temporal scope of the data. Initially, we intended to include data spanning multiple administrations, including that of President Obama, to provide a broader historical context. However, ICE data available through ice.gov did not include the full span of the Obama administration, particularly the earlier years. As a result, our analysis is limited to comparisons between the Trump and Biden administrations. This constraint narrows our ability to make generalizations about long-term policy trends and makes it more difficult to assess how recent actions compare to broader historical norms.</span>
+<span id="cb9-466"><a href="#cb9-466"></a>Another limitation is the lack of consistent demographic and vulnerability data across administrations. While ICE provides information about vulnerable populations (such as minors, families, or individuals with medical conditions) during the Biden administration, comparable data were not available for Trump’s term. This inconsistency limits our ability to assess how enforcement impacted different subpopulations over time.</span>
 <span id="cb9-467"><a href="#cb9-467"></a></span>
-<span id="cb9-468"><a href="#cb9-468"></a>**Future Work:** Expanding the dataset to include earlier administrations—if data becomes available—would greatly strengthen the analysis. This could offer a more comprehensive view of the evolution of immigration detention policies over time, and better isolate the effects of individual administrations.</span>
+<span id="cb9-468"><a href="#cb9-468"></a>The absence of this data is itself revealing; it highlights differences in transparency and reporting priorities across administrations. Still, it constrains our ability to conduct intersectional analyses that account for age, gender, family status, or health vulnerabilities in the detention system.</span>
 <span id="cb9-469"><a href="#cb9-469"></a></span>
-<span id="cb9-470"><a href="#cb9-470"></a><span class="fu">### Limited Access to Demographic and Vulnerability Data</span></span>
+<span id="cb9-470"><a href="#cb9-470"></a>**Future Work:** Future researchers should prioritize acquiring more comprehensive demographic data, either through FOIA requests, partnerships with NGOs, or expanded government datasets. This would enable more nuanced, equity-focused analyses and help uncover disparities in how immigration enforcement is applied.</span>
 <span id="cb9-471"><a href="#cb9-471"></a></span>
-<span id="cb9-472"><a href="#cb9-472"></a>Another limitation is the lack of consistent demographic and vulnerability data across administrations. While ICE provides information about vulnerable populations (such as minors, families, or individuals with medical conditions) during the Biden administration, comparable data were not available for Trump’s term. This inconsistency limits our ability to assess how enforcement impacted different subpopulations over time.</span>
+<span id="cb9-472"><a href="#cb9-472"></a>---</span>
 <span id="cb9-473"><a href="#cb9-473"></a></span>
-<span id="cb9-474"><a href="#cb9-474"></a>The absence of this data is itself revealing; it highlights differences in transparency and reporting priorities across administrations. Still, it constrains our ability to conduct intersectional analyses that account for age, gender, family status, or health vulnerabilities in the detention system.</span>
-<span id="cb9-475"><a href="#cb9-475"></a></span>
-<span id="cb9-476"><a href="#cb9-476"></a>**Future Work:** Future researchers should prioritize acquiring more comprehensive demographic data, either through FOIA requests, partnerships with NGOs, or expanded government datasets. This would enable more nuanced, equity-focused analyses and help uncover disparities in how immigration enforcement is applied.</span>
-<span id="cb9-477"><a href="#cb9-477"></a></span>
-<span id="cb9-478"><a href="#cb9-478"></a>---</span>
-<span id="cb9-479"><a href="#cb9-479"></a></span>
-<span id="cb9-480"><a href="#cb9-480"></a>Overall, while our findings offer important insights into federal immigration enforcement patterns, they represent only part of a larger and more complex system. Expanding the dataset both temporally and demographically would help paint a more complete and representative picture of U.S. immigration detention policy.</span>
+<span id="cb9-474"><a href="#cb9-474"></a>Overall, while our findings offer important insights into federal immigration enforcement patterns, they represent only part of a larger and more complex system. Expanding the dataset both temporally and demographically would help paint a more complete and representative picture of U.S. immigration detention policy.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
