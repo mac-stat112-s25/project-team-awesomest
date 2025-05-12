@@ -11,9 +11,9 @@ project:
 
 
 book:
-  title: "project title"
-  author: ["student 1 first and last name", "student 2 first and last name", "student 3 first and last name"]
-  date: today  # use today to update date published based on last time project was edited
+  title: "Patterns of Detention: Tracking ICE + CBP Enforcement Since FY 2017"
+  author: ["Molly Nelson", "Barrett Edwards"]
+  date: today  
   date-format: full
   # favicon: images/logo.png
   reader-mode: true
@@ -21,19 +21,19 @@ book:
   page-navigation: true
   back-to-top-navigation: true
   cookie-consent: true
-  # bread-crumbs: true  # causes problems with older Quarto version
+  bread-crumbs: true  
   # downloads: [pdf]
   # repo-url: https://github.com/hashcx/mac-comp112website-f24
   # repo-actions: [edit, issue]
   # repo-link-target: "_blank" #makes issue and edit links open in a new window/tab 
 
-
   sidebar:
-    title: "sidebar title"
+    title: "Immigration Enforcement Data"
     collapse-level: 2
     style: "docked"
     pinned: true
     search: true
+
 
   chapters:
     - index.qmd
@@ -41,14 +41,18 @@ book:
   appendices:
   - src/appx/proposal.qmd
   - src/appx/case-study.qmd
+  - src/et/MollyN.qmd     
+  - src/et/BarrettE.qmd
+  - src/eda/MollyN.qmd
+  - src/eda/BarrettE.qmd
 
 
 
 format:
   html:
     theme: # bootswatch themes--other options https://bootswatch.com/
-      light: flatly
-      dark: darkly
+      light: morph
+      dark: cosmo
     search: true
     toc: true
     toc-depth: 3

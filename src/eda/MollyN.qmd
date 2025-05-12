@@ -1,0 +1,153 @@
+---
+title: "EDA - MollyN"
+execute: 
+  echo: true      
+code-fold: false  
+---
+For my EDA, I include a visualization that explored criminality more closesly, which ended up being modified and improved for our story. I also include a visualization we decided against including that tries to look at book-ins compared to the annual budget. 
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+```
+
+
+```{r}
+BookIns2017 <- read_csv("../../data/Book-Ins FY2017.csv")
+BookIns2018 <- read_csv("../../data/Book-Ins FY2018.csv")
+BookIns2019 <- read_csv("../../data/Book-Ins FY2019.csv")
+BookIns2020 <- read_csv("../../data/Book-Ins FY2020.csv")
+BookIns2021 <- read_csv("../../data/Book-Ins FY2021.csv")
+BookIns2022 <- read_csv("../../data/Book-Ins FY2022.csv")
+BookIns2023 <- read_csv("../../data/Book-Ins FY2023.csv")
+BookIns2024 <- read_csv("../../data/Book-Ins FY2024.csv")
+```
+```{r}
+BookIns <- BookIns2017 |>
+  full_join(BookIns2018) |>
+  full_join(BookIns2019) |>
+  full_join(BookIns2020) |>
+  full_join(BookIns2021) |>
+  full_join(BookIns2022) |>
+  full_join(BookIns2023) |>
+  full_join(BookIns2024) 
+```
+
+```{r}
+# Visualizations On Book-Ins/Arrests Over Time by Criminality
+
+BookIns |>
+  filter(Criminality %in% c("Total Arrests")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Total Arrests Over Time", x = "Year", y = "Number of Arrests")
+
+BookIns |>
+  filter(Criminality %in% c("Criminal Convictions")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Criminal Convictions Arrests Over Time", x = "Year", y = "Number of Arrests")
+  
+BookIns |>
+  filter(Criminality %in% c("Pending Criminal Charges")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Pending Criminal Charges Arrests Over Time", x = "Year", y = "Number of Arrests")
+
+BookIns |>
+  filter(Criminality %in% c("Other Immigration Violator" , "No Known Criminal Charges or Convictions")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Non-Criminal/Other Violation Arrests Over Time", x = "Year", y = "Number of Arrests")
+```
+
+
+
+```{r}
+BookIns <- BookIns %>%
+  mutate(Criminality = case_when(
+    Criminality %in% c("Other Immigration Violator", "No Known Criminal Charges or Convictions") ~ 
+      "Other Immigration Violator/No Known Criminal Charges or Convictions",
+    TRUE ~ Criminality
+  ))
+```
+
+
+```{r}
+# Visualizations On Book-Ins/Arrests Over Time
+
+BookIns |>
+  filter(Criminality %in% c("Total Arrests")) |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+  labs(title = "Total Arrests Over Time", x = "Year", y = "Number of Arrests")
+```
+
+```{r}
+BookIns |>
+   filter(Criminality != "Total Arrests") |>
+  ggplot(aes(x = Year, y = Arrests)) + 
+  geom_line() + 
+    facet_wrap(~ Criminality, ncol = 1) +
+  labs(title = "Arrests Over Time by Criminality", x = "Year", y = "Number of Arrests")
+```
+
+
+```{r}
+# Budget
+
+ICEBudget <- read_csv("../../data/ICE_Budget.csv")
+```
+
+```{r}
+ICEBudget <- ICEBudget |>
+  rename(Budget = 'Budget (in millions)')
+```
+
+```{r}
+ggplot(ICEBudget, aes(x = Year, y = Budget)) +
+  geom_line()
+```
+
+```{r}
+BookIns |>
+  full_join(ICEBudget, by = "Year") |>
+  filter(Criminality == "Total Arrests") |>
+  ggplot(aes(x = Budget, y = Arrests, color = factor(Year))) +
+  geom_point(size = 3) +
+  labs(title = "Total Arrests vs. ICE Budget by Year",
+       x = "ICE Budget",
+       y = "Total Arrests",
+       color = "Year") +
+  theme_minimal()
+```
+
+```{r}
+BookIns |>
+  full_join(ICEBudget) |>
+  filter(Criminality %in% c("Total Arrests")) |>
+  ggplot(aes(x = Budget, y = Arrests)) + 
+  geom_line()
+```
+
+
+```{r, fig.cap = "Wrangling"}
+ICEBudget <- ICEBudget |>
+  mutate(Year = as.integer(Year))
+```
+
+```{r}
+ggplot(ICEBudget, aes(x = Year, y = Budget)) +
+  geom_line(color = "cyan4") +
+  labs(title = "ICE Budget", x = "Year", y = "Budget (in millions)", caption = "Source: ICE Detention Statics from ice.gov")
+```
+
+```{r}
+BookIns |>
+  full_join(ICEBudget) |>
+  filter(Criminality %in% c("Total Arrests")) |>
+  ggplot(aes(x = Budget, y = Arrests)) + 
+  geom_line()
+```
