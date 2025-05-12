@@ -5,3 +5,144 @@ execute:
 code-fold: false  
 ---
 
+For my exploratory data analysis,  I've included some data visualizations that we decided not to include in the final project because they were not as relevant to our research questions/data storytelling. 
+
+This includes a visualization meant to compare 2019 to 2024 directly. We decided not to include this because it didn't contain any interesting information for our story. 
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+```
+
+```{r}
+# Comparing 2019 vs. 2024
+BookIns_2019 <- read_csv("../../data/ICE Initial Book-Ins by Arresting Agency and Month_ FY2019.csv")
+BookIns_2024 <- read_csv("../../data/ICE Initial Book-Ins by Arresting Agency and Month_ EOFY2024.csv")
+```
+
+
+```{r}
+BookIns_2019 <- BookIns_2019 |>
+  mutate(Year = "2019")
+
+BookIns_2024 <- BookIns_2024 |>
+  mutate(Year = "2024")
+```
+
+```{r}
+BookIns_2019_long <- BookIns_2019 |>
+  pivot_longer(
+    cols = -c(Agency, Year),
+    names_to = "Month",
+    values_to = "Count"
+  )
+
+BookIns_2024_long <- BookIns_2024 |>
+  pivot_longer(
+    cols = -c(Agency, Year),
+    names_to = "Month",
+    values_to = "Count"
+  )
+
+names(BookIns_2019_long)
+names(BookIns_2024_long)
+```
+
+
+
+```{r}
+BookIns_Comp <- bind_rows(BookIns_2019_long, BookIns_2024_long)
+
+BookIns_Comp |> 
+  ggplot(aes(x = Month, y = Count, fill = Agency)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ Year) +
+  labs(title = "Agency Book-Ins by Month",
+       x = "Month",
+       y = "Count") +
+  theme_minimal()
+```
+
+```{r}
+BookIns_Comp |> 
+  filter(Month == "Total") |>
+  ggplot(aes(x = Month, y = Count, fill = Agency)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ Year) +                # Create facets for each Year
+  labs(title = "Agency Book-Ins by Month",
+       x = "Month",
+       y = "Count") +
+  theme_minimal()
+```
+
+
+```{r}
+BookIns_Comp |> 
+  filter(Month != "Total") |>
+  ggplot(aes(x = Month, y = Count, fill = Agency)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ Year) +                # Create facets for each Year
+  labs(title = "Agency Book-Ins by Month",
+       x = "Month",
+       y = "Count") +
+  theme_minimal()
+```
+
+```{r}
+# Ensuring all columns except 'Agency' are numeric or character before pivoting
+BookIns_2019 <- BookIns_2019 |>
+  mutate(across(-Agency, as.character)) |>  # Convert all columns except 'Agency' to character
+  pivot_longer(
+    cols = -Agency,           # Pivot all columns except Agency
+    names_to = "Month",       # Convert column names (months) into a new "Month" column
+    values_to = "Count"       # Values will go into the "Count" column
+  ) |>
+  mutate(Year = "2019")        # Add the Year column to differentiate between datasets
+
+# Same operation for BookIns_2024
+BookIns_2024 <- BookIns_2024 |>
+  mutate(across(-Agency, as.character)) |>  # Convert all columns except 'Agency' to character
+  pivot_longer(
+    cols = -Agency,           # Pivot all columns except Agency
+    names_to = "Month",       # Convert column names (months) into a new "Month" column
+    values_to = "Count"       # Values will go into the "Count" column
+  ) |>
+  mutate(Year = "2024")        # Add the Year column to differentiate between datasets
+
+# Merging the datasets using a full join
+BookIns_Comp <- BookIns_2019 |>
+  full_join(BookIns_2024, by = c("Agency", "Month", "Count", "Year"))
+
+# Reorder the months factor level to ensure they are in chronological order
+month_order <- c("January", "February", "March", "April", "May", "June", 
+                 "July", "August", "September", "October", "November", "December")
+
+# Plotting BookIns_Comp with the months in the correct order and faceting by Year
+BookIns_Comp |> 
+  mutate(Month = factor(Month, levels = month_order)) |>
+  ggplot(aes(x = Month, y = Count, fill = Agency)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ Year) +                # Create facets for each Year
+  labs(title = "Agency Book-Ins by Month",
+       x = "Month",
+       y = "Count") +
+  theme_minimal()
+
+# Filtering out "Total" values from the dataset and plotting again
+BookIns_Comp_clean <- BookIns_Comp |> 
+  filter(Month != "Total") |>  # Remove "Total" if it's present
+  mutate(Month = factor(Month, levels = month_order))  # Reorder the months again
+
+BookIns_Comp_clean |> 
+  ggplot(aes(x = Month, y = Count, fill = Agency)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ Year) +                # Create facets for each Year
+  labs(title = "Agency Book-Ins by Month",
+       x = "Month",
+       y = "Count") +
+  theme_minimal()
+
+```
+
