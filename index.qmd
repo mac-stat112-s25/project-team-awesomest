@@ -74,7 +74,7 @@ The data was collected by U.S. Immigration and Customs Enforcement (ICE), primar
 Molly and I spent time exploring a range of datasets to find one that best aligned with our research questions. After a lot of searching, we identified the ICE Detention Statistics as the most comprehensive and relevant source. It provides consistent and clear data directly from the government source, allowing us to analyze trends across fiscal years with a high degree of reliability.
 
 
-We obtained this data from the U.S. Immigration and Customs Enforcement (ICE). The ICE website has a page where they pubish their year-end detention statistics for public consumption (https://www.ice.gov/detain/detention-management#stats). 
+We obtained this data from the U.S. Immigration and Customs Enforcement (ICE). The [ICE website](https://www.ice.gov/detain/detention-management) has a page where they pubish their year-end detention statistics for public consumption. 
 
 ## Data Understanding
 
